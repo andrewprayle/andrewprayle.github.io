@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>2024 Infection Prevention and Control</title>
+    <style type="text/css">
+        .custom-button-container {
+            display: inline-block;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .Title {
+            color: gray;
+            height: 20px;
+            font-size: 20px;
+            font-family: Helvetica;
+        }
+
+        .Textbox {
+            font-size: 15px;
+            font-family: Helvetica;
+            padding: 5px;
+            text-align: left;
+            float: left;
+            height: 20px;
+            border-radius: 15px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 2024 Infection Prevention and Control
+        // this is based on evidnece map v0.051
+        // TODO
+
+        console.log("initiating variables");
+
+        //  INITIAL VARIABLES:
+        var svgNS = "http://www.w3.org/2000/svg";  // initiates the namespace
+
+
+        // these two variable store the data:-
+        var dataset = []
+        var dataset_links = []
+
+
+        // hardcoded data goes here:
+        // this is the 2024 IPC dataset
+
+        var dataset = [
+        {
+            "\ufeff": "0",
+            "title": "G0",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/",
+            "recommend": "The incidence and prevalence of Pseudomonas cepacia pulmonary colonization were noted to be increasing in patients with cystic fibrosis (CF). Previous work had indicated a greater prevalence of P. cepacia among siblings (with CF) of patients colonized by P. cepacia as well as an association of initial positive P. cepacia cultures with a hospitalization. Because of uncertainty regarding the source and mode of transmission, limited precautionary measures were instituted in 1983, including physical separation of hospitalized patients colonized with P. cepacia from non-colonized patients, reeducation of staff concerning basic infection control procedures, explanation to families regarding these precautionary efforts, and institution of separate summer camp sessions. Repeated environmental cultures throughout the hospital were negative for P. capacia. Coincident with the institution of control measures, a sharp decline in incidence occurred (8.2% in 1983 versus 1.7% in 1984). These results are suggestive of patient-to-patient transmission. Because P. cepacia infections have been associated with shorter survival in some patients with CF, we will continue our current segregation measures.",
+            "full_title": "Pseudomonas cepacia: Decrease in colonization in patients with cystic fibrosis American Review of Respiratory Disease (1986) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "1",
+            "title": "G1",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://doi.org/10.1016/S0195-6701(98)90171-2",
+            "recommend": "Forty individual patient sputum isolates of Burkholderia cepacia from two Australian cystic fibrosis (CF) centres more than 100 km apart were genotyped using pulsed-field gel electrophoresis (PFGE) with XbaI restriction enzyme digestion. Hospital 1 had an endemic strain with 19 of 20 isolates being closely related. This centre does not implement an inpatient segregation policy for its paediatric patients who constitute the majority of those colonized with B. cepacia. Hospital 2 did not have a single endemic strain; there were two different sibling clusters and a third cluster involving a cohabiting couple, but all other patients had unique isolates. One patient at Hospital 2 carried an organism closely related to the endemic strain from Hospital 1. Hospital 2 practises segregation of colonized inpatients and also segregation external to the hospital. It would appear that no nosocomial spread of infection is occurring with this policy.",
+            "full_title": "Molecular epidemiology of Burkholderia cepacia in two Australian cystic fibrosis centres The Journal of hospital infection (1998) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "2",
+            "title": "G2",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1067/mpd.2001.118430",
+            "recommend": "OBJECTIVES: We sought to determine whether the same Burkholderia cepacia complex strain has persisted as the dominant clonal lineage among patients in a large cystic fibrosis (CF) treatment center during the past 2 decades. STUDY DESIGN: The inter-city spread of B cepacia through transfer of a colonized patient and the impact of infection control measures in containing inter-patient transmission were investigated. We analyzed all available B cepacia complex isolates recovered from 1981 to 1987 and from 1996 to 2000 at one large CF treatment center (Center A) and from 1997 to 2000 at another center (Center B). Incidence of B cepacia complex infection and infection control measures in both centers were assessed. RESULTS: Seventeen (81%) of 21 Center A patients from whom B cepacia complex bacteria were recovered between 1981 and 1987 and 40 (97%) of 41 patients culture-positive between 1996 and 2000 were infected with the same genomovar III strain. Transfer of a colonized patient from Center A to Center B was associated with an increase in B cepacia complex infection in Center B, all of which was with the Center A dominant strain. This strain, designated PHDC, lacks both B cepacia epidemic strain and cblA markers. CONCLUSIONS: B cepacia complex strains may remain endemic in CF treatment centers for many years. Responsible bacterial and host factors and optimal infection control measures to prevent inter-patient spread remain to be identified.",
+            "full_title": "Endemicity and inter-city spread of Burkholderia cepacia genomovar III in cystic fibrosis The Journal of pediatrics (2001) doi: https://dx.doi.org/10.1067/mpd.2001.118430"
+        },
+        {
+            "\ufeff": "3",
+            "title": "G3",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.21263",
+            "recommend": "BACKGROUND: Chronic pulmonary infection with Pseudomonas aeruginosa (PA) is responsible for significant morbidity and mortality in cystic fibrosis (CF). Because of the limited studies evaluating early exposure and the progression of genetic variability of PA, our goal was to assess PA in young children with CF followed in two clinic types. METHODS: A total of 39 infants with CF diagnosed through newborn screening were randomly assigned to either a segregated (PA-free) or mixed (PA-positive) clinic at two different CF centers, one of which replaced an older, mixed clinic where nosocomial acquisition was suspected. Oropharyngeal (OP) swab cultures were examined with subsequent genotyping to characterize the strains of PA isolated. RESULTS: We found that 13/21 segregated clinic patients and 14/18 mixed clinic patients showed positive PA, with median acquisition ages of 3.3 and 2.2 years, respectively (P = 0.57). The median time to PA acquisition, however, was significantly longer in the new clinic with proper hygiene precautions compared to an old site (5.0 years vs. 1.7 years, P < 0.001). The majority of subjects isolated a single genotype of PA or AP-PCR types during the study period with eight subjects clearing the isolate after only one positive culture. The development of chronic colonization yielded the predominance of a single major genotype or AP-PCR type. CONCLUSIONS: Segregation of infants and young children with CF in PA-negative or PA-positive clinics did not alter the time to first PA isolation in this randomized assessment of facilities with hygienic precautions. During the early infection period where PA is first isolated in young children with CF, patients cleared different PA strains until a predominant strain established permanent colonization.",
+            "full_title": "Pseudomonas aeruginosa in children with cystic fibrosis diagnosed through newborn screening: assessment of clinic exposures and microbial genotypes Pediatric pulmonology (2010) doi: https://dx.doi.org/10.1002/ppul.21263"
+        },
+        {
+            "\ufeff": "4",
+            "title": "G4",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.10401",
+            "recommend": "Various management strategies were introduced at the Leeds Regional Cystic Fibrosis (CF) Unit in an attempt to reduce the prevalence of chronic Pseudomonas aeruginosa respiratory infection, previously thought to be inevitable in most children with CF. These included neonatal screening (1975), regular microbiological monitoring (1975), early antibiotic treatment of first isolations of P. aeruginosa (1985), intensive intravenous antibiotic treatment where nebulized antibiotics failed to eradicate P. aeruginosa (1988), and separate clinics for patients chronically infected with P. aeruginosa and uninfected patients (1991). The aim of this study was to assess the impact of these interventions. All 232 patients receiving full-time care at the Leeds Paediatric CF Centre during the period January 1990-December 2000 were categorized into four groups: never grown P. aeruginosa; free of P. aeruginosa for at least 1 year; intermittent grower of P. aeruginosa with </=50% of months with samples positive for P. aeruginosa over the previous 12 months; and chronic P. aeruginosa infection with >50% of months with samples positive for P. aeruginosa over the previous 12 months. The yearly prevalence of patients having chronic P. aeruginosa infection fell significantly during the study, from 24.5% in 1990 to 18.1% in 2000 (P < 0.05), despite an increase in mean age of patients from 7.73 to 9.42 years. The number of patients aged less than 11 years who had chronic P. aeruginosa infection fell from 23.8% in January 1990 to only 4.3% by December 2000. The annual incidence and mean age of first acquisition of P. aeruginosa did not alter significantly. In conclusion, antipseudomonal management strategies were associated with both reduced prevalence, and an increase in the mean age of onset of chronic P. aeruginosa infection.",
+            "full_title": "Reduction in prevalence of chronic Pseudomonas aeruginosa infection at a regional pediatric cystic fibrosis center Pediatric pulmonology (2004) doi: https://dx.doi.org/10.1002/ppul.10401"
+        },
+        {
+            "\ufeff": "5",
+            "title": "G5",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/S1569-1993%2819%2930720-9",
+            "recommend": "Objectives: Measures to reduce the risk of cross infection with transmissible pathogens are widely accepted as good or optimum clinical practice in the care of people with Cystic Fibrosis (CF). Segregation in single rooms on a ward or in a clinic, cohorting clinics by pathogen status, discouraging social contact and the use of personal protective equipment (PPE) are all strategies used in isolation or combination in CF care in the UK. Despite acknowledgement that it is essential to use these measures to reduce the risk of cross infection, people with CF, families and carers can express feelings of anxiety and social isolation as a result. Equally difficult is the policing of segregation in areas where the CF team either have no control or cannot monitor consistently. Patients are also unable to control their own surroundings in public areas adding to their anxiety levels and in some instances causing personally enforced social isolation. The team sought an easy solution for all these issues that did not breach confidentiality. Method(s): Each patient is provided with a \"wallet\" containing key information. Each wallet was colour coded according to their main microbiological growth. Once issued patients were advised to carry the wallet in their hand and ensure it is visible to others at all times. Result(s): Staff havewelcomed the implementation as they can easily spot a patient attending for clinic in a queue of patients and they can quickly identify any potential risks. Patients reported a reduction in anxiety and a feeling of empowerment. Conclusion(s): While you can identify the financial burden of a newinfection to the health economy, the cost to the patient in terms of health implications, life expectancy, mental health and work is much harder to quantify. Health care is renowned for looking at complex; expensive solutions to problems. Our system provides all this for under 1 with the added bonus of being simple to implement.Copyright \u00c2\u00a9 2019 European Cystic Fibrosis Society. All rights reserved",
+            "full_title": "The CRAFT System (Colour Risk Assessment Folder and Treatment System) Journal of Cystic Fibrosis (2019) doi: https://dx.doi.org/10.1016/S1569-1993%2819%2930720-9"
+        },
+        {
+            "\ufeff": "6",
+            "title": "G6",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.jcf.2009.07.007",
+            "recommend": "BACKGROUND: Data from the Wisconsin newborn screening (NBS) study show that neonatally diagnosed infants are at risk of early Pseudomonas aeruginosa (PsA) acquisition. We have had NBS since 1981 and in 2003, introduced PsA-free 'segregation' from older patients for children < or =5. This study investigated the effect of simple 'segregation' on acquisition of respiratory pathogens. METHODS: Sputum culture results (n=2814) and details of antibiotic use before (1999-2002) and after (2004-2007) 'segregation' were collected. RESULTS: Each year each child provided an average of 4.6 samples for culture. There was a significant decrease (p< or =0.001 Chi(2)) in the acquisition of mucoid (from 5.9% of children to 1.0%) but not non-mucoid PsA (22.3% and 22.7%, respectively) after 'segregation'. There was no significant change in other respiratory pathogens. CONCLUSIONS: Young children with CF diagnosed via NBS can be protected from the acquisition of mucoid PsA by 'segregation' and the acquisition of non-mucoid PsA is likely to be from environmental sources outside the hospital.",
+            "full_title": "Segregation of children with CF diagnosed via newborn screening and acquisition of Pseudomonas aeruginosa J Cyst Fibros (2009) doi: https://dx.doi.org/10.1016/j.jcf.2009.07.007"
+        },
+        {
+            "\ufeff": "7",
+            "title": "G7",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1111/j.1651-2227.1989.tb11099.x.",
+            "recommend": "During the period 1970-1987 the number of cystic fibrosis (CF) patients treated at the Danish CF Center increased from 54 to 226. The prevalence of patients with chronic P. aeruginosa infection (CF + P) increased from 35% to 59%, whereafter it decreased to 54%. The yearly incidence of new CF + P patients averaged 8.4% in 1970-1975, 17% in 1976-80, 6.5% in 1981-85, and 3% in 1986-87. These changes correlated to the increased \"contact density\" between CF + P and non-infected CF patients (CF-P) due to intensified treatment starting in 1976, and the reduced \"contact density\" due to separation of the two groups starting in 1981. The same trends were observed during an epidemic spread of a multiply resistant P. aeruginosa in the CF + P group, which was also interrupted by separation of two groups of patients, with and without the multiply resistant strain. The observed prevalences of CF + P in different age groups of patients are in accordance with a 20% incidence/year in patients older than three years. The highest probability of acquiring chronic P. aeruginosa infection was calculated to be 2%/day and the lowest 0.09%/day spent in the Centre. By employing a simple mathematical model of the spread of infectious diseases it can be shown, that the highest incidence of CF + P is present when the prevalence of CF + P is 20-80%, and that an increase in the total number of patients also increases the incidence of CF + P unless the patients are divided into smaller groups. The observations in the Danish CF Centre are in accordance with this model.",
+            "full_title": "Estimated risk of cross-infection with Pseudomonas aeruginosa in Danish cystic fibrosis patients Acta paediatrica Scandinavica (1989) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "8",
+            "title": "G8",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/(sici)1099-0496(199909)28:3<159::aid-ppul1>3.0.co;2-1",
+            "recommend": "Recurrent and chronic lower airway infection with Pseudomonas aeruginosa (PA) is an important component of cystic fibrosis (CF) pulmonary disease. Different modes of treatment and control of CF patients have been introduced at the Copenhagen CF Centre over the past 20 years and have been associated with improved survival. Treatment consisted of: 1) elective antibiotics for 14 days every 3 months to patients with chronic PA infection (started in 1976), 2) cohort isolation to prevent cross-infection (patients with PA were separated from patients without PA, starting in 1981); and 3) early intensive treatment with inhaled colistin and oral ciprofloxacin from time of initial PA colonization (started in 1989). The aim of the present study was to evaluate the impact of each of these interventions on the changes in the epidemiology of PA. Based on monthly cultures of lower airway secretions in each CF patient seen during 1974-1995, significant changes in the incidence and prevalence of the PA infection were found. The monthly prevalence of chronic PA increased significantly (P < 0.0001) from below 40% before 1976 to above 60% in 1980, which was found to be due to cross-infection among the CF patients after introduction of elective antibiotic courses in 1976. To deal with this problem, cohort isolation was introduced in 1981, and since then the monthly point prevalence of chronic PA decreased slowly until 1989 (P < 0.0001), when early intensive treatment from initial PA colonization was introduced; this was associated with a further decrease in point prevalence to 45% in 1995 (P < 0.005). The annual incidence of chronic PA infection also decreased significantly (P < 0.01) from 16% to below 2% after introduction of cohort isolation and early intensive treatment from initial PA isolation. Furthermore, the time from acquisition of first PA to development of chronic PA infection increased significantly, from approximately 1 year to almost 4 years after introduction of cohort isolation (P < 0.0001). After introduction of early intensive treatment, the probability of still not having developed chronic PA infection 7 years after the first isolation of PA was above 80% (P < 0.0001). In conclusion, the introduction of cohort isolation and early intensive treatment following the initial isolation of PA resulted in a reduced incidence and prevalence of chronic PA infection. We are not aware of other studies showing a decreasing prevalence of chronic PA infection, as survival of CF patients has increased.",
+            "full_title": "Changing epidemiology of Pseudomonas aeruginosa infection in Danish cystic fibrosis patients (1974-1995) Pediatric pulmonology (1999) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "9",
+            "title": "G9",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1164/rccm.200404-513OC",
+            "recommend": "We have performed a 4-year prospective surveillance for Pseudomonas aeruginosa cross-infection at a large regional adult cystic fibrosis center. Despite purpose-built facilities in a new building and the practice of strict hygiene, P. aeruginosa cross-infection has continued. In contrast, individuals segregated from the cohort of patients with chronic P. aeruginosa infection but who attend the same center have not acquired infection with transmissible P. aeruginosa strains. Simple infection control measures alone do not prevent the spread of transmissible P. aeruginosa strains between individuals with cystic fibrosis. However, in our clinic patient segregation effectively controlled spread of such strains.",
+            "full_title": "Prospective surveillance for Pseudomonas aeruginosa cross-infection at a cystic fibrosis center American journal of respiratory and critical care medicine (2005) doi: https://dx.doi.org/10.1164/rccm.200404-513OC"
+        },
+        {
+            "\ufeff": "10",
+            "title": "G10",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1164/rccm.200409-1194OC",
+            "recommend": "The detection of a clonal Pseudomonas aeruginosa strain in 21% of children attending a cystic fibrosis clinic during 1999, which may have led to a worse prognosis, prompted strict infection control measures, including cohort segregation. We determined whether these strategies interrupted cross-infection within the clinic. Patients from 1999 were observed and a cross-sectional study of the 2002 clinic was performed. By 2002, the epidemic strain prevalence had decreased from 21 to 14% (p = 0.03), whereas the proportion of patients with nonepidemic P. aeruginosa strains was unchanged. The age- and sex-adjusted relative risk for epidemic strains among sputum producers in 2002 compared with 1999 was 0.64 (95% confidence interval, 0.47, 0.87; p = 0.004). Increased mortality or transfer to another clinic did not explain this reduction. Although children with epidemic strains may have had increased mortality (adjusted odds ratio, 2.0; 95% confidence interval, 0.6-6.8), they did not demonstrate greater morbidity than those with other P. aeruginosa isolates. Successful infection control measures provided additional indirect evidence for person-to-person transmission of an epidemic strain within the clinic. Further studies are needed to resolve whether cohort segregation completely eliminates cross-infection and if acquisition of epidemic isolates is associated with worse outcomes.",
+            "full_title": "Effects of segregation on an epidemic Pseudomonas aeruginosa strain in a cystic fibrosis clinic American journal of respiratory and critical care medicine (2005) doi: https://dx.doi.org/10.1164/rccm.200409-1194OC"
+        },
+        {
+            "\ufeff": "11",
+            "title": "G11",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.jcf.2011.08.005",
+            "recommend": "AIM: To evaluate changes in prevalence of an epidemic strain of Pseudomonas aeruginosa (AES-1, Australian epidemic strain, type 1) in a paediatric cystic fibrosis (CF) centre practising cohort segregation, to describe the patients' clinical characteristics at acquisition and observe mortality rates. METHODS: Cohort segregation was introduced in our paediatric CF clinic January 2000. The prevalence of AES-1 was analysed in 1999, 2002 and 2007. Age at acquisition, lung function, presence of bronchiectasis, hospitalisations, prior P. aeruginosa infection and mortality rates were collected. AES-1 infection was determined by pulse-field-gel-electrophoresis (PFGE) on airway specimen cultures taken three monthly. RESULTS: The prevalence of AES-1 declined from 21% in 1999 to 14% in 2002 (risk difference 7% (95% CI 1,13) p=0.0256) and to 6% in 2007 (risk difference 8% (95% CI 3,13) p=0.0018). New acquisitions after the introduction of cohort segregation were uncommon (10 by 2002 and another 7 by 2007) with a declining incidence of 3.3 cases/year (1999 to 2002) compared to 1.4 cases/year (2002 to 2007). Twenty-two of 32 (69%) deaths between 1999 and 2007 occurred in patients infected with AES-1. CONCLUSION: Cohort segregation has been associated with reductions in the prevalence of AES-1 in our CF clinic. Mortality was higher in patients infected with AES-1 than other organisms.",
+            "full_title": "Australian epidemic strain pseudomonas (AES-1) declines further in a cohort segregated cystic fibrosis clinic Journal of cystic fibrosis : official journal of the European Cystic Fibrosis Society (2012) doi: https://dx.doi.org/10.1016/j.jcf.2011.08.005"
+        },
+        {
+            "\ufeff": "12",
+            "title": "G12",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1258/shorts.2012.012018",
+            "recommend": "OBJECTIVES: To assess if cohort segregation policies are effective in preventing cross-infection in cystic fibrosis (CF) clinics. DESIGN: A prospective cohort study. SETTING: A large adult CF centre in Northwest England. PARTICIPANTS: All CF patients cared for at the Liverpool adult CF centre 2003-2009. METHODS: Regular sputum sampling with genotyping of pseudomonas aeruginosa (Psa) isolates led to a policy of inpatient and outpatient segregation by microbiological group. MAIN OUTCOME MEASURES: Prevalence and cross-infection/super-infection rates of a transmissible Psa strain, i.e. the Liverpool epidemic strain (LES) in adult CF patients at the Liverpool adult CF centre from 2003 to 2009. RESULTS: There was a decline in the proportion of patients with LES (71-53%) and an increase in those with unique strains (23-31%) and without Psa infection (6-17%) from 2003 to 2009. There were two cases of LES super-infection and one case of new chronic Psa infection (with a unique strain). There were no cases of transmissible strain infection in patients previously uninfected by Psa. CONCLUSIONS: Our segregation policy has halted the spread of the commonest highly transmissible strain in the UK (LES) in our clinic, without endangering patients who were not previously infected with Psa. It confirms that if genotypic surveillance is used, it is unnecessary to segregate patients infected with unique strains from those without Psa infection.",
+            "full_title": "Halting the spread of epidemic pseudomonas aeruginosa in an adult cystic fibrosis centre: a prospective cohort study JRSM short reports (2013) doi: https://dx.doi.org/10.1258/shorts.2012.012018"
+        },
+        {
+            "\ufeff": "13",
+            "title": "G13",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1053/jhin.2001.1160",
+            "recommend": "This study was performed in order to compare Burkholderia cepacia complex strains from cystic fibrosis (CF) and non-CF patients at the genomovar, genetic and epidemiological levels. A total of 92 B. cepacia respiratory tract isolates were obtained from patients attending the following CF centres: Catania and Palermo, Sicily; Gualdo Tadino, Central Italy, and Milan, Northern Italy. A total of 23 B. cepacia isolates were obtained from blood, surgical wound, and intravenous catheter sources of patients without CF, hospitalized in Catania and Varese, Northern Italy. Genomovar status identification, clonality and genetic relatedness determination, antibiotic susceptibility pattern determination and electron microscopy were performed. Transmission of infection was shown in both CF and non-CF patients by identifying clonality of responsible strains. In total 13 clones were involved in cross-transmission episodes. No outbreak was described involving both CF and non-CF patients. The present study indicates the existence of a distinct cluster of strains responsible for epidemics in CF and non-CF patients, based on their genetic relatedness, distinct from strains associated with no or negligible transmissibility. This result suggests that transmissibility is not only associated with a specific genomovar in CF patients, but also with a group of genetically related lineages in CF and non-CF patients. A key role is shown for both segregation measures and careful surveillance of infection, based on selective culture, molecular identification and epidemiological characterization of individual isolates.",
+            "full_title": "Burkholderia cepacia complex in cystic fibrosis and non-cystic fibrosis patients: identification of a cluster of epidemic lineages J Hosp Infect (2002) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "14",
+            "title": "G14",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.10330",
+            "recommend": "No abstract",
+            "full_title": "Segregation and use of nonshared care settings reduce the risk of multiresistant P. aeruginosa infection. Re: Davies et al., \"Multiresistant Pseudomonas aeruginosa in a pediatric cystic fibrosis center: natural history and implications for segregation,\" Pediatr Pulmonol 2003;35:253-256 Pediatric pulmonology (2003) doi: https://dx.doi.org/10.1002/ppul.10330"
+        },
+        {
+            "\ufeff": "15",
+            "title": "G15",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/",
+            "recommend": "BACKGROUND: Transmission of Pseudomonas aeruginosa among cystic fibrosis patients attending health camps has been reported previously. OBJECTIVES: To determine the transmission of P. aeruginosa among CF patients during three winter camps in the Dead Sea region in southern Israel. METHODS: Three consecutive CF patient groups were studied, each of which spent 3 weeks at the camp. The patients were segragated prior to camp attendance: patients who were not colonized with P. aeruginosa constituted the first group, and colonized patients made up the two additional groups. Sputum cultures were obtained upon arrival, at mid-camp and on the last day. Environmental cultures were also obtained. Patients were separated during social activities and were requested to avoid social mingling. Isolates were analyzed by antibiotic susceptibility profile and by pulsed field gel electrophoresis. RESULTS: Ninety isolates from 19 patients produced 28 different fingerprint patterns by PFGE. Isolates from two siblings and two patients from the same clinic displayed the same fingerprint pattern. These patients were already colonized with these organisms upon arrival. Two couples were formed during the camp, but PFGE showed no transmission of organisms. All other patients' isolates displayed unique fingerprint patterns and were distinguishable from those of other attendees, and none of the P. aeruginosa-negative patients acquired P. aeruginosa during camp attendance. Environmental cultures were negative for P. aeruginosa. CONCLUSIONS: We were unable to demonstrate cross-infection of P. aeruginosa among CF patients participating in health camps at the Dead Sea who were meticulously segregated.",
+            "full_title": "Lack of evidence of transmission of Pseudomonas aeruginosa among cystic fibrosis patients attending health camps at the Dead Sea, Israel The Israel Medical Association journal : IMAJ (2004) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "16",
+            "title": "G16",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1371/journal.pone.0157189",
+            "recommend": "INTRODUCTION: Segregation of patients with cystic fibrosis (CF) was implemented to prevent chronic infection with epidemic Pseudomonas aeruginosa strains with presumed detrimental clinical effects, but its effectiveness has not been carefully evaluated. METHODS: The effect of strict segregation on the incidence of P. aeruginosa infection in CF patients was investigated through longitudinal protocolized follow-up of respiratory tract infection before and after segregation. In two nested cross-sectional studies in 2007 and 2011 the P. aeruginosa population structure was investigated and clinical parameters were determined in patients with and without infection with the Dutch epidemic P. aeruginosa clone (ST406). RESULTS: Of 784 included patients 315 and 382 were at risk for acquiring chronic P. aeruginosa infection before and after segregation. Acquisition rates were, respectively, 0.14 and 0.05 per 1,000 days at risk (HR: 0.66, 95% CI [0.2548-1.541]; p = 0.28). An exploratory subgroup analysis indicated lower acquisition after segregation in children < 15 years of age (HR: 0.43, 95% CI[0.21-0.95]; p = 0.04). P. aeruginosa population structure did not change after segregation and ST406 was not associated with lung function decline, death or lung transplantation. CONCLUSIONS: Strict segregation was not associated with a statistically significant lower acquisition of chronic P. aeruginosa infection and ST406 was not associated with adverse clinical outcome. After segregation there were no new acquisitions of ST406. In an unplanned exploratory analysis chronic acquisition of P. aeruginosa was lower after implementation of segregation in patients under 15 years of age.",
+            "full_title": "The Effect of Strict Segregation on Pseudomonas aeruginosa in Cystic Fibrosis Patients PloS one (2016) doi: https://dx.doi.org/10.1371/journal.pone.0157189"
+        },
+        {
+            "\ufeff": "17",
+            "title": "G17",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.jcf.2009.01.003",
+            "recommend": "BACKGROUND: Respiratory pathogens from CF patients can contaminate inpatient settings, which may be associated with increased risk of patient-to-patient transmission. Few data are available that assess the rate of bacterial contamination of outpatient settings. We determined the frequency of contamination of CF clinics and the effectiveness of alcohol-based disinfectants in reducing hand carriage of bacterial pathogens. METHODS: We conducted a point prevalence survey and before-after trial in outpatient clinics at 7 CF centers. The study examined CF patients with positive respiratory cultures for Pseudomonas, Staphylococcus, Stenotrophomonas or Burkholderia species. Hand carriage and environmental contamination with respiratory pathogens were assessed during clinic visits (Part I) and the effectiveness of hand hygiene performed by CF patients (Part II) was determined using molecular typing of recovered isolates. RESULTS: In Part I (n=97), the contamination rate was 13.6%. Pseudomonas and S. aureus, including methicillin-resistant strains, were cultured from patients' hands (7%), the exam room air (8%), and less commonly, environmental surfaces (1%). In Part II (n=100), the hand carriage rate of pathogens was 13.5% and 4 participants without initial detection of pathogens had hand contamination when recultured at the end of the clinic visit. CONCLUSIONS: Respiratory pathogens from CF patients can contaminate their hands and the clinic environment, but the actual risk of patient-to-patient transmission in the outpatient setting remains difficult to quantify. These findings support several recommendations CF infection control recommendations including hand hygiene for staff and patients, contact precautions for certain pathogens, and disinfecting equipment and surfaces touched by patients and staff.",
+            "full_title": "Bacterial contamination of cystic fibrosis clinics J Cyst Fibros (2009) doi: https://dx.doi.org/10.1016/j.jcf.2009.01.003"
+        },
+        {
+            "\ufeff": "18",
+            "title": "G18",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://doi.org/10.1164/rccm.201707-1457OC  ",
+            "recommend": "Rationale:\u00a0People with cystic fibrosis (CF) generate Pseudomonas aeruginosa in droplet nuclei during coughing. The use of surgical masks has been recommended in healthcare settings to minimize pathogen transmission between patients with CF. Objectives:\u00a0To determine if face masks and cough etiquette reduce viable P. aeruginosa aerosolized during coughing. Methods:\u00a0Twenty-five adults with CF and chronic P. aeruginosa infection were recruited. Participants performed six talking and coughing maneuvers, with or without face masks (surgical and N95) and hand covering the mouth when coughing (cough etiquette) in an aerosol-sampling device. An Andersen Cascade Impactor was used to sample the aerosol at 2 meters from each participant. Quantitative sputum and aerosol bacterial cultures were performed, and participants rated the mask comfort levels during the cough maneuvers. Measurements and main results:\u00a0During uncovered coughing (reference maneuver), 19 of 25 (76%) participants produced aerosols containing P. aeruginosa, with a positive correlation found between sputum P. aeruginosa concentration (measured as cfu/ml) and aerosol P. aeruginosa colony-forming units. There was a reduction in aerosol P. aeruginosa load during coughing with a surgical mask, coughing with an N95 mask, and cough etiquette compared with uncovered coughing (P < 0.001). A similar reduction in total colony-forming units was observed for both masks during coughing; yet, participants rated the surgical masks as more comfortable (P = 0.013). Cough etiquette provided approximately half the reduction of viable aerosols of the mask interventions during voluntary coughing. Talking was a low viable aerosol-producing activity. Conclusions:\u00a0Face masks reduce cough-generated P. aeruginosa aerosols, with the surgical mask providing enhanced comfort. Cough etiquette was less effective at reducing viable aerosols.",
+            "full_title": "Face masks and cough etiquette reduce the cough aerosol concentration of pseudomonas aeruginosa in people with cystic fibrosis. (2018) https://doi.org/10.1164/rccm.201707-1457OC  "
+        },
+        {
+            "\ufeff": "19",
+            "title": "G19",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1164/rccm.201805-0823LE",
+            "recommend": "No abstract",
+            "full_title": "Face Masks Reduce the Release of Pseudomonas aeruginosa Cough Aerosols when Worn for Clinically-Relevant Time Periods American journal of respiratory and critical care medicine (2018) doi: https://dx.doi.org/10.1164/rccm.201805-0823LE"
+        },
+        {
+            "\ufeff": "20",
+            "title": "G20",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1164/rccm.201410-1877LE",
+            "recommend": "No abstract",
+            "full_title": "Air contamination with bacteria in cystic fibrosis clinics: implications for prevention strategies American journal of respiratory and critical care medicine (2015) doi: https://dx.doi.org/10.1164/rccm.201410-1877LE"
+        },
+        {
+            "\ufeff": "21",
+            "title": "G21",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1128/jcm.29.6.1265-1267.1991",
+            "recommend": "During a 4-year period, at least 12 of 40 patients with cystic fibrosis (CF) who were newly colonized with Pseudomonas aeruginosa had acquired it at CF recreation camps, clinics, or rehabilitation centers. After introduction of hygienic precautions at the CF clinic, only a single episode of nosocomial transmission of P. aeruginosa was detected at the CF ward during the subsequent 2 years.",
+            "full_title": "Nosocomial acquisition of Pseudomonas aeruginosa by cystic fibrosis patients Journal of clinical microbiology (1991) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "22",
+            "title": "G22",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1136/bmjqs-2013-002315",
+            "recommend": "OBJECTIVE: To reduce the risk of pathogen transmission between patients with cystic fibrosis (CF) and decrease the rate of acquisition of new CF pathogens in our patients. DESIGN: Using the Model for Improvement, we developed a new process for infection prevention and control in our outpatient CF clinics. SETTING: Paediatric CF programme at Ann & Robert H. Lurie Children's Hospital of Chicago; approximately 180 paediatric patients aged birth to 21 years. PARTICIPANTS: All paediatric patients enrolled in the Cystic Fibrosis Foundation Patient Data Registry at this institution. INTERVENTIONS: Implemented contact precautions with all patients, regardless of respiratory tract culture results. MEASUREMENT: Respiratory tract culture rates of specific pathogens by quarter were compared prior to and after implementation. RESULTS: Our percentage of patients with a positive respiratory tract culture for Pseudomonas aeruginosa dropped from 30% to 21% (p<0.0001) and for methicillin-resistant Staphylococcus aureus (MRSA) dropped from 10.8% to 8.7% (p=0.008). CONCLUSIONS: Use of contact precautions by all care providers, for all patients, regardless of respiratory tract culture results resulted in decreased P aeruginosa and MRSA infection rates.",
+            "full_title": "Improved patient safety through reduced airway infection rates in a paediatric cystic fibrosis programme after a quality improvement effort to enhance infection prevention and control measures BMJ quality & safety (2014) doi: https://dx.doi.org/10.1136/bmjqs-2013-002315"
+        },
+        {
+            "\ufeff": "23",
+            "title": "G23",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.3205/dgkh000240",
+            "recommend": "BACKGROUND: The aim of this study was to characterise the epidemiology of P. aeruginosa isolated from cystic fibrosis (CF) patients at the Vienna General Hospital (VGH) by molecular genetic fingerprinting in order to understand transmission ways and to evaluate the established infection control protocols. METHODS: The outpatient clinic for CF patients at the VGH cares for children and adolescents up to the age of 18 years. Among an average of 139 patients cared for at the clinic, 41 were tested positive for P. aeruginosa during the study period. Fifty P. aeruginosa isolates, obtained between August 2010 and March 2012 from routine examinations of CF patients, were subject to molecular characterization using the DiversiLab() method. RESULTS: 42 distinguishable molecular-biological patterns were identified, 7 of which were found multiple times. 40 out of 42 genotypes were retrieved from single patients only, while two patterns were present in two patients each. Nine patients presented with two or more phenotypically diverse P. aeruginosa isolates. In five of these cases the retrieved isolates belonged to the same genotype. CONCLUSION: The broad genetic heterogeneity of P. aeruginosa in the studied patient population suggests that the majority of CF patients cared for at the VGH acquire P. aeruginosa from environmental sources. It may be concluded that implemented infection control guidelines have been successful in preventing nosocomial transmission of P. aeruginosa among CF patients within the VGH and patient-to-patient transmission outside the hospital. Chronic polyclonal infection/colonization was rare in the study population.",
+            "full_title": "Successful implementation of infection control strategies prevents P. aeruginosa transmission among cystic fibrosis patients inside the hospital GMS Hyg Infect Control (2014) doi: https://dx.doi.org/10.3205/dgkh000240"
+        },
+        {
+            "\ufeff": "24",
+            "title": "G24",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.ijmm.2011.11.001",
+            "recommend": "Pseudomonas aeruginosa is the major pathogen in chronic lung infections of individuals with cystic fibrosis (CF). Unrelated CF patients may acquire P. aeruginosa from the environment or by cross-infection in the CF setting. We tested the efficacy of measures to prevent nosocomial acquisition of P. aeruginosa at a Paediatric CF centre in a prospective 10-year study. P. aeruginosa-positive and P. aeruginosa-negative patients were seen in alternating weeks at the outpatient clinic. Faucets were equipped with filters to prevent bacterial contamination of tap water. Serial isolates were collected since the first documentation of a P. aeruginosa-positive culture and genotyped with a multimarker microarray. During the 10-year study, the annual prevalence of patients with at least one P. aeruginosa-positive culture was 39+/-6% in a population of 149+/-12 patients. P. aeruginosa was detected for the first time in 54 patients of whom 11 patients became chronically colonised with P. aeruginosa. Transient colonisations were recorded 97 times. A nosocomial acquisition of P. aeruginosa at the CF centre probably happened in one case. The worldwide dominant clones in the global P. aeruginosa population were also the most abundant clones in the panel of 324 early CF isolates. No rare clone had expanded by nosocomial transmission. It can be concluded that cross-infection with P. aeruginosa was prevented with simple hygienic measures at a CF centre that had experienced local outbreaks of nosocomial spread among unrelated patients in the past.",
+            "full_title": "Effective prevention of Pseudomonas aeruginosa cross-infection at a cystic fibrosis centre - results of a 10-year prospective study International journal of medical microbiology : IJMM (2012) doi: https://dx.doi.org/10.1016/j.ijmm.2011.11.001"
+        },
+        {
+            "\ufeff": "25",
+            "title": "G25",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.ajic.2015.08.023",
+            "recommend": "BACKGROUND: Mycobacterium abscessus infection in patients with cystic fibrosis (CF) can result in accelerated clinical decline and the potential for direct or indirect transmission between patients has been recently demonstrated. Data on the outcomes of M abscessus outbreaks and the efficacy of specific infection control procedures in patients with CF remain limited. This study provides follow-up from an outbreak of pulmonary M abscessus in our center, highlighting outcomes and strategies that appear to have prevented further spread of the organism. METHODS: Data from our adult CF center (1989-2015) were analyzed, including chart reviews of all patients with positive mycobacterial sputum cultures, cultures from environment surfaces, and epidemiologic evaluation of infected patients. Following an M abscessus outbreak in 2009, infection control policies were intensified based on CF guidelines and surveillance data were collected and reviewed. RESULTS: Five cases of M abscessus were involved in the outbreak; 3 patients died during follow-up. An environment search failed to reveal an intermediary source of transmission between patients. After implementation of infection control measures composed of staff/patient education, environment sterilization, and patient isolation, no new cases were detected. CONCLUSIONS: Direct or indirect patient-to-patient transmission of M abscessus is a threat in the CF population. A multifaceted infection control strategy based on CF guidelines was effective in halting transmission in our center.",
+            "full_title": "Infection control strategies that successfully controlled an outbreak of Mycobacterium abscessus at a cystic fibrosis center American journal of infection control (2016) doi: https://dx.doi.org/10.1016/j.ajic.2015.08.023"
+        },
+        {
+            "\ufeff": "26",
+            "title": "G26",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1177/1757177419872538",
+            "recommend": "Background: The 2013 Cystic Fibrosis Foundation's Infection Prevention and Control Guideline (CFF IP&C) was developed to reduce the risk of acquisition and transmission of respiratory pathogens in patients with cystic fibrosis (CF). Objective: We hypothesised that the incidence of common CF respiratory pathogens would decrease at our centre after implementation of the guideline. Methods: All patients with CF seen at our centre from August 2012 through August 2017 who had respiratory cultures were included. Patients were excluded from incidence analysis if they did not have at least one culture per year. Quarterly data were collected for one year before and three years after implementation of the guidelines to determine the incidence and prevalence of seven organisms commonly found in respiratory cultures of patients with CF. Results: Quarterly and annual incidence and prevalence rates of common organisms did not change during the study period. Discussion: There were no significant differences in the incidence or prevalence of common respiratory organisms in the first three years after implementation of the CF IP&C guideline. Long-term follow-up is needed to determine if changes occur over time.",
+            "full_title": "Incidence and prevalence of common respiratory pathogens before and after implementation of the Cystic Fibrosis Foundation Infection Prevention and Control Guideline (2020) doi: https://dx.doi.org/10.1177/1757177419872538"
+        },
+        {
+            "\ufeff": "27",
+            "title": "G27",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.24173",
+            "recommend": "INTRODUCTION: In this cohort study spanning an 18-year period, we evaluated the prevalence and associated mortality rate of epidemic strains of pseudomonas aeruginosa (PsA), especially Australian Epidemic Strain Type 1 (AES1), in a pediatric cystic fibrosis center practicing cohort segregation and early PsA eradication., METHODS: Cohort segregation was introduced in January 2000. PsA clonal strain was determined by pulse-field-gel-electrophoresis (PFGE) at the time of routine collection of airway specimens. Children with PsA underwent eradication treatment with anti-pseudomonal antibiotics over 2-3 months. We analyzed changes in prevalence and mortality from 1999 to 2016., RESULTS: The prevalence of AES1 declined from 69 (20%) in 1999 to 16 (5.4%) in 2006, to 1 (0.4%) in 2016. The prevalence of PsA overall diminished less over the same period, from 128 (37%) patients in 1999 to 57 (23%) in 2016. New acquisition of AES1 became less common over time, with no new cases identified from 2011. Those who contracted AES1 had a greater risk of death than those who did not (Odds Ratio 4.9, 95%CI 2.5-9.6). Patients with other AES PsA types were uncommon (AES2 n = 5, AES5 n = 2, AES14 n = 3, AES19 n = 1)., CONCLUSIONS: Cohort segregation was associated with reduction in AES1 prevalence ascertained by PFGE surveillance for patients in a single large pediatric cystic fibrosis center. Other alterations in practice such as early eradication treatment may also have contributed to reduced PsA prevalence. These factors combined with the transition of chronically infected patients over time to adult centers has eliminated AES1 from our clinic, with an accompanying mortality decrease. Copyright \u00c2\u00a9 2018 Wiley Periodicals, Inc.",
+            "full_title": "Elimination of Australian epidemic strain (AES1) pseudomonas aeruginosa in a pediatric cystic fibrosis center Pediatric Pulmonology (2018) doi: https://dx.doi.org/10.1002/ppul.24173"
+        },
+        {
+            "\ufeff": "28",
+            "title": "G28",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://doi.org/10.1016/0140-6736(93)92847-M",
+            "recommend": "No abstract",
+            "full_title": "Transmission of Pseudomonas cepacia by social contact in cystic fibrosis Lancet (London, England) (1993) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "29",
+            "title": "G29",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/s0195-6701(97)90195-x.",
+            "recommend": "Many reports have shown bacterial contamination of nebulizers used by patients with cystic fibrosis (CF) at home. At the Stockholm CF centre we recommend dismantling the equipment, washing, rinsing and drying it after each use, and disinfecting it once daily by boiling water or by 2% acetic acid followed by drying without rinsing. We studied whether patients comply with these recommendations and whether they are sufficient to prevent bacterial contamination. Nebulizers from 49 CF patients were investigated, 21 of whom are chronically colonized with Pseudomonas aeruginosa and one with Burkholderia cepacia. All patients were visited at home. Thirty-nine patients (79%) disinfected their equipment after the latest use in accordance with our recommendations. Thirty-eight pieces showed no, or only scanty, growth of micro-organisms belonging to the normal oropharyngeal flora. A moderate growth of alpha-streptococci was observed from a further five pieces. Four of these had not been cleaned after the latest inhalation occasion, and one was visibly dirty. Pseudomonads were observed from three pieces; two of these had been disinfected by boiling water and one by acetic acid, followed by rinsing in tap water. All three had been inadequately dried. Pseudomonads could not be cultured simultaneously from the sputum of these three patients. In conclusion, most patients comply with our cleaning and disinfection recommendations and these recommendations appear satisfactory in preventing bacterial contamination.",
+            "full_title": "Low bacterial contamination of nebulizers in home treatment of cystic fibrosis patients The Journal of hospital infection (1997) doi: https://dx.doi.org/"
+        },
+        {
+            "\ufeff": "30",
+            "title": "G30",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.23840",
+            "recommend": "Background: Cystic fibrosis (CF) lung disease is characterized by decreased mucocilliary clearance, chronic infections, airway inflammation and progressive airway obstruction (Brezinski L, et al. Braz J of Pulm. 2011;37(3):341-47). Treatment involves home nebulizer therapy, which helps clear secretions and suppresses chronic bacterial colonization. A search of relevant literature shows that masks, mouthpieces and tubing from nebulizers are rarely cleaned properly, and are often contaminated with bacterial pathogens (Vassal S, et al. Am J Infection Control. 2000;28:347-51). Objective: To examine best practice guidelines on when to replace inhalation equipment. Primary outcomes include microbiologic testing of patients\u2019 sputum, and nebulizer mask and tubing. Secondary outcomes include pulmonary function test (PFT) values (FEV1, FEF25-75%, FVC), CF Quality of Life (QOL) survey, and CF study questionnaire. Methods: A prospective cohort study was performed (January 2013-June 2015) at a community hospital in Northern Ontario. Pediatric and young adult patients (age range 6-27) who attended a multi-disciplinary cystic fibrosis clinic, who were able to perform PFTs, and who used routine nebulizer therapy participated in the study. Patients were randomly assigned to one of two groups; patients had their nebulizer mask and tubing replaced at time point zero (t0), every 6 months (Group A) or every 12 months (Group B) for a total of 24 months (t24). Beginning at t0 and continuing every 6 months until t24, the following data were collected on all patients: PFT values (FEV1, FEF25-75%, FVC), sputum cultures, CF QOL survey, and a CF study questionnaire. Results: Prior to study initiation, patients infrequently replaced parts of their nebulizer equipment (median 12 months, IQR 3-24 months). Comparing the presence of microbial species in subjects\u2019 sputum between group A and B at t0 and t24, there was no significant difference for Staphylococ-cus aureus (SA), Pseudomonas aeruginosa (PA), and Stenotrophomonas maltophilia (SM). A significant difference at t24 (p = 0.043) was found for Haemophilus influenza (HI). There were no significant differences at t24 in FEV1, FVC, and FEF25-75% between groups A and B nor within groups over time. Conclusion: Based on these findings, it may be unnecessary for young patients with CF to change their equipment every 6 months. This may relieve some financial burden for families, as changing equipment every 12 months leads to similar clinical outcomes. Further studies are needed to determine if changing equipment at even longer intervals may be sufficient. Supported by the Northern Ontario Academic Medicine Association (NOAMA).",
+            "full_title": "Microbiological contamination of inhalation equipment in children with cystic fibrosis: guidelines on frequency of equipment replacement Pediatric pulmonology. Conference: 31st annual north american cystic fibrosis conference. United states (2017) doi: https://dx.doi.org/10.1002/ppul.23840"
+        },
+        {
+            "\ufeff": "31",
+            "title": "G31",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1002/ppul.23576",
+            "recommend": "Introduction: Nebulizers, widely used for administration of inhaled medications in patients with cystic fibrosis (CF), are commonly contaminated with pathogens, largely because of inadequate cleaning. This study compared the frequency and type of microbial contamination between the T-326 Inhaler device that delivered tobramycin inhalation powder (TIP) and nebulizers used for delivery of tobramycin inhalation solution (TIS), colistimethate sodium (COLI), or other inhaled medications in CF patients with chronic pulmonary Pseudomonas aeruginosa (Pa) infection. Methods: This was an interventional Phase IV crossover study of approximately 20 weeks, comprising a screening visit (Visit 1), cycle 1 (Visits 2 and 3), and cycle 2 (Visits 4, 5, and 6). The devices were assessed for microbial contamination at Visits 2, 3, 4, and 5, or at the discontinuation visit. Results: In total, 60 patients aged \u22656 years were enrolled and assigned to one of the three treatment arms: COLI/TIP, n=28; TIS/TIP, n=14; and TIP/TIP, n=18. Overall, 12 patients were found to have contaminated devices across the treatment cycles: 9 (32%) in COLI/TIP, 2 (14%) in TIS/TIP, and 1 (6%) in TIP/TIP arm. In the COLI/TIP arm, the following pathogens were isolated from the devices that delivered COLI in cycle 1: Acinetobacter species - baumannii, junii, lwoffi, and species unidentified; Chryseobacterium indologenes; Delftia acidovorans; Haemophilus parainfluenzae; Ochrobactrum anthropi; Pseudomonas species - fluorescens, putida, stutzeri; Serratia liquefaciens; Sphingobacterium multivorum; Sphingomonas paucimobilis; Staphylococcus aureus; Stenotrophomonas maltophilia. Except for one patient with S. aureus, isolated from both the sputum and nebulizer, no other patient had the same pathogen isolated from the delivery device and sputum. In cycle 2, no contamination of the T-326 Inhaler was observed. In the TIS/TIP arm, no pathogen was isolated from the devices in cycle 1. Pa (dry) was isolated from the nebulizer (medication not specified) in cycle 2; Pa (mucoid) was also isolated from the patient\u2019s sputum. S. aureus was the only pathogen isolated from one T-326 Inhaler; however the same pathogen was not isolated from the patient\u2019s sputum. In the TIP/TIP arm, Pa (dry) was isolated from the nebulizer (medication not specified) in cycle 1, and Pa (small colony variant) was isolated from a throat swab from the patient; no contamination of the T-326 Inhaler was observed in either cycle 1 or 2. Bacterial DNA analysis was not performed on these isolates. Conclusion: The T-326 Inhaler used to deliver TIP was much less frequently contaminated than the nebulizers thus potentially reducing the sources of pathogenic bacteria in CF patients. Study was sponsored by Novartis Pharma AG.",
+            "full_title": "Microbial contamination profile of Tobi podhalertm versus nebulizers used in cystic fibrosis patients with chronic pseudomonas aeruginosa infection: a real-world study Pediatric pulmonology. Conference: 30th annual north american cystic fibrosis conference. United states. Conference start: 20161027. Conference end: 20161029 (2016) doi: https://dx.doi.org/10.1002/ppul.23576"
+        },
+        {
+            "\ufeff": "32",
+            "title": "G32",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/http://dx.doi.org/10.1007/s11845-015-1321-6",
+            "recommend": "Objectives: To compare implementation of the 2013 Guidelines for Infection Prevention and Control using a questionnaire composed from three subsections of the guidelines. These guidelines were chosen as they were all evidenced based. Guidelines were chosen which differ from previous guidelines. Method: All six established specialist paediatric centres in Ireland were included. Twenty-two evidence based recommendations were taken from within three subsections. The data was collected and recorded using a telephone questionnaire for each centre, answered by each clinical nurse manager. A standard of 90 % was chosen. Results: Two centres including Tallaght complied with 77 % of guidelines chosen. The other centres ranged from 64 to 72 % compliance. 1. Tallaght Hospital complied with 70 % of Core Recommendations. No centre complied with patients wearing masks during clinic visits. One centre complied with staff wearing aprons and gloves. 2. There was 100 % compliance regarding scheduling of clinics. 60 % of pulmonary function testing guidelines were implemented. No centre complied with an appropriate ventilated room. Two centres including Tallaght allowed 30 min between patients to compensate for this. 3. All six centres complied with 100 % of guidelines regarding inpatient settings. Conclusions: Tallaght's implementation of the Updated 2013 Guidelines, at 73 % compliance, is below the standard set for this audit. Compliance is on par or greater than the five other National centres. The five outstanding guidelines have been presented to the Cystic Fibrosis multidisciplinary team with a view to implementing them. This audit will also be discussed at a National Cystic Fibrosis Conference to allow other centres access to these results. The audit is reproducible enabling reassessment of implementation of the criteria.",
+            "full_title": "A national paediatric survey of infection control measures in cystic fibrosis Irish Journal of Medical Science (2015) doi: https://dx.doi.org/http://dx.doi.org/10.1007/s11845-015-1321-6"
+        },
+        {
+            "\ufeff": "33",
+            "title": "G33",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/http://dx.doi.org/10.1097/NCQ.0000000000000269",
+            "recommend": "Patients with cystic fibrosis have increased risk of pulmonary infections, and reducing spread of microorganisms is critical. To improve hospital-staff adherence to infection control guidelines, we implemented brightly colored Safe Zone floor decals, staff compliance contracts, and an infection control in-service video. Audits of staff adherence conducted pre and postintervention demonstrated an increased and sustainable improvement among each group (P < .05). These effective measures may be implemented to improve infection control compliance elsewhere.",
+            "full_title": "Chasing Zero: Increasing Infection Control Compliance on an Inpatient Cystic Fibrosis Unit Journal of nursing care quality (2018) doi: https://dx.doi.org/http://dx.doi.org/10.1097/NCQ.0000000000000269"
+        },
+        {
+            "\ufeff": "34",
+            "title": "G34",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.jcf.2008.01.002",
+            "recommend": "BACKGROUND: This study reviews the impact of changing infection control practices at the Manchester Adult Cystic Fibrosis Centre (MACFC) upon the epidemiology of Burkholderia species infections. METHODS: We reviewed strain and genomovar typing of all available Burkholderia isolates at our centre between 1983-2006.RESULTS: The incidence/prevalence of infection with Burkholderia species between 1983-1990 was below 5%/9% each year. There was a rise in incidence/prevalence of Burkholderia species between 1991 and 1994 with a peak of 16.3%/31.2% in 1992. Following complete cohort segregation, the incidence has fallen to below 3% for all but one year and the prevalence has gradually reduced to 9.3% in 2005. Currently, there is an increase in the prevalence to 10.6% for the first time since 1994, predominantly due to patients with unique infections transferring into the unit from referring centres. The presence of unique strains now exceeds transmissible strains for the first time since 1991. CONCLUSIONS: Infection control measures including patient segregation have controlled spread of transmissible B. cenocepacia strains, but not the acquisition of unique strains. Unique strains of Burkholderia species now account for the majority of new infections at the Manchester Adult Cystic Fibrosis Centre.",
+            "full_title": "The changing epidemiology of Burkholderia species infection at an adult cystic fibrosis centre"
+        },
+        {
+            "\ufeff": "35",
+            "title": "G35",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1136/thx.50.11.1194",
+            "recommend": "BACKGROUND: While there are reports on the outcome in adults and teenagers with cystic fibrosis of colonisation with Burkholderia (Pseudomonas) cepacia, there is little information in children. METHODS: In December 1991 only one of 115 children with cystic fibrosis attending a paediatric centre was colonised with B cepacia. Over the next 12 months there was a rapid increase with 23 (20%) becoming colonised; eighteen (79%) of these became colonised in hospital at a time that overlapped with the admission of a B cepacia positive child. Three different bacteriocin types were isolated, with one type (S22/PO) being present in 17 (74%) patients. The outcome for children who became colonised with B cepacia was compared with that in 33 children who continued to be colonised with Pseudomonas aeruginosa alone. RESULTS: Children colonised with B cepacia were older and more poorly nourished than those colonised with P aeruginosa, but did not have poorer pulmonary function. After colonisation, the forced expiratory volume in one second (FEV1) deteriorated between consecutive annual tests, with the average deterioration being greater in those with higher initial levels. Five children with B cepacia died from respiratory failure although none showed a fulminant deterioration. Introduction of segregation measures within hospital led to a dramatic decrease in the number of newly colonised patients. CONCLUSIONS: This study provides further evidence for person-to-person spread of B cepacia and confirms the effectiveness of simple isolation measures in interrupting spread. Colonisation with B cepacia and P aeruginosa in children is associated with a more rapid decline in lung function and a significantly increased mortality compared with cases colonised with P aeruginosa alone.",
+            "full_title": "Outcome of Burkholderia (Pseudomonas) cepacia colonisation in children with cystic fibrosis following a hospital outbreak"
+        },
+        {
+            "\ufeff": "36",
+            "title": "G36",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1016/j.jhin.2006.02.021",
+            "recommend": "Respiratory infections are the most important cause of morbidity and mortality in patients with cystic fibrosis (CF). These infections are typically caused by a limited number of respiratory pathogens, particularly Burkholderia cepacia complex (BCC) and Pseudomonas aeruginosa (PA). Since the 1980s, several outbreaks of unique strains of PA and BCC among CF patients attending the same CF care centres have been described, leading to a sharp decline in the patients' health. One of the measures adopted in CF centres to interrupt ongoing outbreaks is the separation of patients with a respiratory tract culture that is positive for PA or BCC from patients who are not infected. This type of measure has been implemented routinely in many CF centres to prevent cross-transmission of PA and BCC. The aim of this review was to determine what evidence is available to support the efficacy of isolation (or segregation) practices in preventing, delaying or reducing the risk for CF patients of acquiring PA and BCC. A systematic review of scientific literature from 1980 to 31 December 2004 was performed. Existing guidelines regarding infection control in CF were also analysed. In total, 398 relevant papers were retrieved. Only 10 well-designed studies were found that evaluated the efficacy of isolation practices in preventing the transmission of respiratory pathogens in CF care centres (one prospective controlled study, one retrospective cohort study, five 'before-after' studies and three cross-sectional studies. No systematic reviews or randomized controlled trials exist on this subject. In the absence of studies with an experimental, controlled design, the efficacy of isolation practices in preventing the transmission of respiratory pathogens in CF remains unproven. However, notwithstanding the considerable limits represented by the study designs, which were mainly retrospective, the observational studies reviewed seem to support the implementation of isolation (or segregation) measures to reduce the risk of transmission of BCC and PA in CF patients.",
+            "full_title": "Isolation measures for prevention of infection with respiratory pathogens in cystic fibrosis: a systematic review The Journal of hospital infection (2006) doi: https://dx.doi.org/10.1016/j.jhin.2006.02.021"
+        },
+        {
+            "\ufeff": "37",
+            "title": "G37",
+            "size": 1,
+            "group": 0,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "https://dx.doi.org/10.1086/502558",
+            "recommend": "OBJECTIVE: Respiratory tract infections significantly contribute to morbidity and mortality among cystic fibrosis (CF) patients. Therefore, pathogen transmission needs to be prevented. There are several guidelines for the care of CF patients, but no transparent systematic literature review has been published. METHODS: We conducted a systematic literature review (January 1966 to September 2004) dealing with segregation of CF patients colonized with Burkholderia cepacia species, Pandoraea species, Pseudomonas aeruginosa, Stenotrophomonas maltophilia, or Alcaligenes species. Quality of studies was evaluated by taking patient population size, existence of control-patients, patient randomization, diagnostic approach, and bacteria typing methods into account. RESULTS: One hundred ninety-nine studies were found. Evidence and quality of 102 publications were evaluated. In 99 publications, recommendations concerning segregation measures for infectious CF patients were determined including a total of 11,576 patients. No randomized, controlled trials had been conducted. Fifty of 56 authors strongly recommended isolation of CF patients infected with B. cepacia or Pandoraea species. In 31 of 39 studies, interpatient spread of Pseudomonas aeruginosa was documented or had been brought to an end by isolation of patients. Only five studies had addressed S. maltophilia or Alcaligenes species. CONCLUSIONS: Patients colonized with B. cepacia or Pandoraea species are to be separated from noncolonized patients in single rooms. Patients harboring multidrug-resistant Pseudomonas aeruginosa, S. maltophilia, or Alcaligenes species may not share a room with immunocompromised patients, in intensive care units, or with other CF patients anywhere in the hospital.",
+            "full_title": "Isolation of infectious cystic fibrosis patients: results of a systematic review (2005) doi: https://dx.doi.org/10.1086/502558"
+        },
+        {
+            "\ufeff": "36",
+            "title": "SR0",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Cohort segregation"
+        },
+        {
+            "\ufeff": "37",
+            "title": "SR1",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Individual segregation"
+        },
+        {
+            "\ufeff": "38",
+            "title": "SR2",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Hand hygiene"
+        },
+        {
+            "\ufeff": "39",
+            "title": "SR3",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Face masks"
+        },
+        {
+            "\ufeff": "40",
+            "title": "SR4",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Combination of strategies"
+        },
+        {
+            "\ufeff": "41",
+            "title": "SR5",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Social events"
+        },
+        {
+            "\ufeff": "42",
+            "title": "SR6",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Equipment strategies"
+        },
+        {
+            "\ufeff": "43",
+            "title": "SR7",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Adherence"
+        },
+        {
+            "\ufeff": "44",
+            "title": "SR8",
+            "size": 1,
+            "group": 1,
+            "x_coord": 0,
+            "y_coord": 0,
+            "rad": 0,
+            "doi": "",
+            "recommend": "",
+            "full_title": "Systematic review"
+        }
+        ];
+
+        // Example of how to access the data:
+        // console.log(dataset[0]);
+
+        // Export the data if using modules
+        // export default dataset;
+
+        var dataset_links = [
+        {
+            "\ufeff": "0",
+            "origin": "G0",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "1",
+            "origin": "G1",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "2",
+            "origin": "G2",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "3",
+            "origin": "G3",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "4",
+            "origin": "G4",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "5",
+            "origin": "G5",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "6",
+            "origin": "G6",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "7",
+            "origin": "G7",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "8",
+            "origin": "G8",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "9",
+            "origin": "G9",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "10",
+            "origin": "G10",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "11",
+            "origin": "G11",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "12",
+            "origin": "G12",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "13",
+            "origin": "G13",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "14",
+            "origin": "G14",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "15",
+            "origin": "G15",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "16",
+            "origin": "G16",
+            "termination": "SR1",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Individual segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "17",
+            "origin": "G17",
+            "termination": "SR2",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Hand hygiene",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "18",
+            "origin": "G18",
+            "termination": "SR3",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Face masks",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "19",
+            "origin": "G19",
+            "termination": "SR3",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Face masks",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "20",
+            "origin": "G20",
+            "termination": "SR3",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Face masks",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "21",
+            "origin": "G2",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "22",
+            "origin": "G21",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "23",
+            "origin": "G22",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "24",
+            "origin": "G23",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "25",
+            "origin": "G24",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "26",
+            "origin": "G25",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "27",
+            "origin": "G26",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "28",
+            "origin": "G27",
+            "termination": "SR4",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Combination of strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "29",
+            "origin": "G28",
+            "termination": "SR5",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Social events",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "30",
+            "origin": "G29",
+            "termination": "SR6",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Equipment strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "31",
+            "origin": "G30",
+            "termination": "SR6",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Equipment strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "32",
+            "origin": "G31",
+            "termination": "SR6",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Equipment strategies",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "33",
+            "origin": "G32",
+            "termination": "SR7",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Adherence",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "34",
+            "origin": "G33",
+            "termination": "SR7",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Adherence",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "35",
+            "origin": "G34",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "36",
+            "origin": "G35",
+            "termination": "SR0",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Cohort segregation",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "37",
+            "origin": "G36",
+            "termination": "SR8",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Systematic review",
+            "line_style": 1,
+            "agreement": 1
+        },
+        {
+            "\ufeff": "38",
+            "origin": "G37",
+            "termination": "SR8",
+            "commission": "",
+            "otherEvidence": "",
+            "line_col": 1,
+            "line_opaque": 1,
+            "topic": "Systematic review",
+            "line_style": 1,
+            "agreement": 1
+        }
+        ];
+
+
+
+
+        ////////////////////////////////////////////////////////////////
+
+        var w = window.innerWidth;
+        var h = window.innerHeight - 110; // 110 is needed for the results table and the buttons
+        var popup_w = 2 * w / 5 - 20;
+        var popup_h = h / 3;  // previously this was:  h / 3 + 100;
+        var circle_radius = 50;
+
+        var line_width = 8;
+        var line_dashed = "30, 10";
+
+        var link_gap = 7;
+
+        // define svg and diagonal as global 
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        console.log("svg defined");
+
+        var diagonal = d3.svg.diagonal()
+            // this sets up a variable containing
+            // the diagonal function
+            // note that the x and y are swapped round and then
+            // swapped back with the .projection -
+            // this is so that the diagonal curves in the right direction
+            .source(function (d) {
+                return {
+                    "y": getXcoord(d.origin) + getRadius(d.origin) + link_gap,
+                    "x": getYcoord(d.origin)
+                };
+            })
+            .target(function (d) {
+                return {
+                    "y": getXcoord(d.termination) - getRadius(d.termination) - link_gap,
+                    "x": getYcoord(d.termination)
+                };
+            })
+            .projection(function (d) { return [d.y, d.x]; });
+
+        
+
+        // colours:-
+        var left_outer_colour = "rgb(0, 101, 121)";
+        var left_inner_colour = "rgb(0, 149, 161)";
+        var left_lighter_colour = "rgb(100, 205, 205)";
+        var left_faded_colour = "rgba(100, 205, 205, 0.5)"
+
+        var right_outer_colour = "rgb(91, 41, 96)";
+        var right_inner_colour = "rgb(145, 30, 179)";
+        var right_lighter_colour = "rgb(199, 134, 219)";
+        var right_faded_colour = "rgba(199, 134, 219, 0.2)"
+
+        var link_highlight_colour = "rgb(0, 51, 102)"; // corp blue
+        var link_standard_colour = "rgba(0, 51, 102, 0.4)";
+        var link_faded_colour = "rgba(0, 51, 102, 0.1)";
+
+        var link_highlight_colour_disagree = "rgb(136, 42, 13)"; //Arts dark
+        var link_standard_colour_disagree = "rgba(136, 42, 13, 0.4)";
+        var link_faded_colour_disagree = "rgba(136, 42, 13, 0.1)";
+
+        var link_transparent_colour = "rgba(0, 0, 0, 0.0)"; // fully transparent
+
+        var button_width = 220;
+        var margin = 100; // distance from left button width 
+
+        var group_3 = 0;
+        var group_1 = 0;
+        var group_0 = 0;
+
+        var Antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Exacerbation_management_col = "rgba(184, 204, 228, 1.0)"
+        var Pseudomonas_aeruginosa_col = "rgba(184, 204, 228, 1.0)"
+        var Burkholderia_species_col = "rgba(184, 204, 228, 1.0)"
+        var NTM_col = "rgba(184, 204, 228, 1.0)"
+        var Stenotrophomonas_maltophilia_col = "rgba(184, 204, 228, 1.0)"
+        var MRSA_col = "rgba(184, 204, 228, 1.0)"
+        var Pneumococcus_col = "rgba(184, 204, 228, 1.0)"
+        var Specific_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Antibiotic_prophylaxis_col = "rgba(184, 204, 228, 1.0)"
+        var Inhaled_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Adjuncts_to_antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Management_of_ABPA_col = "rgba(184, 204, 228, 1.0)"
+        var Viral_infections_col = "rgba(184, 204, 228, 1.0)"
+        var Inflammation_col = "rgba(184, 204, 228, 1.0)"
+        var Mucoactive_agents_col = "rgba(184, 204, 228, 1.0)"
+        var Bronchodilators_col = "rgba(184, 204, 228, 1.0)"
+        var Nebuliser_systems_col = "rgba(184, 204, 228, 1.0)"
+        var NIV_col = "rgba(184, 204, 228, 1.0)"
+        var Oxygen_col = "rgba(184, 204, 228, 1.0)"
+        var Surgical_col = "rgba(184, 204, 228, 1.0)"
+        var Pancreatic_Enzymes_col = "rgba(204, 192, 217, 1.0)"
+        var Liver_disease_col = "rgba(204, 192, 217, 1.0)"
+        var Nutritional_supplements_col = "rgba(204, 192, 217, 1.0)"
+        var Appetite_col = "rgba(204, 192, 217, 1.0)"
+        var Acid_management = "rgba(204, 192, 217, 1.0)"
+        var Exercise_col = "rgba(214, 227, 188, 1.0)"
+        var Physiotherapy_col = "rgba(214, 227, 188, 1.0)"
+        var CF_related_arthritis_col = "rgba(251, 212, 180, 1.0)"
+        var Osteoporosis_col = "rgba(251, 212, 180, 1.0)"
+        var CF_related_diabetes_col = "rgba(182, 221, 232, 1.0)"
+        var Growth_Hormone_col = "rgba(182, 221, 232, 1.0)"
+        var Correction_of_basic_defect_col = "rgba(148, 54, 52, 1.0)"
+        var Psychosocial_col = "rgba(166, 166, 166, 1.0)"
+        var ENT_col = "rgba(150, 50, 102, 1.0)"
+
+        // FUNCTION DEFINITIONS
+
+        function popupBottomText(page_number) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            var dx = w / 2 - 50;
+            var dy = h - 100;
+
+            var rectangle = svg.append("rect")
+                .attr("x", dx)
+                .attr("y", dy)
+                .attr("width", 100) // make it wide but 40 less than the current width
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = page_number + 1;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+            var rectangle = svg.append("rect")
+                .attr("x", w - (150 + 5))
+                .attr("y", h - (100 + 5))
+                .attr("width", 140) //
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = 12;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", dx + 8)
+                .attr("y", dy + 55)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Continue");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = page_number + 1;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w - 130)
+                .attr("y", h - 50)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Skip intro...");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = 12;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("bottom_text");
+            element.parentNode.removeChild(element);
+        }
+
+        function popupBelow(this_var, node) {
+            var rectangle = svg.append("rect")
+                .attr("x", w / 8)
+                .attr("y", h / 2 + 50)
+                .attr("width", w * 6 / 8)
+                .attr("height", 50)
+                .attr("fill", function (d) {
+                    if (node.group == 1) {
+                        return (right_lighter_colour)
+                    } else {
+                        return (left_lighter_colour)
+                    }
+                })
+                .attr("id", "below_popup_id")
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .style("pointer-events", "none");
+            var popup_below_text = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w / 8 + 20)
+                .attr("y", h / 2 + 50 + 30)
+                .attr('id', 'below_popup_text_id')
+                .text(function (d) {
+                    var str = (node.title);
+                    return (str);
+                });
+        }
+
+        function removePopupBelow(this_var, node) {
+            var element = document.getElementById("below_popup_id");
+            element.parentNode.removeChild(element);
+            var element = document.getElementById("below_popup_text_id");
+            element.parentNode.removeChild(element);
+        }
+
+
+        function getXcoord(node) {
+            // function to get the x co-ordinate of the
+            // node stored in dataset
+            var x_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    x_coord = dataset[i].x_coord;
+                }
+            }
+            return x_coord;
+        }
+
+        function getYcoord(node) {
+            // function to get the y corordinate of the
+            // node stored in dataset
+            var y_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    y_coord = dataset[i].y_coord;
+                }
+            }
+            return y_coord;
+        }
+
+        function getRadius(node) {
+            // function to get the radius of the
+            // node stored in dataset
+            var rad = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    rad = dataset[i].rad;
+                }
+            }
+            return rad;
+        }
+
+        function highlightNodes(node) {
+            for (i = 0; i < dataset_links.length; i++) {
+                //change the colour variable in dataset_links
+                if (dataset_links[i].origin == node || dataset_links[i].termination == node) {
+                    dataset_links[i].line_col = "2";
+                } else {
+                    dataset_links[i].line_col = "0";
+                }
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                ;
+        }
+
+        function unhighlightNodes() {
+            for (i = 0; i < dataset_links.length; i++) {
+                //reset the colours of all nodes
+                dataset_links[i].line_col = "1";
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                //.transition()
+                //.duration(100)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function fadeAllLinks() {
+            //function to fade all the links
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    }
+                })
+                ;
+        }
+
+        function highlightLinks(link) {
+            // function to highlight the link
+            // and include the text in the upper boxes
+            // first get the origin then
+            // find the text associated with link.origin
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    insertLeftText(dataset[i].recommend);
+                }
+                if (dataset[i].title == link.termination) {
+                    insertRightText(dataset[i].recommend);
+                }
+            }
+        }
+
+        function updateCircleLocation() {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#nodes")
+                .data(dataset)
+                .transition()
+                .duration(transition_time)
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                });
+        }
+
+        function updateLineLocation(transition_time) {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#links")
+                .data(dataset_links)
+                .transition()
+                .duration(transition_time)
+                .attr("d", diagonal)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function update_groups() {
+            group_0 = 0;
+            group_1 = 1;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+        }
+
+        function setSquareArrangement() {
+            // loop to empirically set the square node positions
+            // note this calls and adjusts the global variables
+            // first reset the data
+            group_0_counter = 0;
+            group_1_counter = 1;
+
+            // Adjust these values to control the horizontal position
+            var left_offset  = button_width + margin;  // Changed from w/3 to w/4 (smaller value = closer to center)
+            var right_offset = button_width + margin; // Changed from w/3 to w/4
+            
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0_counter = group_0_counter + 1;
+                    dataset[i].x_coord = left_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_0_counter) * (h * 0.9) / (group_0 + 1);
+
+                } else if (dataset[i].group == 1) {
+                    group_1_counter = group_1_counter + 1;
+                    dataset[i].x_coord = w - right_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_1_counter) * (h * 0.9) / (group_1 + 1);
+                }
+            }
+        }
+
+        function setCircleArrangement() {
+            // loop to set the circular node positions
+            // note this calls and adjusts the global variables
+            // makes use of group_0, and group_1
+            // need to use group_1_counter and group_0_counter
+            //   to keep track of the groups (in case they're 
+            //   in funny orders)
+            // circle offset is amount of the bottom and top of the circle to leave off
+            // console.log("in set circle arangement");
+            var circle_offset = 0.3;
+            var separation = 50;
+            var group_0_counter = Math.round(circle_offset / 2 * group_0);
+            var group_1_counter = Math.round(circle_offset / 2 * group_1);
+            var centre_x = w / 2;
+            var centre_y = h / 2;
+            var left_offset  = button_width + margin;
+
+            var radius_option1 = h * 0.45;  // Original height-based radius
+            var radius_option2 = (w / 2) - (left_offset); // Width-based radius considering buttons
+            
+            // Use the smaller of the two values
+            var rad = Math.min(radius_option1, radius_option2) * 0.9;
+            console.log("debugging setCicleArrangement");
+            console.log(h);
+            console.log(w);
+            console.log(rad);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    dataset[i].x_coord = centre_x - separation - rad * Math.sin((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    dataset[i].y_coord = centre_y - rad * Math.cos((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    group_0_counter = group_0_counter + 1;
+                } else if (dataset[i].group == 1) {
+                    dataset[i].x_coord = centre_x + separation + (rad) * Math.sin((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    dataset[i].y_coord = centre_y - (rad) * Math.cos((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    group_1_counter = group_1_counter + 1;
+                }
+            }
+        }
+
+        function showAllSquare() {
+            // make the nodes and links move into a square arrangement
+            resetGroups();
+            update_groups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function showAllCircle() {
+            resetGroups();
+            update_groups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function disAppearAllNodes() {
+            // change the location of the nodes so that they are all off screen
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].y_coord = h + 200;
+            }
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getTopic(topic_string) {
+            // console.log("In the getTopic() function")
+            // console.log(topic_string)
+            // function to put all the nodes in topic_string in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (let i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (let i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].topic == topic_string) {
+                    // if topic is asthma get the guideline to group 1 and the cr to group 0
+                    for (let j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getCommissioner(commission_string) {
+            // function to put all the asthmas in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == commission_string) {
+                    // if commissioner is the right one get the guideline to group 1 and the cr to group 0
+                    for (j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getDisagree() {
+            // function to make all agreeing lines transparent
+
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].agreement == 1) {
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function getIgnored() {
+            // function to show only the links with evidence ignored
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].line_style == 1) {
+                    // remove the full lines
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function changeColourExcludedGroups() {
+            for (i = 0; i < dataset_links["length"]; i++) {
+                // loop over the dataset_links origins and terminations
+                // if either are group 2 then set the line colour to 0
+                for (j = 0; j < dataset.length; j++) {
+                    if (dataset[j].title == dataset_links[i].origin || dataset[j].title == dataset_links[i].termination) {
+                        if (dataset[j].group == 2) {
+                            dataset_links[i].line_opaque = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        function resetGroups() {
+            // function which loops through dataset
+            // and resets all Gaps to 0 and Systematic reviews to 1
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title.substring(0, 1) == "S") {
+                    dataset[i].group = 1;
+                } else if (dataset[i].title.substring(0, 1) == "G") {
+                    dataset[i].group = 0;
+                }
+            }
+            for (i = 0; i < dataset_links.length; i++) {
+                dataset_links[i].line_opaque = 1;
+            }
+        }
+
+        function popupString(this_var, link) {
+            // function to popup the rectangles with the strings in
+            // in this version it is just on the right
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+
+            //left rectangle:-
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+            // insert text on the left:
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text(""); // empty text instead of a placeholder
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    new_text = dataset[i].full_title;
+                    // console.log(new_text);
+                    // console.log("Left node = ");
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+
+            // right rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", w - (popup_w + 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w))
+                .attr("height", (popup_h))
+                .attr("fill", right_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var dx = w - (popup_w - 10);
+            var rightText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-right-text')
+                .attr("x", dx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.termination) {
+                    new_text = dataset[i].full_title;
+                    // console.log("Right node = ")
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineRight("Topic: ".concat(new_text), dx);
+
+            // reason in the middle!!
+
+            var rectangle = svg.append("rect")
+                .attr("x", w / 2 - (popup_w * .5 / 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w * .5))
+                .attr("height", (popup_h * 1.6))
+                .attr("fill", link_standard_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var mdx = w / 2 - (popup_w * .5 / 2) + 10;
+
+            var middleText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:10px;')
+                .attr('id', 'multiline-middle-text')
+                .attr("x", mdx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6 + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            //console.log(new_text);
+            // console.log("link.termination = ")
+            //console.log(link.termination);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    // console.log("Middle node identified.  The next three logs should be dataset[i].title and dataset[i].recommend and i.");
+                    //console.log(dataset[i].title);
+                    //console.log(dataset[i].recommend);
+                    //console.log(i);
+                    new_text = dataset[i].recommend;
+                }
+            }
+            //console.log(new_text);
+            createMultiLineMiddle(new_text, mdx);
+
+        }
+
+        function createMultiLineMiddle(text, mdx) {
+            var words = text.split(' ');
+
+            // Get dimensions of the rectangle
+            var text_width = popup_w * .5 - 20;
+            var rectangle_height = popup_h * 1.6; // Match the height of the middle rectangle
+            var line_height = 18; // Height of each line of text
+            var initial_y_offset = 30; // Initial y position where text starts
+            
+            // Calculate maximum number of lines that can fit in the rectangle
+            var max_lines = Math.floor((rectangle_height - initial_y_offset) / line_height);
+            
+            var text_element = document.getElementById("multiline-middle-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-weight:bold; font-size:12px;')
+            
+            // Create first tspan element
+            var current_tspan = document.createElementNS(svgNS, "tspan");
+            var text_node = document.createTextNode(words[0] || "");
+            
+            current_tspan.appendChild(text_node);
+            text_element.appendChild(current_tspan);
+
+            var lines_count = 0;
+            
+            for (var i = 1; i < words.length; i++) {
+                // Store current length before adding new word
+                var len = current_tspan.firstChild.data.length;
+                
+                // Try adding the next word
+                current_tspan.firstChild.data += " " + words[i];
+                
+                // Check if it's too long for the width
+                if (current_tspan.getComputedTextLength() > text_width) {
+                    // Remove the added word (restore to previous length)
+                    current_tspan.firstChild.data = current_tspan.firstChild.data.slice(0, len);
+                    
+                    // Increment line count
+                    lines_count += 1;
+                    
+                    // Check if we've hit the maximum number of lines that can fit
+                    if (lines_count >= max_lines - 1) { // Leave one line for ellipsis
+                        // Add ellipsis to indicate truncation
+                        current_tspan.firstChild.data += "...";
+                        break; // Stop processing more words
+                    }
+                    
+                    // Create a new tspan for the next line
+                    var next_tspan = document.createElementNS(svgNS, "tspan");
+                    next_tspan.setAttributeNS(null, "x", mdx);
+                    next_tspan.setAttributeNS(null, "dy", line_height);
+                    
+                    // Add the current word to the new line
+                    var new_text_node = document.createTextNode(words[i]);
+                    next_tspan.appendChild(new_text_node);
+                    text_element.appendChild(next_tspan);
+                    
+                    // Update the current tspan reference
+                    current_tspan = next_tspan;
+                }
+            }
+        }
+        function createMultiLineLeft(text, ldx) {
+            // Handle null or empty text
+            if (!text || text.trim() === "") {
+                text = ""; // Set to empty string
+            }
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-left-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", ldx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function createMultiLineRight(text, dx) {
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-right-text");
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            text_element.textContent = "";
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+            var lines_count = 0;
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);    // Remove added word
+                    var tspan_element = document.createElementNS(svgNS, "tspan");       // Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+                }
+            }
+        }
+
+        function popupTitle(this_var, title, group, full_title) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+            var dx = 20;
+            var dy = 0;
+            // we could use this code below to determine if this is a left node or a right node 
+            // swapping height for width
+            if (coords[1] > h / 2) {
+                dy = 20;
+            } else {
+                dy = h - 120; // height = 100
+            }
+
+            // left rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            // insert text on the left 
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text("");
+            var new_text = "";
+            // console.log("full_title:");
+            //console.log(full_title);
+            // console.log("new_text:")
+            //console.log(new_text);
+            new_text = full_title;
+            //console.log(new_text);
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+        }
+
+        function createPopup(text, dx) {
+            var words = text.split(' ');
+            var text_width = w - 100;
+            var text_element = document.getElementById("multiline-title-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 5) {  //don't go over this number of lines
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function removeBottomText() {
+            var element = document.getElementById("bottom_text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            var element = document.getElementById("multiline-title-text");
+            element.parentNode.removeChild(element);
+        }
+
+        function removePopupMain() {
+            // this removes the popups from the main function
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-title-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removePopupMain... no popups left")
+                }
+            }
+        }
+
+        function removeString() {
+            //do stuff to remove all the popup strings on the page
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-right-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-left-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-middle-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-string-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removeString... no popups left")
+                }
+            }
+        }
+
+        // function drawButton(y_pos, button_text, function_call, fcol, fontcol) {
+        //     // here is an approach to setting fontcol to 'black' automatically
+        //     fontcol = (typeof fontcol !== 'undefined') ? fontcol : "black";
+        //     fcol = (typeof fcol !== 'undefined') ? fcol : Antibiotic_therapy_col;
+
+
+        //     // function to draw the buttons
+        //     var button_rect = svg.append("rect")
+        //         .attr("x", 0)
+        //         .attr("y", y_pos + 5)
+        //         .attr("width", button_width) // this is defined above
+        //         .attr("height", 25)
+        //         .attr("fill", fcol)
+        //         .attr("stroke", "gray")
+        //         .attr("rx", 5)
+        //         .attr("ry", 5)
+        //         .on("click", function () {
+        //             eval(function_call);
+        //         });
+        //     var button_text = svg.append("text")
+        //         .attr('style',
+        //             function () {
+        //                 return ('text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:'.concat(fontcol));
+        //             })
+        //         //.attr('style', 'fill:white')
+        //         .attr("x", 7)
+        //         .attr("y", y_pos + 5 + 14)
+        //         .attr('id', 'button_text')
+        //         .text(function (d) {
+        //             return (button_text);
+        //         })
+        //         .style("cursor", "default")
+        //         .on("click", function () {
+        //             eval(function_call);
+        //         });
+        // }
+
+        // function drawButton(y_pos, button_text, function_call, fcol, fontcol) {
+        //     // function to draw the buttons
+        //     var button_rect = svg.append("rect")
+        //         .attr("x", 0)
+        //         .attr("y", y_pos + 5)
+        //         .attr("width", 300)
+        //         .attr("height", 25)
+        //         .attr("fill", fcol)
+        //         .attr("stroke", "gray")
+        //         .attr("rx", 5)
+        //         .attr("ry", 5)
+        //         .on("click", function () {
+        //             eval(function_call);
+        //         })
+        //         .on("mouseover", function() {
+        //             // Highlight effect on mouseover
+        //             d3.select(this)
+        //                 .attr("stroke", "#333333")
+        //                 .attr("stroke-width", 2);
+        //         })
+        //         .on("mouseout", function() {
+        //             // Return to original style on mouseout
+        //             d3.select(this)
+        //                 .attr("stroke", "gray")
+        //                 .attr("stroke-width", 1);
+        //         });
+
+        //     var button_text = svg.append("text")
+        //         .attr('style', function () {
+        //             return ('text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+        //         })
+        //         .attr("x", 5)
+        //         .attr("y", y_pos + 5 + 14)
+        //         .attr('id', 'button_text')
+        //         .text(function (d) {
+        //             return (button_text);
+        //         })
+        //         .style("cursor", "default")
+        //         .on("click", function () {
+        //             eval(function_call);
+        //         })
+        //         .on("mouseover", function() {
+        //             // Highlight the rectangle when text is hovered
+        //             d3.select(this.parentNode).select('rect')
+        //                 .attr("stroke", "#333333")
+        //                 .attr("stroke-width", 2);
+        //             // Update text style
+        //             d3.select(this)
+        //                 .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold');
+        //         })
+        //         .on("mouseout", function() {
+        //             // Return rectangle to original style
+        //             d3.select(this.parentNode).select('rect')
+        //                 .attr("stroke", "gray")
+        //                 .attr("stroke-width", 1);    
+        //             // Return text to original style
+        //             d3.select(this)
+        //                 .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal');
+        //         });
+        // }
+
+        function drawButton(y_pos, button_text, function_call, fcol, fontcol) {
+            // Default colors if not provided
+            fontcol = (typeof fontcol !== 'undefined') ? fontcol : "black";
+            fcol = (typeof fcol !== 'undefined') ? fcol : Antibiotic_therapy_col;
+
+            // Create a group to hold both rectangle and text
+            var buttonGroup = svg.append("g")
+                .attr("class", "button-group");
+            
+            // Add rectangle to group
+            var button_rect = buttonGroup.append("rect")
+                .attr("x", 0)
+                .attr("y", y_pos + 5)
+                .attr("width", button_width)
+                .attr("height", 25)
+                .attr("fill", fcol)
+                .attr("stroke", "gray")
+                .attr("rx", 5)
+                .attr("ry", 5)
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight effect on mouseover
+                    d3.select(this)
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Also highlight the text
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return to original style on mouseout
+                    d3.select(this)
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);
+                        
+                    // Return text to normal
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+
+            // Add text to the same group
+            var button_text = buttonGroup.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol)
+                .attr("x", 5)
+                .attr("y", y_pos + 5 + 14)
+                .attr('id', 'button_text')
+                .text(function (d) {
+                    return (button_text);
+                })
+                .style("cursor", "default")
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight the rectangle when text is hovered
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Update text style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return rectangle to original style
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);    
+                        
+                    // Return text to original style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+        }
+
+
+        function drawAllButtons() {
+            var z = 0;
+            var big_space = 30;
+            var small_space = 26;
+
+            var uniqueTopics = []; // Array to store unique topics
+
+            for (var i = 0; i < dataset_links.length; i++) {
+                var topic = dataset_links[i].topic;
+                var buttonText = dataset_links[i].topic;
+                var onClickAction = "getTopic('" + topic + "');";
+
+                if (!uniqueTopics.includes(topic)) {
+                    // Draw the button only if the topic is not already included
+                    drawButton(z, buttonText, onClickAction, "white");
+                    uniqueTopics.push(topic); // Add the topic to the uniqueTopics array
+                    z = z + small_space;
+                }
+            }
+
+            z = z + big_space;
+            drawButton(z, "Reset", "showAllCircle();", "white");
+            z = z + big_space;
+        }
+
+
+        function setLineStyle() {
+            // function to loop over the links and set the line style
+            // console.log("in setLineStyle")
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == "No Trials") {
+                    dataset_links[i].line_style = 2;
+                }
+            }
+        }
+
+        function getTopicForNode(nodeTitle) {
+            // Search through dataset_links to find the topic
+            for (let i = 0; i < dataset_links.length; i++) {
+                // If this link points to the node we're looking for
+                if (dataset_links[i].termination == nodeTitle) {
+                    // Return the topic of this link
+                    return dataset_links[i].topic;
+                }
+            }
+            // If no topic was found
+            return null;
+        }
+
+        function runFigure() {
+            removeBottomText();
+            drawAllButtons();
+            setLineStyle();
+
+            svg.selectAll("circle")
+                .data(dataset) //may as well use this as the index
+                .enter()
+                .append("circle")
+                .attr("id", "nodes")
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                })
+                .attr("r", function (d, i) {
+                    d.rad = Math.sqrt(dataset[i].size * circle_radius)
+                    return (d.rad);
+                })
+                .attr("stroke-width", 2)
+                .attr("fill", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_inner_colour);
+                    } else {
+                        return (right_inner_colour);
+                    }
+                })
+                .attr("stroke", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_outer_colour);
+                    } else {
+                        return (right_outer_colour);
+                    }
+                })
+                .on("click", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        //console.log(dataset[i].title);
+                        //console.log(dataset[i].recommend);
+                        window.open((dataset[i].doi));
+                    } else if (dataset[i].group == 1) {
+                        // console.log("click detected - datset[i]==1");
+                        //console.log(dataset[i].title);
+                        // work out the topic 
+                        var nodeTopic = getTopicForNode(dataset[i].title);
+                        // console.log("node topic = ")
+                        //console.log(nodeTopic)
+                        if (nodeTopic) {
+                            // Call the getTopic function with this topic
+                            getTopic(nodeTopic);
+                        }
+
+                    }
+                })
+                .on("mouseover", function () {
+                    d3.select(this)
+                        .attr("fill", function (d) {
+                            // logic to fill the circle and call
+                            // highlight nodes and write text
+                            highlightNodes(d.title);
+                            popupTitle(this, d.title, d.group, d.full_title);
+                            // console.log("Node = ");
+                            //console.log(d.title);
+                            if (d.group == 0) {
+                                return (left_outer_colour);
+                            } else {
+                                return (right_outer_colour);
+                            }
+                        })
+
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .attr("fill", function (d) {
+                            removeString();
+                            unhighlightNodes();
+                            removePopupMain();
+                            if (d.group == 0) {
+                                return (left_inner_colour);
+                            } else {
+                                return (right_inner_colour);
+                            }
+                            });
+                    }, 50); // 50ms delay
+                });
+
+
+
+            svg.selectAll("path")
+                .data(dataset_links) //may as well use this as the index
+                .enter()
+                .append("path")
+                .attr("d", diagonal)
+                .attr("id", "links")
+                .style("stroke-linecap", "round")
+                .style("fill", "none")
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                .style("stroke-dasharray", function (d) {
+                    if (d.line_style == 1) {
+                        return ("5, 0");
+                    } else if (d.line_style == 2) {
+                        return (line_dashed);
+                    }
+                })
+                .style("stroke-width", line_width)
+                .on("mouseover", function () {
+                    // don't do mouse overs if the line is transparent!
+                    d3.select(this)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            popupString(this, d);
+                            // highlightLinks(d);
+                            fadeAllLinks();
+                            if (d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            }
+                        })
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    // don't do mouse overs if the line is transparent!
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            removeString();
+                            unhighlightNodes();
+                            if (d.line_col == 1 && d.agreement == 1) {
+                                return (link_standard_colour);
+                            } else if (d.line_col == 1 && d.agreement == 4) {
+                                return (link_standard_colour_disagree);
+                            } else if (d.line_col == 0 && d.agreement == 1) {
+                                return (link_faded_colour);
+                            } else if (d.line_col == 0 && d.agreement == 4) {
+                                return (link_faded_colour_disagree);
+                            } else if (d.line_col == 2 && d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.line_col == 2 && d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            } else {
+                                return ("blue");
+                            }
+                        })
+                    }, 50) // this is the delay of 50 ms
+                });
+        }
+
+        //Functions to download the data:
+        // Function to read and parse the XLSX file
+        function importXLSX(file, callback) {
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                var data = new Uint8Array(event.target.result);
+                var workbook = XLSX.read(data, { type: "array" });
+                var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                var headers = jsonData[0]; // Extract the first row as headers
+                var dataArray = jsonData.slice(1); // Remove the first row from the data
+
+                var result = dataArray.map(function (row) {
+                    var obj = {};
+                    headers.forEach(function (header, index) {
+                        obj[header] = row[index];
+                    });
+                    return obj;
+                });
+
+                callback(result);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Handle file selection event for dataset file
+        function handledatasetFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset = jsonData; // Store dataset data in the 'dataset' variable
+                hideFileInput('datasetButton');
+            });
+        }
+
+        // Handle file selection event for dataset_links file
+        function handledataset_linksFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset_links = jsonData; // Store dataset_links data in the 'dataset_links' variable
+                hideFileInput('dataset_linksButton');
+            });
+        }
+
+        // Function to hide button element by ID
+        function hideFileInput(buttonId) {
+            var button = d3.select("#" + buttonId);
+            button.style("display", "none");
+        }
+
+        // Function to trigger file input click event
+        function triggerFileInputClick(inputId) {
+            var fileInput = document.getElementById(inputId);
+            fileInput.click();
+        }
+
+        // Create D3 button for file input
+        function createFileInputButton(buttonId, inputId, buttonText) {
+            var buttonContainer = d3.select("body")
+                .append("div")
+                .attr("id", buttonId)
+                .attr("class", "custom-button-container");
+
+            buttonContainer.append("button")
+                .attr("class", "custom-button")
+                .text(buttonText)
+                .on("click", function () {
+                    triggerFileInputClick(inputId);
+                });
+
+            buttonContainer.append("input")
+                .attr("type", "file")
+                .attr("id", inputId)
+                .attr("class", "hidden")
+                .on("change", function () {
+                    if (inputId === "datasetFileInput") {
+                        handledatasetFileSelect(event); // Pass the event parameter here
+                    } else if (inputId === "dataset_linksFileInput") {
+                        handledataset_linksFileSelect(event); // Pass the event parameter here
+                    }
+                });
+        }
+
+        async function loadXLSXData() {
+            // Create file input buttons using D3
+            createFileInputButton("datasetButton", "datasetFileInput", "Load dataset");
+            createFileInputButton("dataset_linksButton", "dataset_linksFileInput", "Load dataset_links");
+
+            await waitForArrays();
+        }
+
+        function logEvent() {
+            // console.log("Event");
+            // console.log("dataset:", dataset);
+            // console.log("dataset_links:", dataset_links);
+        }
+
+        function waitForArrays() {
+            return new Promise((resolve) => {
+                // Function to check if both arrays have data
+                function checkArrays() {
+                    if (dataset.length > 0 && dataset_links.length > 0) {
+                        resolve(); // Resolve the promise when both arrays have data
+                    } else {
+                        setTimeout(checkArrays, 100); // Check again after a certain delay
+                    }
+                }
+
+                checkArrays(); // Start checking the arrays
+            });
+        }
+
+        //  //  //  //  //  //  //  //
+        ///  CODE TO GET THINGS DONE:
+
+
+        async function main() {
+
+            console.log("in the main function");
+    
+            // Check if dataset and dataset_links already have data (are hardcoded)
+            if (dataset.length > 0 && dataset_links.length > 0) {
+                console.log("Using hardcoded dataset and dataset_links");
+                // Skip loading data files, directly update groups and display
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            } else {
+                // No hardcoded data, proceed with loading data files
+                console.log("No hardcoded data found. Loading data from files...");
+                await loadXLSXData();  // Load data before drawing anything
+                logEvent();  // Log to help track program flow
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            }
+        }
+
+        main();  // and here it is that we start!
+    </script>
+</body>
+
+</html>
