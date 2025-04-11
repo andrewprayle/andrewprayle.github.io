@@ -1,0 +1,3162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Macrolide Therapy Evidence map v_0.053</title>
+    <style type="text/css">
+        .custom-button-container {
+            display: inline-block;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .Title {
+            color: gray;
+            height: 20px;
+            font-size: 20px;
+            font-family: Helvetica;
+        }
+
+        .Textbox {
+            font-size: 15px;
+            font-family: Helvetica;
+            padding: 5px;
+            text-align: left;
+            float: left;
+            height: 20px;
+            border-radius: 15px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // evidence_map v 0.053
+        // TODO
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        console.log("initiating variables");
+
+        //  INITIAL VARIABLES:
+        var svgNS = "http://www.w3.org/2000/svg";  // initiates the namespace
+
+
+        // these two variable store the data:-
+        var dataset = []
+        var dataset_links = []
+
+        var dataset = [
+  {
+    "\ufeff": "0",
+    "title": "G0",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1136/thx.2005.057950",
+    "recommend": "Background: Macrolides display immunomodulatory effects that may be beneficial in chronic inflammatory pulmonary diseases. The aim of the study was to document whether long term use of azithromycin may be associated with respiratory benefits in young patients with cystic fibrosis.\nMethods: A multicentre, randomised, double blind, placebo controlled trial was conducted from October 2001 to June 2003. The criteria for enrollment were age older than 6 years and forced expiratory volume in 1 second (FEV1) of 40% or more. The active group received either 250 mg or 500 mg (body weight < or > or =40 kg) of oral azithromycin three times a week for 12 months. The primary end point was change in FEV1.\nResults: Eighty two patients of mean (SD) age 11.0 (3.3) years and mean (SD) FEV1 85 (22)% predicted were randomised: 40 in the azithromycin group and 42 in the placebo group. Nineteen patients were infected with Pseudomonas aeruginosa. The relative change in FEV1 at month 12 did not differ significantly between the two groups. The number of pulmonary exacerbations (count ratio 0.50 (95% CI 0.32 to 0.79), p < 0.005), the time elapsed before the first pulmonary exacerbation (hazard ratio 0.37 (95% CI 0.22 to 0.63), p < 0.0001), and the number of additional courses of oral antibiotics were significantly reduced in the azithromycin group regardless of the infectious status (count ratio 0.55 (95% CI 0.36 to 0.85), p < 0.01). No severe adverse events were reported.\nConclusion: Long term use of low dose azithromycin in young patients with cystic fibrosis has a beneficial effect on lung disease expression, even before infection with Pseudomonas aeruginosa.",
+    "full_title": "Long term effects of azithromycin in patients with cystic fibrosis: a double-blind, placebo-controlled trial (2006) doi: https://doi.org/10.1136/thx.2005.057950"
+  },
+  {
+    "\ufeff": "1",
+    "title": "G1",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1016/S2213-2600(22)00165-5",
+    "recommend": "Background: Structural lung disease and neutrophil-dominated airway inflammation is present from 3 months of age in children diagnosed with cystic fibrosis after newborn screening. We hypothesised that azithromycin, given three times weekly to infants with cystic fibrosis from diagnosis until age 36 months, would reduce the extent of structural lung disease as captured on chest CT scans.\nMethods: A phase three, randomised, double-blind, placebo-controlled trial was done at eight paediatric cystic fibrosis centres in Australia and New Zealand. Infants (aged 3-6 months) diagnosed with cystic fibrosis following newborn screening were eligible. Exclusion criteria included prolonged mechanical ventilation in the first 3 months of life, clinically significant medical disease or comorbidities other than cystic fibrosis, or macrolide hypersensitivity. Participants were randomly assigned (1:1) to receive either azithromycin (10 mg/kg bodyweight orally three times per week) or matched placebo until age 36 months. Randomisation was done with a permuted block strategy and an interactive web-based response system, stratified by study site. Unblinding was done once all participants completed the trial. The two primary outcomes were the proportion of children with radiologically defined bronchiectasis, and the percentage of total lung volume affected by disease. Secondary outcomes included clinical outcomes and exploratory outcomes were inflammatory markers. Analyses were done with the intention-to-treat principle. This study is registered at ClinicalTrials.gov (NCT01270074).\nFindings: Between June 15, 2012, and July 10, 2017, 281 patients were screened, of whom 130 were enrolled, randomly assigned, and received first study dose. 68 participants received azithromycin and 62 received placebo. At 36 months, 88% (n=50) of the azithromycin group and 94% (n=44) of the placebo group had bronchiectasis (odds ratio 0\u00b749, 95% CI 0\u00b712 to 2\u00b700; p=0\u00b732), and total airways disease did not differ between groups (median difference -0\u00b702%, 95% CI -0\u00b759 to 0\u00b756; p=0\u00b796). Secondary outcome results included fewer days in hospital for pulmonary exacerbations (mean difference -6\u00b73, 95% CI -10\u00b75 to -2\u00b71; p=0\u00b70037) and fewer courses of inhaled or oral antibiotics (incidence rate ratio 0\u00b788, 95% CI 0\u00b781 to 0\u00b797; p=0\u00b70088) for those in the azithromycin group. For the preplanned, exploratory analysis, concentrations of airway inflammation were lower for participants receiving azithromycin, including interleukin-8 (median difference -1\u00b72 pg/mL, 95% CI -1\u00b79 to -0\u00b75; p=0\u00b70012) and neutrophil elastase activity (-0\u00b76 \u03bcg/mL, -1\u00b71 to -0\u00b72; p=0\u00b70087) at age 36 months, although no difference was noted between the groups for interleukin-8 or neutrophil elastase activity at 12 months. There was no effect of azithromycin on body-mass index at age 36 months (mean difference 0\u00b74, 95% CI -0\u00b71 to 0\u00b79; p=0\u00b712), nor any evidence of pathogen emergence with the use of azithromycin. There were few adverse outcomes with no differences between the treatment groups.\nInterpretation: Azithromycin treatment from diagnosis of cystic fibrosis did not reduce the extent of structural lung disease at 36 months of age; however, it did reduce airway inflammation, morbidity including pulmonary exacerbations in the first year of life and hospitalisations, and improved some clinical outcomes associated with cystic fibrosis lung disease. Therefore we suggest thrice-weekly azithromycin is a strategy that could be considered for the routine early management of paediatric patients with cystic fibrosis.",
+    "full_title": "The effect of azithromycin on structural lung disease in infants with cystic fibrosis (COMBAT CF): a phase 3, randomised, double-blind, placebo-controlled clinical trial (2022) doi: https://doi.org/10.1016/S2213-2600(22)00165-5"
+  },
+  {
+    "\ufeff": "2",
+    "title": "G2",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1016/s0140-6736(02)11081-6",
+    "recommend": "Background: The macrolide antibiotic azithromycin has anti-inflammatory properties potentially beneficial in cystic fibrosis. Since findings of open pilot studies seemed to show clinical benefit, we undertook a formal trial.\nMethods: 41 children with cystic fibrosis, aged 8-18 years, and with a median forced expiratory volume in 1 s (FEV1) of 61% (range 33-80%) participated in a 15-month randomised double-blind, placebo-controlled crossover trial. They received either azithromycin (bodyweight < or =40 kg: 250 mg daily, >40 kg: 500 mg daily) or placebo for 6 months. After 2 months of washout, the treatments were crossed over. The primary outcome was median relative difference in FEV1 between azithromycin and placebo treatment periods. Sputum cultures, sputum interleukin 8 and neutrophil elastase, exercise testing, quality of life, antibiotic use, and pulmonary exacerbation rates were secondary outcome measures. Side-effects were assessed by pure tone audiometry and liver function tests. Analysis was by intention-to-treat.\nFindings: Median relative difference in FEV1 between azithromycin and placebo was 5.4% (95% CI 0.8-10.5). 13 of 41 patients improved by more than 13% and five of 41 deteriorated by more than 13% (p=0.059). Forced vital capacity and mid-expiratory flow did not significantly change overall. 17 of 41 patients had 24 fewer oral antibiotic courses when on azithromycin than when taking placebo, and five had six extra courses (p=0.005). Sputum bacterial densities, inflammatory markers, exercise tolerance, and subjective well-being did not change. There were no noticeable side-effects.\nInterpretation: A 4-6-month trial of azithromycin is justified in children with cystic fibrosis who do not respond to conventional treatment. The mechanism of action remains unknown.",
+    "full_title": " Long term azithromycin in children with cystic fibrosis: a randomised, placebo-controlled crossover trial (2002) doi: https://doi.org/10.1016/s0140-6736(02)11081-6"
+  },
+  {
+    "\ufeff": "3",
+    "title": "G3",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1016/j.jcf.2009.09.001",
+    "recommend": "Background: Long-term administration of azithromycin (AZM) in children with cystic fibrosis (CF) has improved outcomes. However, the doses and schedule of administration are not very well studied in children with CF.\nMethods: A randomized controlled trial was conducted to compare the effect of two doses of azithromycin (5mg/kg/day and 15mg/kg/day) on FEV(1) and pulmonary exacerbations in children with cystic fibrosis. Enrolled children were randomly allocated to receive daily azithromycin (5mg/kg/day or 15mg/kg/day) for 6months. Clinical assessment and FEV(1) measurement were performed monthly.\nResults: 56 children (28 in high dose group and 28 in low dose group) were enrolled. 47 (24 and 23 children in low and high dose groups) completed 12months of follow up. There was no difference in clinical scores, FEV(1), pulmonary exacerbation rates between two groups at baseline, 6months and at 12months. Per protocol analysis revealed that pulmonary exacerbation increased after discontinuing AZM and there was significantly more increase after 12months of enrolment in children getting high dose azithromycin. There was no improvement in FEV(1) in either group at the end of treatment period. Children tolerated daily low as well as high dose AZM well for 6months. There was no significant side effect of azithromycin.\nConclusion: In this randomized controlled trial, we did not find differences in the effect of 2 doses (5mg/kg/day or 15mg/kg/day) of AZM on change in percentage predicted FEV(1), clinical scores, Pseudomonas colonization rates, pulmonary exacerbations and need for antibiotics. There was increase in exacerbations after stopping azithromycin in both the groups. Our results also suggest that the decrease in the incidence of LRTI persists only till 6months after discontinuing azithromycin.",
+    "full_title": "Long-term daily high and low doses of azithromycin in children with cystic fibrosis: a randomized controlled trial (2010) doi: https://doi.org/10.1016/j.jcf.2009.09.001"
+  },
+  {
+    "\ufeff": "4",
+    "title": "G4",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.5812/ijp.96977",
+    "recommend": "Background: Oral azithromycin is recommended as anti-inflammatory therapy for patients with cystic fibrosis (CF) 6 years of age and older to improve lung function and reduce exacerbations.\nObjectives: We evaluated the short-term efficacy and safety of nebulized azithromycin as anti-inflammatory therapy in children with CF chronically infected with Pseudomonas aeruginosa.\nMethods: In a randomized prospective study, children aged 8 - 18 years with clinically stable CF and FEV1 25% - 75% predicted with no recent use of oral, intravenous or inhaled antipseudomonal antibiotics and azithromycin were randomized to receive either nebulized azithromycin (70 mg daily) or oral azithromycin 3 times per week for 28 days. Primary endpoint was changes in pulmonary function (FEV1). Secondary outcomes included changes in Pseudomonas aeruginosa (PA) colonization characteristics (count, phenotype), quality of life and weight.\nResults: A total of 280 patients were screened, of whom 60 were found eligible. Forty five patients (25 in the nebulized group) and 20 in the oral group) completed the study. After 28 days of treatment, nebulized azithromycin was significantly associated with improvements in FEV1 % predicted, quality of life measure and weight. Also PA count was significantly decreased. Importantly, improvements of FEV1 % predicted, quality of life, weight and the decline in PA count were statistically significantly greater with nebulized azithromycin compared with oral azithromycin. No significant difference was observed in PA phenotype in either treatment arms.\nConclusions: Nebulized azithromycin is associated with a significant improvement in lung function, PA count, quality of life and weight in clinically stable CF children with chronic PA infection. The improvements observed were greater compared with oral azithromycin. Nebulized azithromycin could be suggested as a new therapeutic strategy for this life-limiting disease. Further clinical\ntrials with novel nebulizer formulation of azithromycin and large number of participants are needed to further assess the efficacy, safety and sustained effect of this new therapeutic approach in children with CF.",
+    "full_title": "Nebulized azithromycin versus oral azithromycin as anti-inflammatory therapy in children with cystic fibrosis: a prospective randomized open-label trial (2019) doi: https://doi.org/ 10.5812/ijp.96977"
+  },
+  {
+    "\ufeff": "5",
+    "title": "G5",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1183/09031936.00163306",
+    "recommend": "Four randomised, placebo-controlled trials have previously documented the clinical benefits of azithromycin (AZM) in cystic fibrosis (CF) patients. The present study examined whether the beneficial effect of AZM is equivalent when administered daily or weekly. A double-blind, randomised study was carried out in 208 CF patients aged 6-58 yrs who were assigned to AZM either 250 mg daily (n = 103) or 1,200 mg weekly (n = 105) for 6 months, with assessments at baseline and at 1, 3, 6 and 7 months. Patients were taken from five adult and children CF centres in South-east Queensland, Australia. Equivalence was demonstrated between the two groups (daily versus weekly) with respect to improvements in lung function (forced expiratory volume in one second and forced vital capacity), C-reactive protein, days spent in hospital, admission rates and nutrition (body mass index, z-scores) using 95% confidence intervals with a tolerance interval of +/-10%. In patients aged <18 yrs the daily group had significantly better improvements in z-scores for height and weight after 6 months. In children, a nutritional advantage for daily administration was found. Gastro-intestinal adverse effects were more common with weekly therapy. Apart from these findings, daily and weekly administered azithromycin demonstrated similar outcomes for cystic fibrosis patients.",
+    "full_title": "Daily versus weekly azithromycin in cystic fibrosis patients (2007) doi: https://doi.org/10.1183/09031936.00163306 "
+  },
+  {
+    "\ufeff": "6",
+    "title": "G6",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1136/thoraxjnl-2021-217782",
+    "recommend": "Rationale: Inhaled tobramycin and oral azithromycin are common chronic therapies in people with cystic fibrosis and Pseudomonas aeruginosa airway infection. Some studies have shown that azithromycin can reduce the ability of tobramycin to kill P. aeruginosa. This trial was done to test the effects of combining azithromycin with inhaled tobramycin on clinical and microbiological outcomes in people already using inhaled tobramycin. We theorised that those randomised to placebo (no azithromycin) would have greater improvement in forced expiratory volume in one second (FEV1) and greater reduction in P. aeruginosa sputum in response to tobramycin.\nMethods: A 6-week prospective, randomised, placebo-controlled, double-blind trial testing oral azithromycin versus placebo combined with clinically prescribed inhaled tobramycin in individuals with cystic fibrosis and P. aeruginosa airway infection.\nResults: Over a 6-week period, including 4 weeks of inhaled tobramycin, the relative change in FEV1 did not statistically significantly differ between groups (azithromycin (n=56) minus placebo (n=52) difference: 3.44%; 95% CI: -0.48 to 7.35; p=0.085). Differences in secondary clinical outcomes, including patient-reported symptom scores, weight and need for additional antibiotics, did not significantly differ. Among the 29 azithromycin and 35 placebo participants providing paired sputum samples, the 6-week change in P. aeruginosa density differed in favour of the placebo group (difference: 0.75 log10 CFU/mL; 95% CI: 0.03 to 1.47; p=0.043).\nConclusions: Despite having greater reduction in P. aeruginosa density in participants able to provide sputum samples, participants randomised to placebo with inhaled tobramycin did not experience significantly greater improvements in lung function or other clinical outcomes compared with those randomised to azithromycin with tobramycin.",
+    "full_title": "Testing the effects of combining azithromycin with inhaled tobramycin for P. aeruginosa in cystic fibrosis: a randomised, controlled clinical trial (2022) doi: https://doi.org/10.1136/thoraxjnl-2021-217782"
+  },
+  {
+    "\ufeff": "7",
+    "title": "G7",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "Aims: Azithromycin (AZM) is beneficial in patients with Cystic Fibrosis (CF) who\nare chronically colonised with Pseudomonas aeruginosa (PA). We investigated the\nrole of AZM in improving quality of life and lung function of CF patients not\ninfected with PA.\nMethods: A randomised double-blind crossover study was performed in the Paediatric\nand Adult CF centres in Northern Ireland.\nCF patients, aged 6\u221220 years, were included if they were PA free for \u000112months\nand able to perform spirometry. Patients were excluded if they had B. cepacia\ncomplex, S. maltophilia, MRSA, or mycobacterium; if they had a known allergy to\nmacrolides, abnormal liver function tests or a family history of deafness.\nSubjects were randomised to receive either 4 months AZM followed by 4 months\nPlacebo or vice versa, with a 2 month washout period between each treatment.\nDose of AZM; 250 mg (weight \u000240 kg) or 500 mg (\u000140 kg), on 3days/week.\nClinical assessment and spirometry was carried out every 2 months, a quality of\nlife questionnaire was completed at the start and end of each treatment period.\nResults: 22 started the study (11 male) and 17 patients completed both sequences.\nThere was no \u2018carryover\u2019 effect. We found a trend for the CFQ \u2018vitality\u2019 score to\nimprove with AZM treatment (beta coeff. 3.8, 95% CI: \u22120.2 to 8.0, p = 0.06). There\nwere no improvements observed in lung function (FEV1 p = 0.7, FVC p = 0.3) or\nCFQ respiratory symptoms (p = 0.3).\nConclusion: This cross-over study of non-PA CF patients found AZM did not\nimprove lung function, but did observe a trend for improvement in vitality scores\nwhich for some patients were large. A larger multi-centred study is required to\nexplore this further but patient retention may be difficult for this study design.",
+    "full_title": "The use of azithromycin in cystic fibrosis patients not infected with Pseudomonas aeruginosa (2009)"
+  },
+  {
+    "\ufeff": "8",
+    "title": "G8",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "\u00a010.1164/rccm.201802-0215OC",
+    "recommend": "Rationale: New isolation of Pseudomonas aeruginosa (Pa) is generally treated with inhaled antipseudomonal antibiotics such as tobramycin inhalation solution (TIS). A therapeutic approach that complements traditional antimicrobial therapy by reducing the risk of pulmonary exacerbation and inflammation may ultimately prolong the time to Pa recurrence.\nObjectives: To test the hypothesis that the addition of azithromycin to TIS in children with cystic fibrosis and early Pa decreases the risk of pulmonary exacerbation and prolongs the time to Pa recurrence.\nMethods: The OPTIMIZE (Optimizing Treatment for Early Pseudomonas aeruginosa Infection in Cystic Fibrosis) trial was a multicenter, double-blind, randomized, placebo-controlled, 18-month trial in children with CF, 6 months to 18 years of age, with early Pa. Azithromycin or placebo was given 3\u00d7 weekly with standardized TIS.\nMeasurements and main results: The primary endpoint was the time to pulmonary exacerbation requiring antibiotics and the secondary endpoint was the time to Pa recurrence, in addition to other clinical and safety outcomes. A total of 221 participants (111 placebo, 110 azithromycin) out of a planned 274 were enrolled. Enrollment was stopped early by the NHLBI because the trial had reached the prespecified interim boundary for efficacy. The risk of pulmonary exacerbation was reduced by 44% in the azithromycin group as compared with the placebo group (hazard ratio, 0.56; 95% confidence interval, 0.37-0.83; P = 0.004). Weight increased by 1.27 kg in the azithromycin group compared with the placebo group (95% confidence interval, 0.01-2.52; P = 0.046). No significant differences were seen in microbiological or other clinical or safety endpoints.\nConclusions: Azithromycin was associated with a significant reduction in the risk of pulmonary exacerbation and a sustained improvement in weight, but had no impact on microbiological outcomes in children with early Pa. Clinical trial registered with clinicaltrials.gov (NCT02054156).",
+    "full_title": "Azithromycin for early pseudomonas infection in cystic fibrosis. The OPTIMIZE randomized trial (2018) doi: https://doi.org/10.1164/rccm.201802-0215OC"
+  },
+  {
+    "\ufeff": "9",
+    "title": "G9",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1007/s10238-005-0070-7",
+    "recommend": "Autoantibodies against bactericidal/permeability-increasing protein (BPI-ANCA) were found in patients with cystic fibrosis (CF). It is speculated that they represent a marker of the chronic endobronchial infection and sustained inflammatory response in CF. Our aim was to evaluate whether azithromycin (AZM), through its antiinflammatory effect, could affect the level of BPI-ANCA in CF patients. Eighteen patients with CF aged 5.5-36.3 years (median 15.1) were enrolled in a randomised, double-blind, placebo-controlled trial of AZM (250 mg twice a week to 10 patients) or placebo (8 patients) for 12 weeks. BPI-ANCA levels were recorded pre- and post-treatment and compared to a group of 18 matched healthy controls. Chi-square analysis, Kruskal-Wallis and Mann-Whitney tests were used to compare between the groups. Pre- and post-treatment values were compared using the Wilcoxon Signed-Ranked test. BPI-ANCA was found in 12 CF patients (67%) and four (22%) healthy subjects (P<0.001). The mean BPI-ANCA level was 3.94+/-6.15 U/ml (mean+/-SD) in healthy subjects and 38.11+/-42.34 U/ml in CF patients (P=0.023). The mean BPI-ANCA level was higher in patients with Pseudomonas aeruginosa compared to those without (64+/-35 U/ml and 25+/-41 U/ml respectively, P=0.032). No change in BPI-ANCA levels occurred in the AZM-treated patients [35 (0-127) U/ml (median (range) and 30 (0-120) U/ml, respectively] or in the placebo group [10 (0-66) U/ml and 13 (0-83) U/ml, respectively]. BPI-ANCA levels are significantly higher in patients with CF compared to healthy controls. BPIANCA levels are higher among patients colonised with P. aeruginosa. Twelve weeks of AZM therapy did not lower the BPI-ANCA level in patients with CF.",
+    "full_title": "Autoantibodies against bactericidal/permeability-increasing protein (BPI-ANCA) in cystic fibrosis patients treated with azithromycin (2005) doi: https://doi.org/10.1007/s10238-005-0070-7"
+  },
+  {
+    "\ufeff": "10",
+    "title": "G10",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1001/jama.290.13.1749",
+    "recommend": "Context: Treatment strategies for cystic fibrosis (CF) lung disease include antibiotics, mucolytics, and anti-inflammatory therapies. Increasing evidence suggests that macrolide antibiotics might be beneficial in patients with CF.\nObjective: To determine if an association between azithromycin use and pulmonary function exists in patients with CF.\nDesign and setting: A multicenter, randomized, double-blind, placebo-controlled trial conducted from December 15, 2000, to May 2, 2002, at 23 CF care centers in the United States.\nParticipants: Of the 251 screened participants with a diagnosis of CF, 185 (74%) were randomized. Eligibility criteria included age 6 years or older, infection with Pseudomonas aeruginosa for 1 or more years, and a forced expiratory volume in 1 second (FEV1) of 30% or more. Participants were stratified by FEV1 (> or =60% predicted vs <60% predicted), weight of less than 40 kg vs 40 kg or more, and CF center.\nIntervention: The active group (n = 87) received 250 mg (weight <40 kg) or 500 mg (weight > or =40 kg) of oral azithromycin 3 days a week for 168 days; placebo group (n = 98) received identically packaged tablets.\nMain outcome measures: Change in FEV1 from day 0 to completion of therapy at day 168 and determination of safety. Secondary outcomes included pulmonary exacerbations and weight gain.\nResults: The azithromycin group had a mean 0.097-L (SD, 0.26) increase in FEV1 at day 168 compared with 0.003 L (SD, 0.23) in the placebo group (mean difference, 0.094 L; 95% confidence interval [CI], 0.023-0.165; P =.009). Nausea occurred in 17% more participants in the azithromycin group (P =.01), diarrhea in 15% more (P =.009), and wheezing in 13% more (P =.007). Participants in the azithromycin group had less risk of experiencing an exacerbation than participants in the placebo group (hazard ratio, 0.65; 95% CI, 0.44-0.95; P =.03) and weighed at the end of the study an average 0.7 kg more than participants receiving placebo (95% CI, 0.1-1.4 kg; P =.02).\nConclusion: Azithromycin treatment was associated with improvement in clinically relevant end points and should be considered for patients with CF who are 6 years or older and chronically infected with P aeruginosa.",
+    "full_title": "Azithromycin in patients with cystic fibrosis chronically infected with Pseudomonas aeruginosa: a randomized controlled trial (2003) doi: https://doi.org/10.1001/jama.290.13.1749"
+  },
+  {
+    "\ufeff": "11",
+    "title": "G11",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1001/jama.2010.563",
+    "recommend": "Context: Azithromycin is recommended as therapy for cystic fibrosis (CF) patients with chronic Pseudomonas aeruginosa infection, but there has not been sufficient evidence to support the benefit of azithromycin in other patients with CF.\nObjective: To determine if azithromycin treatment improves lung function and reduces pulmonary exacerbations in pediatric CF patients uninfected with P. aeruginosa.\nDesign, setting, and participants: A multicenter, randomized, double-blind placebo-controlled trial was conducted from February 2007 to July 2009 at 40 CF care centers in the United States and Canada. Of the 324 participants screened, 260 were randomized and received study drug. Eligibility criteria included age of 6 to 18 years, a forced expiratory volume in the first second of expiration (FEV(1)) of at least 50% predicted, and negative respiratory tract cultures for P. aeruginosa for at least 1 year. Randomization was stratified by age of 6 to 12 years vs 13 to 18 years and by CF center.\nIntervention: The active group (n = 131) received 250 mg (weight 18-35.9 kg) or 500 mg (weight > or = 36 kg) of azithromycin 3 days per week (Monday, Wednesday, and Friday) for 168 days. The placebo group (n = 129) received identically packaged placebo tablets on the same schedule.\nMain outcome measures: The primary outcome was change in FEV(1). Exploratory outcomes included additional pulmonary function end points, pulmonary exacerbations, changes in weight and height, new use of antibiotics, and hospitalizations. Changes in microbiology and adverse events were monitored.\nResults: The mean (SD) age of participants was 10.7 (3.17) years. The mean (SD) FEV(1) at baseline and 168 days were 2.13 (0.85) L and 2.22 (0.86) L for the azithromycin group and 2.12 (0.85) L and 2.20 (0.88) L for the placebo group. The difference in the change in FEV(1) between the azithromycin and placebo groups was 0.02 L (95% confidence interval [CI], -0.05 to 0.08; P = .61). None of the exploratory pulmonary function end points were statistically significant. Pulmonary exacerbations occurred in 21% of the azithromycin group and 39% of the placebo group. Participants in the azithromycin group had a 50% reduction in exacerbations (95% CI, 31%-79%) and an increase in body weight of 0.58 kg (95% CI, 0.14-1.02) compared with placebo participants. There were no significant differences between groups in height, use of intravenous or inhaled antibiotics, or hospitalizations. Participants in the azithromycin group had no increased risk of adverse events, but had less cough (-23% treatment difference; 95% CI, -33% to -11%) and less productive cough (-11% treatment difference; 95% CI, -19% to -3%) compared with placebo participants.\nConclusion: In children and adolescents with CF uninfected with P. aeruginosa, treatment with azithromycin for 24 weeks did not result in improved pulmonary function.",
+    "full_title": "Effect of azithromycin on pulmonary function in patients with cystic fibrosis uninfected with Pseudomonas aeruginosa: a randomized controlled trial (2010) doi: https://doi.org/10.1001/jama.2010.563"
+  },
+  {
+    "\ufeff": "12",
+    "title": "G12",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1016/j.rmed.2008.03.009",
+    "recommend": "Background: Data on the effects of long-term treatment with azithromycin (AZM) on inflammatory markers in cystic fibrosis patients chronically infected with Pseudomonas aeruginosa are scarce. So far there is no pharmacokinetic and clinical data on once-weekly dosage of AZM in CF patients.\nMethods: In a randomised double-blind, placebo-controlled trial, patients received AZM or placebo 1 per week for 8 weeks (AZM dosage--20-29 kg: 500 mg, 30-39 kg: 750 mg, 40-49 kg: 1000 mg and > or = 50 kg: 1250 mg) after a course of intravenous antipseudomonal antibiotics. Pulmonary function tests, the serum markers LPS-binding protein (LBP), interleukin-8 (IL-8), CRP, P. aeruginosa alginate in sputum samples and quality of life scores were evaluated.\nResults: Thirty-eight patients (21 AZM/17 placebo) (mean age: 23.7 years; mean FEV(1): 62% of predicted) were recruited. After treatment (mean dose of 21.2 mg/kg body weight once a week) pulmonary function declined in both groups compared to baseline (i.e. after cessation of i.v. antibiotics). The AZM group was significantly better for mean changes in serum CRP (AZM: +0.9 mg/l, placebo: +21.6 mg/l, p=0.019), lipopolysaccharide binding protein in serum, LBP (AZM: +0.9 microg/ml, placebo: +7.0 microg/ml, p=0.015), serum interleukin-8 (AZM: -3.1 pg/ml, placebo: +2.9 pg/ml, p=0.001) and alginate in sputum (AZM: +85 microg/ml, placebo: +353 microg/ml, p=0.048). Quality of life was significantly better after AZM and there was no increase in treatment-related adverse events.\nConclusion: Once-weekly azithromycin ameliorated inflammatory reactions and improved quality of life. A decline of pulmonary function after cessation of i.v. antibiotics could not be prevented.",
+    "full_title": "Once-weekly azithromycin in cystic fibrosis with chronic Pseudomonas aeruginosa infection (2008) doi: https://doi.org/10.1016/j.rmed.2008.03.009"
+  },
+  {
+    "\ufeff": "13",
+    "title": "G13",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "10.1136/thorax.57.3.212",
+    "recommend": "Background: Relentless chronic pulmonary inflammation is the major contributor to morbidity and mortality in patients with cystic fibrosis (CF). While immunomodulating therapies such as prednisolone and ibuprofen may be beneficial, their use is limited by side effects. Macrolides have immunomodulatory properties and long term use dramatically improves prognosis in diffuse panbronchiolitis, a condition with features in common with the lung disease of CF.\nMethods: To determine if azithromycin (AZM) improves clinical parameters and reduces inflammation in patients with CF, a 3 month prospective randomised double blind, placebo controlled study of AZM (250 mg/day) was undertaken in adults with CF. Monthly assessment included lung function, weight, and quality of life (QOL). Blood and sputum collection assessed systemic inflammation and changes in bacterial flora. Respiratory exacerbations were treated according to the policy of the CF Unit.\nResults: Sixty patients were recruited (29 men) of mean (SD) age 27.9 (6.5) years and initial forced expiratory volume in 1 second (FEV1) 56.6 (22.3)% predicted. FEV1% and forced vital capacity (FVC)% predicted were maintained in the AZM group while in the placebo group there was a mean (SE) decline of -3.62 (1.78)% (p=0.047) and -5.73 (1.66)% (p=0.001), respectively. Fewer courses of intravenous antibiotics were used in patients on AZM (0.37 v 1.13, p=0.016). Median C reactive protein (CRP) levels declined in the AZM group from 10 to 5.4 mg/ml but remained constant in the placebo group (p<0.001). QOL improved over time in patients on AZM and remained unchanged in those on placebo (p=0.035).\nConclusion: AZM in adults with CF significantly improved QOL, reduced CRP levels and the number of respiratory exacerbations, and reduced the rate of decline in lung function. Long term AZM may have a significant impact on morbidity and mortality in patients with CF. Further studies are required to define frequency of dosing and duration of benefit.",
+    "full_title": "Effect of long term treatment with azithromycin on disease parameters in cystic fibrosis: a randomised trial ( 2002) doi: https://doi.org/10.1136/thorax.57.3.212"
+  },
+  {
+    "\ufeff": "14",
+    "title": "SR0",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "                                                                                                                                ",
+    "recommend": "",
+    "full_title": "Lung function"
+  },
+  {
+    "\ufeff": "15",
+    "title": "SR1",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Pulmonary exacerbations"
+  },
+  {
+    "\ufeff": "16",
+    "title": "SR2",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Survival"
+  },
+  {
+    "\ufeff": "17",
+    "title": "SR3",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Adverse effects"
+  },
+  {
+    "\ufeff": "18",
+    "title": "SR4",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Number of days in hospital"
+  },
+  {
+    "\ufeff": "19",
+    "title": "SR5",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Acquisition or eradication of significant CF pathogens"
+  },
+  {
+    "\ufeff": "20",
+    "title": "SR6",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Additional treatment required"
+  },
+  {
+    "\ufeff": "21",
+    "title": "SR7",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Development of Allergic Bronchopulmonary aspergillosis (ABPA)"
+  },
+  {
+    "\ufeff": "22",
+    "title": "SR8",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Nutritional markers"
+  },
+  {
+    "\ufeff": "23",
+    "title": "SR9",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Liver disease"
+  },
+  {
+    "\ufeff": "24",
+    "title": "SR10",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Quality of Life"
+  },
+  {
+    "\ufeff": "25",
+    "title": "SR11",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Changes in treatment burden"
+  },
+  {
+    "\ufeff": "26",
+    "title": "SR12",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "Changes in inflammatory markers"
+  }
+];
+
+var dataset_links = [
+  {
+    "\ufeff": "0",
+    "origin": "G0",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "1",
+    "origin": "G0",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "2",
+    "origin": "G0",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "3",
+    "origin": "G0",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "4",
+    "origin": "G0",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "5",
+    "origin": "G0",
+    "termination": "SR7",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Development of Allergic Bronchopulmonary aspergillosis (ABPA)",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "6",
+    "origin": "G0",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "7",
+    "origin": "G0",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "8",
+    "origin": "G1",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "9",
+    "origin": "G1",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "10",
+    "origin": "G1",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "11",
+    "origin": "G1",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "12",
+    "origin": "G1",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "13",
+    "origin": "G1",
+    "termination": "SR9",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Liver disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "14",
+    "origin": "G1",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "15",
+    "origin": "G1",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "16",
+    "origin": "G2",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "17",
+    "origin": "G2",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "18",
+    "origin": "G2",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "19",
+    "origin": "G2",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "20",
+    "origin": "G2",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "21",
+    "origin": "G2",
+    "termination": "SR9",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Liver disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "22",
+    "origin": "G2",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "23",
+    "origin": "G2",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "24",
+    "origin": "G3",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "25",
+    "origin": "G3",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "26",
+    "origin": "G3",
+    "termination": "SR2",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Survival",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "27",
+    "origin": "G3",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "28",
+    "origin": "G3",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "29",
+    "origin": "G4",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "30",
+    "origin": "G4",
+    "termination": "SR2",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Survival",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "31",
+    "origin": "G4",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "32",
+    "origin": "G4",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "33",
+    "origin": "G4",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "34",
+    "origin": "G4",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "35",
+    "origin": "G5",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "36",
+    "origin": "G5",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "37",
+    "origin": "G5",
+    "termination": "SR2",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Survival",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "38",
+    "origin": "G5",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "39",
+    "origin": "G5",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "40",
+    "origin": "G5",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "41",
+    "origin": "G5",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "42",
+    "origin": "G5",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "43",
+    "origin": "G5",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "44",
+    "origin": "G6",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "45",
+    "origin": "G6",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "46",
+    "origin": "G6",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "47",
+    "origin": "G6",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "48",
+    "origin": "G6",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "49",
+    "origin": "G6",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "50",
+    "origin": "G6",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "51",
+    "origin": "G6",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "52",
+    "origin": "G7",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "53",
+    "origin": "G7",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "54",
+    "origin": "G7",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "55",
+    "origin": "G8",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "56",
+    "origin": "G8",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "57",
+    "origin": "G8",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "58",
+    "origin": "G8",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "59",
+    "origin": "G8",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "60",
+    "origin": "G8",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "61",
+    "origin": "G8",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "62",
+    "origin": "G8",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "63",
+    "origin": "G9",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "64",
+    "origin": "G9",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "65",
+    "origin": "G9",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "66",
+    "origin": "G9",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "67",
+    "origin": "G10",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "68",
+    "origin": "G10",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "69",
+    "origin": "G10",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "70",
+    "origin": "G10",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "71",
+    "origin": "G10",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "72",
+    "origin": "G10",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "73",
+    "origin": "G10",
+    "termination": "SR7",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Development of Allergic Bronchopulmonary aspergillosis (ABPA)",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "74",
+    "origin": "G10",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "75",
+    "origin": "G10",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "76",
+    "origin": "G11",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "77",
+    "origin": "G11",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Pulmonary exacerbations",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "78",
+    "origin": "G11",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "79",
+    "origin": "G11",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "80",
+    "origin": "G11",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "81",
+    "origin": "G11",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "82",
+    "origin": "G11",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "83",
+    "origin": "G11",
+    "termination": "SR9",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Liver disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "84",
+    "origin": "G11",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "85",
+    "origin": "G12",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "86",
+    "origin": "G12",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "87",
+    "origin": "G12",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "88",
+    "origin": "G12",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "89",
+    "origin": "G12",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "90",
+    "origin": "G13",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Lung function",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "91",
+    "origin": "G13",
+    "termination": "SR3",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Adverse effects",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "92",
+    "origin": "G13",
+    "termination": "SR4",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Number of days in hospital",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "93",
+    "origin": "G13",
+    "termination": "SR5",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Acquisition or eradication of significant CF pathogens",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "94",
+    "origin": "G13",
+    "termination": "SR6",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Additional treatment required",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "95",
+    "origin": "G13",
+    "termination": "SR8",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Nutritional markers",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "96",
+    "origin": "G13",
+    "termination": "SR10",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Quality of Life",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "97",
+    "origin": "G13",
+    "termination": "SR12",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "Changes in inflammatory markers",
+    "line_style": 1,
+    "agreement": 1
+  }
+];
+
+
+
+        ////////////////////////////////////////////////////////////////
+
+        var w = window.innerWidth;
+        var h = window.innerHeight - 110; // 110 is needed for the results table and the buttons
+        var popup_w = 2 * w / 5 - 20;
+        var popup_h = h / 3;  // previously this was:  h / 3 + 100;
+        var circle_radius = 50;
+
+        var line_width = 8;
+        var line_dashed = "30, 10";
+
+        var link_gap = 7;
+
+        // define svg and diagonal as global 
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        console.log("svg defined");
+
+        var diagonal = d3.svg.diagonal()
+            // this sets up a variable containing
+            // the diagonal function
+            // note that the x and y are swapped round and then
+            // swapped back with the .projection -
+            // this is so that the diagonal curves in the right direction
+            .source(function (d) {
+                return {
+                    "y": getXcoord(d.origin) + getRadius(d.origin) + link_gap,
+                    "x": getYcoord(d.origin)
+                };
+            })
+            .target(function (d) {
+                return {
+                    "y": getXcoord(d.termination) - getRadius(d.termination) - link_gap,
+                    "x": getYcoord(d.termination)
+                };
+            })
+            .projection(function (d) { return [d.y, d.x]; });
+
+        
+
+        // colours:-
+        var left_outer_colour = "rgb(0, 101, 121)";
+        var left_inner_colour = "rgb(0, 149, 161)";
+        var left_lighter_colour = "rgb(100, 205, 205)";
+        var left_faded_colour = "rgba(100, 205, 205, 0.5)"
+
+        var right_outer_colour = "rgb(91, 41, 96)";
+        var right_inner_colour = "rgb(145, 30, 179)";
+        var right_lighter_colour = "rgb(199, 134, 219)";
+        var right_faded_colour = "rgba(199, 134, 219, 0.2)"
+
+        var link_highlight_colour = "rgb(0, 51, 102)"; // corp blue
+        var link_standard_colour = "rgba(0, 51, 102, 0.4)";
+        var link_faded_colour = "rgba(0, 51, 102, 0.1)";
+
+        var link_highlight_colour_disagree = "rgb(136, 42, 13)"; //Arts dark
+        var link_standard_colour_disagree = "rgba(136, 42, 13, 0.4)";
+        var link_faded_colour_disagree = "rgba(136, 42, 13, 0.1)";
+
+        var link_transparent_colour = "rgba(0, 0, 0, 0.0)"; // fully transparent
+
+        var button_width = 220;
+        var margin = 100; // distance from left button width 
+
+        var group_3 = 0;
+        var group_1 = 0;
+        var group_0 = 0;
+
+        var Antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Exacerbation_management_col = "rgba(184, 204, 228, 1.0)"
+        var Pseudomonas_aeruginosa_col = "rgba(184, 204, 228, 1.0)"
+        var Burkholderia_species_col = "rgba(184, 204, 228, 1.0)"
+        var NTM_col = "rgba(184, 204, 228, 1.0)"
+        var Stenotrophomonas_maltophilia_col = "rgba(184, 204, 228, 1.0)"
+        var MRSA_col = "rgba(184, 204, 228, 1.0)"
+        var Pneumococcus_col = "rgba(184, 204, 228, 1.0)"
+        var Specific_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Antibiotic_prophylaxis_col = "rgba(184, 204, 228, 1.0)"
+        var Inhaled_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Adjuncts_to_antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Management_of_ABPA_col = "rgba(184, 204, 228, 1.0)"
+        var Viral_infections_col = "rgba(184, 204, 228, 1.0)"
+        var Inflammation_col = "rgba(184, 204, 228, 1.0)"
+        var Mucoactive_agents_col = "rgba(184, 204, 228, 1.0)"
+        var Bronchodilators_col = "rgba(184, 204, 228, 1.0)"
+        var Nebuliser_systems_col = "rgba(184, 204, 228, 1.0)"
+        var NIV_col = "rgba(184, 204, 228, 1.0)"
+        var Oxygen_col = "rgba(184, 204, 228, 1.0)"
+        var Surgical_col = "rgba(184, 204, 228, 1.0)"
+        var Pancreatic_Enzymes_col = "rgba(204, 192, 217, 1.0)"
+        var Liver_disease_col = "rgba(204, 192, 217, 1.0)"
+        var Nutritional_supplements_col = "rgba(204, 192, 217, 1.0)"
+        var Appetite_col = "rgba(204, 192, 217, 1.0)"
+        var Acid_management = "rgba(204, 192, 217, 1.0)"
+        var Exercise_col = "rgba(214, 227, 188, 1.0)"
+        var Physiotherapy_col = "rgba(214, 227, 188, 1.0)"
+        var CF_related_arthritis_col = "rgba(251, 212, 180, 1.0)"
+        var Osteoporosis_col = "rgba(251, 212, 180, 1.0)"
+        var CF_related_diabetes_col = "rgba(182, 221, 232, 1.0)"
+        var Growth_Hormone_col = "rgba(182, 221, 232, 1.0)"
+        var Correction_of_basic_defect_col = "rgba(148, 54, 52, 1.0)"
+        var Psychosocial_col = "rgba(166, 166, 166, 1.0)"
+        var ENT_col = "rgba(150, 50, 102, 1.0)"
+
+        // FUNCTION DEFINITIONS
+
+        // Add this function to calculate maximum button width
+        function calculateMaxButtonWidth() {
+            // Define the padding you want on each side
+            var padding = 20;
+            
+            // Create a temporary SVG text element for measurement
+            var tempText = svg.append("text")
+                .attr("font-family", "Helvetica")
+                .attr("font-size", "14px")
+                .style("opacity", 0); // Make it invisible
+            
+            var maxWidth = 0;
+            
+            // First collect all possible button texts
+            var buttonTexts = [];
+            
+            // Get unique topics from dataset_links
+            var uniqueTopics = [];
+            for (var i = 0; i < dataset_links.length; i++) {
+                var topic = dataset_links[i].topic;
+                if (!uniqueTopics.includes(topic)) {
+                    uniqueTopics.push(topic);
+                    buttonTexts.push(topic);
+                }
+            }
+            
+            // Add other button texts
+            buttonTexts.push("Reset");
+            // Add any other fixed button texts here
+            
+            // Measure each text and find the maximum width
+            for (var i = 0; i < buttonTexts.length; i++) {
+                tempText.text(buttonTexts[i]);
+                var width = tempText.node().getComputedTextLength();
+                if (width > maxWidth) {
+                    maxWidth = width;
+                }
+            }
+            
+            // Remove the temporary text element
+            tempText.remove();
+            
+            // Calculate button width with padding
+            var buttonWidth = maxWidth + (padding * 2);
+            
+            // Return the calculated width
+            return buttonWidth;
+        }
+
+        function popupBottomText(page_number) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            var dx = w / 2 - 50;
+            var dy = h - 100;
+
+            var rectangle = svg.append("rect")
+                .attr("x", dx)
+                .attr("y", dy)
+                .attr("width", 100) // make it wide but 40 less than the current width
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = page_number + 1;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+            var rectangle = svg.append("rect")
+                .attr("x", w - (150 + 5))
+                .attr("y", h - (100 + 5))
+                .attr("width", 140) //
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = 12;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", dx + 8)
+                .attr("y", dy + 55)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Continue");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = page_number + 1;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w - 130)
+                .attr("y", h - 50)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Skip intro...");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = 12;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("bottom_text");
+            element.parentNode.removeChild(element);
+        }
+
+        function popupBelow(this_var, node) {
+            var rectangle = svg.append("rect")
+                .attr("x", w / 8)
+                .attr("y", h / 2 + 50)
+                .attr("width", w * 6 / 8)
+                .attr("height", 50)
+                .attr("fill", function (d) {
+                    if (node.group == 1) {
+                        return (right_lighter_colour)
+                    } else {
+                        return (left_lighter_colour)
+                    }
+                })
+                .attr("id", "below_popup_id")
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .style("pointer-events", "none");
+            var popup_below_text = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w / 8 + 20)
+                .attr("y", h / 2 + 50 + 30)
+                .attr('id', 'below_popup_text_id')
+                .text(function (d) {
+                    var str = (node.title);
+                    return (str);
+                });
+        }
+
+        function removePopupBelow(this_var, node) {
+            var element = document.getElementById("below_popup_id");
+            element.parentNode.removeChild(element);
+            var element = document.getElementById("below_popup_text_id");
+            element.parentNode.removeChild(element);
+        }
+
+
+        function getXcoord(node) {
+            // function to get the x co-ordinate of the
+            // node stored in dataset
+            var x_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    x_coord = dataset[i].x_coord;
+                }
+            }
+            return x_coord;
+        }
+
+        function getYcoord(node) {
+            // function to get the y corordinate of the
+            // node stored in dataset
+            var y_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    y_coord = dataset[i].y_coord;
+                }
+            }
+            return y_coord;
+        }
+
+        function getRadius(node) {
+            // function to get the radius of the
+            // node stored in dataset
+            var rad = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    rad = dataset[i].rad;
+                }
+            }
+            return rad;
+        }
+
+        function highlightNodes(node) {
+            for (i = 0; i < dataset_links.length; i++) {
+                //change the colour variable in dataset_links
+                if (dataset_links[i].origin == node || dataset_links[i].termination == node) {
+                    dataset_links[i].line_col = "2";
+                } else {
+                    dataset_links[i].line_col = "0";
+                }
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                ;
+        }
+
+        function unhighlightNodes() {
+            for (i = 0; i < dataset_links.length; i++) {
+                //reset the colours of all nodes
+                dataset_links[i].line_col = "1";
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                //.transition()
+                //.duration(100)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function fadeAllLinks() {
+            //function to fade all the links
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    }
+                })
+                ;
+        }
+
+        function highlightLinks(link) {
+            // function to highlight the link
+            // and include the text in the upper boxes
+            // first get the origin then
+            // find the text associated with link.origin
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    insertLeftText(dataset[i].recommend);
+                }
+                if (dataset[i].title == link.termination) {
+                    insertRightText(dataset[i].recommend);
+                }
+            }
+        }
+
+        function updateCircleLocation() {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#nodes")
+                .data(dataset)
+                .transition()
+                .duration(transition_time)
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                });
+        }
+
+        function updateLineLocation(transition_time) {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#links")
+                .data(dataset_links)
+                .transition()
+                .duration(transition_time)
+                .attr("d", diagonal)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function update_groups() {
+            group_0 = 0;
+            group_1 = 1;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+        }
+
+        function setSquareArrangement() {
+            // loop to empirically set the square node positions
+            // note this calls and adjusts the global variables
+            // first reset the data
+            group_0_counter = 0;
+            group_1_counter = 1;
+
+            // Adjust these values to control the horizontal position
+            var left_offset  = button_width + margin;  // Changed from w/3 to w/4 (smaller value = closer to center)
+            var right_offset =  margin; // Changed from w/3 to w/4
+            
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0_counter = group_0_counter + 1;
+                    dataset[i].x_coord = left_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_0_counter) * (h * 0.9) / (group_0 + 1);
+
+                } else if (dataset[i].group == 1) {
+                    group_1_counter = group_1_counter + 1;
+                    dataset[i].x_coord = w - right_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_1_counter) * (h * 0.9) / (group_1 + 1);
+                }
+            }
+        }
+
+        function setCircleArrangement() {
+            // loop to set the circular node positions
+            // note this calls and adjusts the global variables
+            // makes use of group_0, and group_1
+            // need to use group_1_counter and group_0_counter
+            //   to keep track of the groups (in case they're 
+            //   in funny orders)
+            // circle offset is amount of the bottom and top of the circle to leave off
+            // console.log("in set circle arangement");
+            var circle_offset = 0.3;
+            var separation = 50;
+            var group_0_counter = Math.round(circle_offset / 2 * group_0);
+            var group_1_counter = Math.round(circle_offset / 2 * group_1);
+            var centre_x = w / 2 + button_width /2;
+            var centre_y = h / 2;
+            var left_offset  = button_width + margin;
+
+            var radius_option1 = h * 0.45;  // Original height-based radius
+            var radius_option2 = (w / 2) - (left_offset / 2); // Width-based radius considering buttons
+            
+            // Use the smaller of the two values
+            var rad = Math.min(radius_option1, radius_option2) * 0.9;
+            console.log("debugging setCicleArrangement");
+            console.log(h);
+            console.log(w);
+            console.log(rad);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    dataset[i].x_coord = centre_x - separation - rad * Math.sin((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    dataset[i].y_coord = centre_y - rad * Math.cos((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    group_0_counter = group_0_counter + 1;
+                } else if (dataset[i].group == 1) {
+                    dataset[i].x_coord = centre_x + separation + (rad) * Math.sin((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    dataset[i].y_coord = centre_y - (rad) * Math.cos((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    group_1_counter = group_1_counter + 1;
+                }
+            }
+        }
+
+        function showAllSquare() {
+            // make the nodes and links move into a square arrangement
+            resetGroups();
+            update_groups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function showAllCircle() {
+            resetGroups();
+            update_groups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function disAppearAllNodes() {
+            // change the location of the nodes so that they are all off screen
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].y_coord = h + 200;
+            }
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getTopic(topic_string) {
+            // console.log("In the getTopic() function")
+            // console.log(topic_string)
+            // function to put all the nodes in topic_string in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (let i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (let i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].topic == topic_string) {
+                    // if topic is asthma get the guideline to group 1 and the cr to group 0
+                    for (let j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getCommissioner(commission_string) {
+            // function to put all the asthmas in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == commission_string) {
+                    // if commissioner is the right one get the guideline to group 1 and the cr to group 0
+                    for (j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getDisagree() {
+            // function to make all agreeing lines transparent
+
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].agreement == 1) {
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function getIgnored() {
+            // function to show only the links with evidence ignored
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].line_style == 1) {
+                    // remove the full lines
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function changeColourExcludedGroups() {
+            for (i = 0; i < dataset_links["length"]; i++) {
+                // loop over the dataset_links origins and terminations
+                // if either are group 2 then set the line colour to 0
+                for (j = 0; j < dataset.length; j++) {
+                    if (dataset[j].title == dataset_links[i].origin || dataset[j].title == dataset_links[i].termination) {
+                        if (dataset[j].group == 2) {
+                            dataset_links[i].line_opaque = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        function resetGroups() {
+            // function which loops through dataset
+            // and resets all Gaps to 0 and Systematic reviews to 1
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title.substring(0, 1) == "S") {
+                    dataset[i].group = 1;
+                } else if (dataset[i].title.substring(0, 1) == "G") {
+                    dataset[i].group = 0;
+                }
+            }
+            for (i = 0; i < dataset_links.length; i++) {
+                dataset_links[i].line_opaque = 1;
+            }
+        }
+
+        function popupString(this_var, link) {
+            // function to popup the rectangles with the strings in
+            // in this version it is just on the right
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+
+            //left rectangle:-
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+            // insert text on the left:
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text(""); // empty text instead of a placeholder
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    new_text = dataset[i].full_title;
+                    // console.log(new_text);
+                    // console.log("Left node = ");
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+
+            // right rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", w - (popup_w + 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w))
+                .attr("height", (popup_h))
+                .attr("fill", right_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var dx = w - (popup_w - 10);
+            var rightText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-right-text')
+                .attr("x", dx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.termination) {
+                    new_text = dataset[i].full_title;
+                    // console.log("Right node = ")
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineRight("Topic: ".concat(new_text), dx);
+
+            // reason in the middle!!
+
+            var rectangle = svg.append("rect")
+                .attr("x", w / 2 - (popup_w * .5 / 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w * .5))
+                .attr("height", (popup_h * 1.6))
+                .attr("fill", link_standard_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var mdx = w / 2 - (popup_w * .5 / 2) + 10;
+
+            var middleText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:10px;')
+                .attr('id', 'multiline-middle-text')
+                .attr("x", mdx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6 + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            //console.log(new_text);
+            // console.log("link.termination = ")
+            //console.log(link.termination);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    // console.log("Middle node identified.  The next three logs should be dataset[i].title and dataset[i].recommend and i.");
+                    //console.log(dataset[i].title);
+                    //console.log(dataset[i].recommend);
+                    //console.log(i);
+                    new_text = dataset[i].recommend;
+                }
+            }
+            //console.log(new_text);
+            createMultiLineMiddle(new_text, mdx);
+
+        }
+
+        function createMultiLineMiddle(text, mdx) {
+            var words = text.split(' ');
+
+            // Get dimensions of the rectangle
+            var text_width = popup_w * .5 - 20;
+            var rectangle_height = popup_h * 1.6; // Match the height of the middle rectangle
+            var line_height = 18; // Height of each line of text
+            var initial_y_offset = 30; // Initial y position where text starts
+            
+            // Calculate maximum number of lines that can fit in the rectangle
+            var max_lines = Math.floor((rectangle_height - initial_y_offset) / line_height);
+            
+            var text_element = document.getElementById("multiline-middle-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-weight:bold; font-size:12px;')
+            
+            // Create first tspan element
+            var current_tspan = document.createElementNS(svgNS, "tspan");
+            var text_node = document.createTextNode(words[0] || "");
+            
+            current_tspan.appendChild(text_node);
+            text_element.appendChild(current_tspan);
+
+            var lines_count = 0;
+            
+            for (var i = 1; i < words.length; i++) {
+                // Store current length before adding new word
+                var len = current_tspan.firstChild.data.length;
+                
+                // Try adding the next word
+                current_tspan.firstChild.data += " " + words[i];
+                
+                // Check if it's too long for the width
+                if (current_tspan.getComputedTextLength() > text_width) {
+                    // Remove the added word (restore to previous length)
+                    current_tspan.firstChild.data = current_tspan.firstChild.data.slice(0, len);
+                    
+                    // Increment line count
+                    lines_count += 1;
+                    
+                    // Check if we've hit the maximum number of lines that can fit
+                    if (lines_count >= max_lines - 1) { // Leave one line for ellipsis
+                        // Add ellipsis to indicate truncation
+                        current_tspan.firstChild.data += "...";
+                        break; // Stop processing more words
+                    }
+                    
+                    // Create a new tspan for the next line
+                    var next_tspan = document.createElementNS(svgNS, "tspan");
+                    next_tspan.setAttributeNS(null, "x", mdx);
+                    next_tspan.setAttributeNS(null, "dy", line_height);
+                    
+                    // Add the current word to the new line
+                    var new_text_node = document.createTextNode(words[i]);
+                    next_tspan.appendChild(new_text_node);
+                    text_element.appendChild(next_tspan);
+                    
+                    // Update the current tspan reference
+                    current_tspan = next_tspan;
+                }
+            }
+        }
+        function createMultiLineLeft(text, ldx) {
+            // Handle null or empty text
+            if (!text || text.trim() === "") {
+                text = ""; // Set to empty string
+            }
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-left-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", ldx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function createMultiLineRight(text, dx) {
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-right-text");
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            text_element.textContent = "";
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+            var lines_count = 0;
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);    // Remove added word
+                    var tspan_element = document.createElementNS(svgNS, "tspan");       // Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+                }
+            }
+        }
+
+        function popupTitle(this_var, title, group, full_title) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+            var dx = 20;
+            var dy = 0;
+            // we could use this code below to determine if this is a left node or a right node 
+            // swapping height for width
+            if (coords[1] > h / 2) {
+                dy = 20;
+            } else {
+                dy = h - 120; // height = 100
+            }
+
+            // left rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            // insert text on the left 
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text("");
+            var new_text = "";
+            // console.log("full_title:");
+            //console.log(full_title);
+            // console.log("new_text:")
+            //console.log(new_text);
+            new_text = full_title;
+            //console.log(new_text);
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+        }
+
+        function createPopup(text, dx) {
+            var words = text.split(' ');
+            var text_width = w - 100;
+            var text_element = document.getElementById("multiline-title-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 5) {  //don't go over this number of lines
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function removeBottomText() {
+            var element = document.getElementById("bottom_text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            var element = document.getElementById("multiline-title-text");
+            element.parentNode.removeChild(element);
+        }
+
+        function removePopupMain() {
+            // this removes the popups from the main function
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-title-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removePopupMain... no popups left")
+                }
+            }
+        }
+
+        function removeString() {
+            //do stuff to remove all the popup strings on the page
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-right-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-left-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-middle-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-string-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removeString... no popups left")
+                }
+            }
+        }
+
+ 
+
+        function drawButton(y_pos, button_text, function_call, fcol, fontcol) {
+            // Default colors if not provided
+            fontcol = (typeof fontcol !== 'undefined') ? fontcol : "black";
+            fcol = (typeof fcol !== 'undefined') ? fcol : Antibiotic_therapy_col;
+
+            // Create a group to hold both rectangle and text
+            var buttonGroup = svg.append("g")
+                .attr("class", "button-group");
+            
+            // Add rectangle to group
+            var button_rect = buttonGroup.append("rect")
+                .attr("x", 0)
+                .attr("y", y_pos + 5)
+                .attr("width", button_width)
+                .attr("height", 25)
+                .attr("fill", fcol)
+                .attr("stroke", "gray")
+                .attr("rx", 5)
+                .attr("ry", 5)
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight effect on mouseover
+                    d3.select(this)
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Also highlight the text
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return to original style on mouseout
+                    d3.select(this)
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);
+                        
+                    // Return text to normal
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+
+            // Add text to the same group
+            var button_text = buttonGroup.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol)
+                .attr("x", 5)
+                .attr("y", y_pos + 5 + 14)
+                .attr('id', 'button_text')
+                .text(function (d) {
+                    return (button_text);
+                })
+                .style("cursor", "default")
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight the rectangle when text is hovered
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Update text style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return rectangle to original style
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);    
+                        
+                    // Return text to original style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+        }
+
+
+        function drawAllButtons() {
+            var z = 0;
+            var big_space = 30;
+            var small_space = 26;
+
+            var uniqueTopics = []; // Array to store unique topics
+
+            for (var i = 0; i < dataset_links.length; i++) {
+                var topic = dataset_links[i].topic;
+                var buttonText = dataset_links[i].topic;
+                var onClickAction = "getTopic('" + topic + "');";
+
+                if (!uniqueTopics.includes(topic)) {
+                    // Draw the button only if the topic is not already included
+                    drawButton(z, buttonText, onClickAction, "white");
+                    uniqueTopics.push(topic); // Add the topic to the uniqueTopics array
+                    z = z + small_space;
+                }
+            }
+
+            z = z + big_space;
+            drawButton(z, "Reset", "showAllCircle();", "white");
+            z = z + big_space;
+        }
+
+
+        function setLineStyle() {
+            // function to loop over the links and set the line style
+            // console.log("in setLineStyle")
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == "No Trials") {
+                    dataset_links[i].line_style = 2;
+                }
+            }
+        }
+
+        function getTopicForNode(nodeTitle) {
+            // Search through dataset_links to find the topic
+            for (let i = 0; i < dataset_links.length; i++) {
+                // If this link points to the node we're looking for
+                if (dataset_links[i].termination == nodeTitle) {
+                    // Return the topic of this link
+                    return dataset_links[i].topic;
+                }
+            }
+            // If no topic was found
+            return null;
+        }
+
+        function runFigure() {
+            removeBottomText();
+            drawAllButtons();
+            setLineStyle();
+
+            svg.selectAll("circle")
+                .data(dataset) //may as well use this as the index
+                .enter()
+                .append("circle")
+                .attr("id", "nodes")
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                })
+                .attr("r", function (d, i) {
+                    d.rad = Math.sqrt(dataset[i].size * circle_radius)
+                    return (d.rad);
+                })
+                .attr("stroke-width", 2)
+                .attr("fill", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_inner_colour);
+                    } else {
+                        return (right_inner_colour);
+                    }
+                })
+                .attr("stroke", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_outer_colour);
+                    } else {
+                        return (right_outer_colour);
+                    }
+                })
+                .on("click", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        //console.log(dataset[i].title);
+                        //console.log(dataset[i].recommend);
+                        window.open((dataset[i].doi));
+                    } else if (dataset[i].group == 1) {
+                        // console.log("click detected - datset[i]==1");
+                        //console.log(dataset[i].title);
+                        // work out the topic 
+                        var nodeTopic = getTopicForNode(dataset[i].title);
+                        // console.log("node topic = ")
+                        //console.log(nodeTopic)
+                        if (nodeTopic) {
+                            // Call the getTopic function with this topic
+                            getTopic(nodeTopic);
+                        }
+
+                    }
+                })
+                .on("mouseover", function () {
+                    d3.select(this)
+                        .attr("fill", function (d) {
+                            // logic to fill the circle and call
+                            // highlight nodes and write text
+                            highlightNodes(d.title);
+                            popupTitle(this, d.title, d.group, d.full_title);
+                            // console.log("Node = ");
+                            //console.log(d.title);
+                            if (d.group == 0) {
+                                return (left_outer_colour);
+                            } else {
+                                return (right_outer_colour);
+                            }
+                        })
+
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .attr("fill", function (d) {
+                            removeString();
+                            unhighlightNodes();
+                            removePopupMain();
+                            if (d.group == 0) {
+                                return (left_inner_colour);
+                            } else {
+                                return (right_inner_colour);
+                            }
+                            });
+                    }, 50); // 50ms delay
+                });
+
+
+
+            svg.selectAll("path")
+                .data(dataset_links) //may as well use this as the index
+                .enter()
+                .append("path")
+                .attr("d", diagonal)
+                .attr("id", "links")
+                .style("stroke-linecap", "round")
+                .style("fill", "none")
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                .style("stroke-dasharray", function (d) {
+                    if (d.line_style == 1) {
+                        return ("5, 0");
+                    } else if (d.line_style == 2) {
+                        return (line_dashed);
+                    }
+                })
+                .style("stroke-width", line_width)
+                .on("mouseover", function () {
+                    // don't do mouse overs if the line is transparent!
+                    d3.select(this)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            popupString(this, d);
+                            // highlightLinks(d);
+                            fadeAllLinks();
+                            if (d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            }
+                        })
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    // don't do mouse overs if the line is transparent!
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            removeString();
+                            unhighlightNodes();
+                            if (d.line_col == 1 && d.agreement == 1) {
+                                return (link_standard_colour);
+                            } else if (d.line_col == 1 && d.agreement == 4) {
+                                return (link_standard_colour_disagree);
+                            } else if (d.line_col == 0 && d.agreement == 1) {
+                                return (link_faded_colour);
+                            } else if (d.line_col == 0 && d.agreement == 4) {
+                                return (link_faded_colour_disagree);
+                            } else if (d.line_col == 2 && d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.line_col == 2 && d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            } else {
+                                return ("blue");
+                            }
+                        })
+                    }, 50) // this is the delay of 50 ms
+                });
+        }
+
+        //Functions to download the data:
+        // Function to read and parse the XLSX file
+        function importXLSX(file, callback) {
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                var data = new Uint8Array(event.target.result);
+                var workbook = XLSX.read(data, { type: "array" });
+                var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                var headers = jsonData[0]; // Extract the first row as headers
+                var dataArray = jsonData.slice(1); // Remove the first row from the data
+
+                var result = dataArray.map(function (row) {
+                    var obj = {};
+                    headers.forEach(function (header, index) {
+                        obj[header] = row[index];
+                    });
+                    return obj;
+                });
+
+                callback(result);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Handle file selection event for dataset file
+        function handledatasetFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset = jsonData; // Store dataset data in the 'dataset' variable
+                hideFileInput('datasetButton');
+            });
+        }
+
+        // Handle file selection event for dataset_links file
+        function handledataset_linksFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset_links = jsonData; // Store dataset_links data in the 'dataset_links' variable
+                hideFileInput('dataset_linksButton');
+            });
+        }
+
+        // Function to hide button element by ID
+        function hideFileInput(buttonId) {
+            var button = d3.select("#" + buttonId);
+            button.style("display", "none");
+        }
+
+        // Function to trigger file input click event
+        function triggerFileInputClick(inputId) {
+            var fileInput = document.getElementById(inputId);
+            fileInput.click();
+        }
+
+        // Create D3 button for file input
+        function createFileInputButton(buttonId, inputId, buttonText) {
+            var buttonContainer = d3.select("body")
+                .append("div")
+                .attr("id", buttonId)
+                .attr("class", "custom-button-container");
+
+            buttonContainer.append("button")
+                .attr("class", "custom-button")
+                .text(buttonText)
+                .on("click", function () {
+                    triggerFileInputClick(inputId);
+                });
+
+            buttonContainer.append("input")
+                .attr("type", "file")
+                .attr("id", inputId)
+                .attr("class", "hidden")
+                .on("change", function () {
+                    if (inputId === "datasetFileInput") {
+                        handledatasetFileSelect(event); // Pass the event parameter here
+                    } else if (inputId === "dataset_linksFileInput") {
+                        handledataset_linksFileSelect(event); // Pass the event parameter here
+                    }
+                });
+        }
+
+        async function loadXLSXData() {
+            // Create file input buttons using D3
+            createFileInputButton("datasetButton", "datasetFileInput", "Load dataset");
+            createFileInputButton("dataset_linksButton", "dataset_linksFileInput", "Load dataset_links");
+
+            await waitForArrays();
+        }
+
+        function logEvent() {
+            // console.log("Event");
+            // console.log("dataset:", dataset);
+            // console.log("dataset_links:", dataset_links);
+        }
+
+        function waitForArrays() {
+            return new Promise((resolve) => {
+                // Function to check if both arrays have data
+                function checkArrays() {
+                    if (dataset.length > 0 && dataset_links.length > 0) {
+                        resolve(); // Resolve the promise when both arrays have data
+                    } else {
+                        setTimeout(checkArrays, 100); // Check again after a certain delay
+                    }
+                }
+
+                checkArrays(); // Start checking the arrays
+            });
+        }
+
+        //  //  //  //  //  //  //  //
+        ///  CODE TO GET THINGS DONE:
+
+
+        async function main() {
+
+            console.log("in the main function");
+    
+            // Check if dataset and dataset_links already have data (are hardcoded)
+            if (dataset.length > 0 && dataset_links.length > 0) {
+                console.log("Using hardcoded dataset and dataset_links");
+                button_width = calculateMaxButtonWidth();
+                // Skip loading data files, directly update groups and display
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            } else {
+                // No hardcoded data, proceed with loading data files
+                console.log("No hardcoded data found. Loading data from files...");
+                await loadXLSXData();  // Load data before drawing anything
+                button_width = calculateMaxButtonWidth();
+                logEvent();  // Log to help track program flow
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            }
+        }
+
+        main();  // and here it is that we start!
+    </script>
+</body>
+
+</html>
