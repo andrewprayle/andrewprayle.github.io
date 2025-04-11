@@ -13,7 +13,7 @@ The following evidence maps were commissioned as part of grants supporting the w
 
 Click [here](/2024_Evidence_Map_Infection_Prevention_Control.html) to go to the ineractive figure for Rowbotham, N. J., Smith, S., Jahnke, N., Milczanowski, S., Elliott, Z. C., Prayle, A. P., & Smyth, A. R. (2025). Infection prevention and control in cystic fibrosis: An update of a systematic review of interventions. Journal of Cystic Fibrosis, 24(2), 359-363. https://doi.org/10.1016/j.jcf.2024.08.004
 
-Click [here](/2024pseudomonas_eradication_evidence_map.html) for the Pseudomonal eradication therapy evidence map.  
+Click [here](/2024_pseudomonas_eradication_evidence_map.html) for the Pseudomonal eradication therapy evidence map.  
 
 
 v0.05
