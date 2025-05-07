@@ -16,16 +16,17 @@ The following evidence maps were commissioned as part of grants supporting the w
 Antibiotic strategies for eradicating Pseudomonas aeruginosa in people with cystic fibrosis (status: evidence map completed and available online).  Click [here](/2024_pseudomonas_eradication_evidence_map.html) for the Pseudomonal eradication therapy evidence map.
 
 
-Antifungal therapies for allergic bronchopulmonary aspergillosis in people with cystic fibrosis (review updated, no evidence map yet)
+Antifungal therapies for allergic bronchopulmonary aspergillosis in people with cystic fibrosis (status: review updated, no evidence map in preparation)
 
 
-Interventions for the eradication of methicillin-resistant Staphylococcus aureus (MRSA) in people with cystic fibrosis (evidence map completed and available online).  Click [here](/2024_MRSA_evidence_map.html) for the MRSA evidence map.
+Interventions for the eradication of methicillin-resistant Staphylococcus aureus (MRSA) in people with cystic fibrosis (status: evidence map completed and available online).  Click [here](/2024_MRSA_evidence_map.html) for the MRSA evidence map.
 
 
-Intravenous antibiotics for pulmonary exacerbations in people with cystic fibrosis (review updated, no evidence map yet)
+Intravenous antibiotics for pulmonary exacerbations in people with cystic fibrosis (status:review updated, no evidence map yet)
 
 
 Macrolide antibiotics for cystic fibrosis (status: evidence map completed and available online).  Click [here](/2024_macrolide_evidence_map.html) for the macrolide evidence map.
+
 
 ### Infection prevention and control:
 
@@ -34,13 +35,13 @@ Click [here](/2024_Evidence_Map_Infection_Prevention_Control.html) to go to the 
 
 ### NTM Reviews 
 
-Antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (review updated, no evidence map yet)
+Antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review updated, no evidence map yet)
 
-Non-antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (review completed & submitted to BMJ Open Respiratory Research, no evidence map yet)
+Non-antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review completed & submitted to BMJ Open Respiratory Research, evidence map in preparation)
 
-Lung transplant in people with CF and NTM pulmonary disease (review almost completed, no evidence map yet)
+Lung transplant in people with CF and NTM pulmonary disease (status: review almost completed, awaiting evidence map)
 
-Institutional or domestic interventions to reduce water-borne transmission of nontuberculous mycobacteria (NTM) (review should be completed by mid-May, no evidence map yet)
+Institutional or domestic interventions to reduce water-borne transmission of nontuberculous mycobacteria (NTM) (status: review should be completed by mid-May, no evidence map yet)
 
 
 
