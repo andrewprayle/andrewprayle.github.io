@@ -37,7 +37,7 @@ Lung transplant in people with CF and NTM pulmonary disease (status:review compl
 
 Institutional or domestic interventions to reduce water-borne transmission of nontuberculous mycobacteria (NTM) (status: review should be completed by mid-May, no evidence map yet)
 
-## Original published evidence maps
+## Previous published evidence maps
 
 Click [here](/interactive_figure.html) to go to the interactive figure from Prayle AP, Cox T, Smith SJ, et al. Do guidelines for treating chest disease in children use Cochrane Reviews effectively? A systematic review. Thorax. 2018;73:670-3.
 
