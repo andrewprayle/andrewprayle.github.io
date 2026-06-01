@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>NTM Environmental Transmission Evidence Map 2026</title>
+    <style type="text/css">
+        .custom-button-container {
+            display: inline-block;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .Title {
+            color: gray;
+            height: 20px;
+            font-size: 20px;
+            font-family: Helvetica;
+        }
+
+        .Textbox {
+            font-size: 15px;
+            font-family: Helvetica;
+            padding: 5px;
+            text-align: left;
+            float: left;
+            height: 20px;
+            border-radius: 15px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // evidence_map v 0.053
+        // TODO
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        console.log("initiating variables");
+
+        //  INITIAL VARIABLES:
+        var svgNS = "http://www.w3.org/2000/svg";  // initiates the namespace
+
+
+        // these two variable store the data:-
+        var dataset = []
+        var dataset_links = []
+
+var dataset_links = [
+  {
+    "\ufeff": "0",
+    "origin": "G0",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "2. Change in rates of acquisition of NTM pulmonary disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "1",
+    "origin": "G1",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "2",
+    "origin": "G2",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "3",
+    "origin": "G3",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "4",
+    "origin": "G4",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "5",
+    "origin": "G5",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "6",
+    "origin": "G6",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "7",
+    "origin": "G7",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "8",
+    "origin": "G7",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "2. Change in rates of acquisition of NTM pulmonary disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "9",
+    "origin": "G8",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "10",
+    "origin": "G9",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "11",
+    "origin": "G10",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "12",
+    "origin": "G11",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "13",
+    "origin": "G12",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "14",
+    "origin": "G13",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "15",
+    "origin": "G14",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "16",
+    "origin": "G15",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "17",
+    "origin": "G16",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "18",
+    "origin": "G17",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "19",
+    "origin": "G18",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "20",
+    "origin": "G19",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "21",
+    "origin": "G20",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "22",
+    "origin": "G21",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "2. Change in rates of acquisition of NTM pulmonary disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "23",
+    "origin": "G22",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "24",
+    "origin": "G23",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "25",
+    "origin": "G24",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "26",
+    "origin": "G25",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "27",
+    "origin": "G26",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "28",
+    "origin": "G27",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "29",
+    "origin": "G28",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "2. Change in rates of acquisition of NTM pulmonary disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "30",
+    "origin": "G29",
+    "termination": "SR1",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "2. Change in rates of acquisition of NTM pulmonary disease",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "31",
+    "origin": "G30",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "32",
+    "origin": "G31",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "33",
+    "origin": "G32",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "34",
+    "origin": "G33",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "35",
+    "origin": "G34",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "36",
+    "origin": "G35",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  },
+  {
+    "\ufeff": "37",
+    "origin": "G36",
+    "termination": "SR0",
+    "commission": "",
+    "otherEvidence": "",
+    "line_col": 1,
+    "line_opaque": 1,
+    "topic": "1. Change in number of colony forming units in water post intervention",
+    "line_style": 1,
+    "agreement": 1
+  }
+];
+
+// Example of how to access the data:
+// console.log(dataset_links[0]);
+
+// Export the data if using modules
+// export default dataset_links;
+
+
+var dataset = [
+  {
+    "\ufeff": "0",
+    "title": "G0",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1093/cid/ciaa1237",
+    "recommend": "We analyzed the impact of a hospital tap water avoidance protocol on respiratory isolation of nontuberculous mycobacteria (NTM). After protocol implementation, hospital-onset episodes of respiratory NTM isolation on high-risk units decreased from 41.0 to 9.9 episodes per 10\u2005000 patient-days (incidence rate ratio, 0.24; 95% confidence interval, .17-.34; P\u2005<\u2005.0001).",
+    "full_title": "Tap water avoidance decreases rates of hospital-onset pulmonary nontuberculous mycobacteria (2021) doi:https://dx.doi.org/10.1093/cid/ciaa1237"
+  },
+  {
+    "\ufeff": "1",
+    "title": "G1",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1086/675280",
+    "recommend": "Objective and design: Legionella control still remains a critical issue in healthcare settings where the preferred approach to health risk assessment and management is to develop a water safety plan. We report the experience of a university hospital, where a water safety plan has been applied since 2002, and the results obtained with the application of different methods for disinfecting hot water distribution systems in order to provide guidance for the management of water risk.\n\nInterventions: The disinfection procedures included continuous chlorination with chlorine dioxide (0.4-0.6 mg/L in recirculation loops) reinforced by endpoint filtration in critical areas and a water treatment based on monochloramine (2-3 mg/L). Real-time polymerase chain reaction and a new immunoseparation and adenosine triphosphate bioluminescence analysis were applied in environmental monitoring.\n\nResults: After 9 years, the integrated disinfection-filtration strategy significantly reduced positive sites by 55% and the mean count by 78% (P < .05); however, the high costs and the occurrence of a chlorine-tolerant clone belonging to Legionella pneumophila ST269 prompted us to test a new disinfectant. The shift to monochloramine allowed us to eliminate planktonic Legionella and did not require additional endpoint filtration; however, nontuberculous mycobacteria were isolated more frequently as long as the monochloramine concentration was 2 mg/L; their cultivability was never regained by increasing the concentration up to 3 mg/L.\n\nConclusions: Any disinfection method needs to be adjusted/fine-tuned in individual hospitals in order to maintain satisfactory results over time, and only a locally adapted evidence-based approach allows assessment of the efficacy and disadvantages of the control measures.",
+    "full_title": "Long-term effects of hospital water network disinfection on Legionella and other waterborne bacteria in an Italian University hospital (2014) doi: https://dx.doi.org/10.1086/675280"
+  },
+  {
+    "\ufeff": "2",
+    "title": "G2",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1086/678418; CRS ID: 29363282",
+    "recommend": "Objective: To evaluate the efficacy of a new monochloramine generation system for control of Legionella in a hospital hot water distribution system.\n\nSetting: A 495-bed tertiary care hospital in Pittsburgh, Pennsylvania. The hospital has 12 floors covering approximately 78,000 m(2).\n\nMethods: The hospital hot water system was monitored for a total of 29 months, including a 5-month baseline sampling period prior to installation of the monochloramine system and 24 months of surveillance after system installation (postdisinfection period). Water samples were collected for microbiological analysis (Legionella species, Pseudomonas aeruginosa, Stenotrophomonas maltophilia, Acinetobacter species, nitrifying bacteria, heterotrophic plate count [HPC] bacteria, and nontuberculous mycobacteria). Chemical parameters monitored during the investigation included monochloramine, chlorine (free and total), nitrate, nitrite, total ammonia, copper, silver, lead, and pH.\n\nResults: A significant reduction in Legionella distal site positivity was observed between the pre- and postdisinfection periods, with positivity decreasing from an average of 53% (baseline) to an average of 9% after monochloramine application (P<0.5]). Although geometric mean HPC concentrations decreased by approximately 2 log colony-forming units per milliliter during monochloramine treatment, we did not observe significant changes in other microbial populations.\n\nConclusions: This is the first evaluation in the United States of a commercially available monochloramine system installed on a hospital hot water system for Legionella disinfection, and it demonstrated a significant reduction in Legionella colonization. Significant increases in microbial populations or other negative effects previously associated with monochloramine use in large municipal cold water systems were not observed.",
+    "full_title": "Evaluation of a new monochloramine generation system for controlling Legionella in building hot water systems (2014) doi: https://dx.doi.org/10.1086/678418"
+  },
+  {
+    "\ufeff": "3",
+    "title": "G3",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1128/AEM.67.3.1225-1231.2001",
+    "recommend": "Eight water distribution systems were sampled over an 18-month period (528 water and 55 biofilm samples) to measure the frequency of recovery and number of mycobacteria, particularly Mycobacterium avium and Mycobacterium intracellulare, in raw source waters before and after treatment and within the distribution system. The systems were chosen to assess the influence of source water, treatment, and assimilable organic carbon levels on mycobacterial numbers. Overall, mycobacterial recovery from the systems was low (15% of samples). Numbers of mycobacteria ranged from 10 to 700,000 CFU liter(-1). The number of M. avium in raw waters was correlated with turbidity. Water treatment substantially reduced the number of mycobacteria in raw waters by 2 to 4 log units. Mycobacterial numbers were substantially higher in the distribution system samples (average, 25,000-fold) than in those collected immediately downstream from the treatment facilities, indicating that mycobacteria grow in the distribution system. The increase in mycobacterial numbers was correlated with assimilable organic carbon and biodegradable organic carbon levels (r(2) = 0.65, P = 0.03). Although M. intracellulare was seldom recovered from water samples, it was frequently recovered (six of eight systems) in high numbers from biofilms (average, 600 CFU/cm(2)). Evidently, the ecological niches of M. avium and M. intracellulare are distinct.",
+    "full_title": "Factors influencing numbers of Mycobacterium avium, Mycobacterium intracellulare, and other Mycobacteria in drinking water distribution systems (2001) doi: https://dx.doi.org/10.1128/AEM.67.3.1225-1231.2001"
+  },
+  {
+    "\ufeff": "4",
+    "title": "G4",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1080/15459620701634403",
+    "recommend": "Hot tub exposure has been causally associated with a steroid-responsive, granulomatous lung disease featuring nontuberculous mycobacterial (NTM) growth in both clinical and environmental samples. Little is known regarding prevalence of and risk factors for NTM-contamination and associated illness in these settings. In this study, the frequency of NTM growth and aerosolization in 18 public hot tubs and warm water therapy pools and the factors associated with mycobacterial growth were analyzed. Each site was characterized by water chemistry analysis; a questionnaire on maintenance, disinfection, and water quality; and air and water sampling for quantitative NTM culture. NTM were detected in air or water from 13/18 (72%) sites; a strong correlation was found between the maximum air and water NTM concentrations (rho 0.49, p = 0.04). Use of halogen (chlorine or bromine) disinfection was associated with significantly lower air and water concentrations of NTM compared with disinfection using ultraviolet light and hydrogen peroxide (p = 0.01-0.04). Higher water turnover rates were also associated with lower air and water NTM concentrations (p = 0.02-0.03). These findings suggest that NTM are frequently detectable in the air and water of spas and therapy pools and that particular maintenance and disinfection approaches affect NTM bioaerosol concentrations in these settings.",
+    "full_title": "Nontuberculous mycobacteria in aerosol droplets and bulk water samples from therapy pools and hot tubs (2007) doi: https://dx.doi.org/10.1080/15459620701634403"
+  },
+  {
+    "\ufeff": "5",
+    "title": "G5",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1128/AEM.00759-06",
+    "recommend": "There is evidence that drinking water may be a source of infections with pathogenic nontuberculous mycobacteria (NTM) in humans. One method by which NTM are believed to enter drinking water distribution systems is by their intracellular colonization of protozoa. Our goal was to determine whether we could detect a reduction in the prevalence of NTM recovered from an unfiltered surface drinking water system after the addition of ozonation and filtration treatment and to characterize NTM isolates by using molecular methods. We sampled water from two initially unfiltered surface drinking water treatment plants over a 29-month period. One plant received the addition of filtration and ozonation after 6 months of sampling. Sample sites included those at treatment plant effluents, distributed water, and cold water taps (point-of-use [POU] sites) in public or commercial buildings located within each distribution system. NTM were recovered from 27% of the sites. POU sites yielded the majority of NTM, with >50% recovery despite the addition of ozonation and filtration. Closely related electrophoretic groups of Mycobacterium avium were found to persist at POU sites for up to 26 months. Water collected from POU cold water outlets was persistently colonized with NTM despite the addition of ozonation and filtration to a drinking water system. This suggests that cold water POU outlets need to be considered as a potential source of chronic human exposure to NTM.",
+    "full_title": "Persistence of nontuberculous mycobacteria in a drinking water system after addition of filtration treatment (2006) doi: https://dx.doi.org/10.1128/AEM.00759-06"
+  },
+  {
+    "\ufeff": "6",
+    "title": "G6",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1021/acs.est.0c06357",
+    "recommend": "There is concern about potential exposure to opportunistic pathogens when reopening buildings closed due to the COVID-19 pandemic. In this study, water samples were collected before, during, and after flushing showers in five unoccupied (i.e., for \u223c2 months) university buildings with quantification of opportunists via a cultivation-based assay (Legionella pneumophila only) and quantitative PCR. L. pneumophila were not detected by either method; Legionella spp., nontuberculous mycobacteria (NTM), and Mycobacterium avium complex (MAC), however, were widespread. Using quantitative microbial risk assessment (QMRA), the estimated risks of illness from exposure to L. pneumophila and MAC via showering were generally low (i.e., less than a 10-7 daily risk threshold), with the exception of systemic infection risk from MAC exposure in some buildings. Flushing rapidly restored the total chlorine (as chloramine) residual and decreased bacterial gene targets to building inlet concentrations within 30 min. During the postflush stagnation period, the residual chlorine dissipated within a few days and bacteria rebounded, approaching preflush concentrations after 6-7 days. These results suggest that flushing can quickly improve water quality in unoccupied buildings, but the improvement may only last a few days.",
+    "full_title": "Flushing of stagnant premise water systems after the COVID-19 shutdown can reduce infection risk by Legionella and Mycobacterium spp (2020) doi: https://dx.doi.org/10.1021/acs.est.0c06357"
+  },
+  {
+    "\ufeff": "7",
+    "title": "G7",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.jhin.2016.01.005",
+    "recommend": "Background: Chlorinated tap water in hospitals often contains low levels of non-fermentative Gram-negative bacilli (NFGNB) and non-tuberculous mycobacteria (NTM). Measures are needed to ensure a safe water supply in hospitals to prevent nosocomial infections from these waterborne pathogens.\n\nAim: To evaluate the efficacy of ClO2 treatment of a hospital water system on the levels of NFGNB and NTM in the water.\n\nMethods: Our institution is a 1000-bed medical centre with two main buildings (B1 and B2). B1 has three intensive care units (ICUs) and transplant wards and polyethylene water pipes. B2 (control) has no ICUs and galvanized water pipes. A ClO2 generating unit was installed in the water system of B1 in April 2012 and water samples were collected in B1 and B2 before and eight times after installation. All samples were cultured for NFGNB and NTM.\n\nFindings: The ClO2 concentration was significantly lower in the hot water than in the cold water (P<0.001). After 40 weeks of ClO2 use, the overall NFGNB colonies decreased significantly (hot water: 160\u00b1143 vs 2\u00b14cfu/mL, P<0.001; cold water: 108\u00b1138 vs 3\u00b17cfu/mL, P<0.001). Highly prevalent nosocomial NFGNB, such as Pseudomonas spp. and Stenotrophomonas spp., were undetected three months after ClO2 disinfection; Sphingomonas spp. persisted but had lower colony counts. NTM was present in 25% (three out of 12) of sampling locations initially, but was not detected at two weeks after ClO2 disinfection. The ICUs had no overall change in the number of NFGNB nosocomial infections after the intervention.\n\nConclusion: Addition of a ClO2 disinfection unit to our hospital water system reduced the numbers of NTM and NFGNB in the hot and cold water systems.",
+    "full_title": "Efficacy of chlorine dioxide disinfection to non-fermentative Gram-negative bacilli and non-tuberculous mycobacteria in a hospital water system (2016) doi: https://dx.doi.org/10.1016/j.jhin.2016.01.005"
+  },
+  {
+    "\ufeff": "8",
+    "title": "G8",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/DOI: 10.1016/j.wroa.2023.100201",
+    "recommend": "The regrowth and subsequent exposure of opportunistic pathogens (OPs) whilst reopening buildings that have been locked down due to the stay-at-home restrictions to limit the spread of COVID-19, is a public health concern. To better understand such microbiological risks due to lowered occupancy and water demand in buildings, first and post-flush water samples (n = 48) were sampled from 24 drinking water outlets from eight university buildings in two campuses (urban and rural), with various end-user occupancies. Both campuses were served with chlorinated water originating from a single drinking water distribution system in South-East Queensland, situated 14 km apart, where the rural campus had lower chlorine residuals. Culture-dependent and culture-independent methods (such as flow cytometry, qPCR and 16S rRNA gene amplicon sequencing) were used concurrently to comprehensively characterise the OPs of interest (Legionella spp., Pseudomonas aeruginosa, and nontuberculous mycobacteria (NTM)) and the premise plumbing microbiome. Results showed that buildings with extended levels of stagnation had higher and diverse levels of microbial growth, as observed in taxonomic structure and composition of the microbial communities. NTM were ubiquitous in all the outlets sampled, regardless of campus or end-user occupancy of the buildings. qPCR and culture demonstrated prevalent and higher concentrations of NTM in buildings (averaging 3.25 log10[estimated genomic copies/mL]) with extended stagnation in the urban campus. Furthermore, flushing the outlets for 30 minutes restored residual and total chlorine, and subsequently decreased the levels of Legionella by a reduction of 1 log. However, this approach was insufficient to restore total and residual chlorine levels for the outlets in the rural campus, where both Legionella and NTM levels detected by qPCR remained unchanged, regardless of building occupancy. Our findings highlight that regular monitoring of operational parameters such as residual chlorine levels, and the implementation of water risk management plans are important for non-healthcare public buildings, as the levels of OPs in these environments are typically not assessed.",
+    "full_title": "Extended water stagnation in buildings during the COVID-19 pandemic increases the risks posed by opportunistic pathogens (2023) doi: https://dx.doi.org/DOI: 10.1016/j.wroa.2023.100201"
+  },
+  {
+    "\ufeff": "9",
+    "title": "G9",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/0962-8479(95)90561-8",
+    "recommend": "SETTING: Contamination events with Mycobacterium chelonae in 7 patients undergoing bronchoscopy, out of a total of 100 patients in a 5-month period, were analysed. OBJECTIVE: To identify and assess the importance of factors thought to be relevant in the aetiology of these contamination events and by removing these factors, to eradicate the problem of continuing M. chelonae contamination. DESIGN: A retrospective analysis of the frequency of M. chelonae isolates from bronchoalveolar fluid, assessing the contribution of the following measures to the eradication of M. chelonae: (1) changes to the bronchoscopy unit's water supply; (2) insertion of bacterial filters; (3) installation of a new semi-automated cleaning machine incorporating an ultrasound cycle; (4) staff training in correct use of the new equipment. RESULTS: Following the discontinuation of using tapwater in the cleaning process, the above changes resulted in complete eradication of contamination events, with no further events occurring in the following 12 months. CONCLUSION: Insertion of bacterial filters into the water supply, with the addition of a more sophisticated semi-automatic cleaning machine involving an ultrasound cycle in addition to conventional cleaning methods currently used, will help reduce or eradicate contamination events with M. chelonae in bronchoscopy units.",
+    "full_title": "Isolation of Mycobacterium chelonae in a bronchoscopy unit and its subsequent eradication (1995) doi: https://dx.doi.org/10.1016/0962-8479(95)90561-8"
+  },
+  {
+    "\ufeff": "10",
+    "title": "G10",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.5942/jawwa.2016.108.0182",
+    "recommend": "Rainwater harvesting (RWH) is an alternative method of providing water for indoor domestic use, but the water quality after treatment and distribution at individual residences is not well documented. In this study, water quality parameters were measured at the cistern and indoor cold-water taps of six residential RWH systems that use various treatment processes. Potential human pathogens (Mycobacterium avium, Mycobacterium intracellulare, Aspergillus flavus, Aspergillus fumigatus, and Aspergillus niger) were found frequently in cisterns and in treated rainwater delivered at the tap; Legionella pneumophila was not detected as frequently, but it persisted in a system after its first detection. The observed decreases in bacterial concentrations from the cistern to the tap after filtration/ultraviolet (UV) treatment and distribution were less than expected; this suggests deficiencies in the effectiveness of the filtration/UV processes employed and/or degradation in water quality in the distribution system due to the absence of a disinfectant residual.",
+    "full_title": "Harvested rainwater quality before and after treatment and distribution in residential systems (2016) doi: https://dx.doi.org/10.5942/jawwa.2016.108.0182"
+  },
+  {
+    "\ufeff": "11",
+    "title": "G11",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/DOI: 10.1016/S0043-1354(01)00124-5",
+    "recommend": "We studied the influence of electrolytically released copper and silver ions on the microbiological quality in a warm water system of a hospital. The concentration of nontuberculous mycobacteria was followed for three, and that of legionellae and other heterotrophic bacteria in the water for four years. The highest concentrations of copper and silver ions were 220 and 68 mug/l, respectively. Silver ion concentration of about 3 mug/l was sufficient to control the growth of legionellae in circulating warm water. The results showed that it is more difficult to eradicate legionellae from taps and showers: these points were colonized by a small number of legionellae after the metal ion concentrations were increased in the circulating water. A regular use of water eradicated legionellae from the shower. One tap was still used irregularly, and this may be a reason why it still contained small concentrations of legionellae also in the last years of the study. Mycobacteria were occasionally isolated from the circulating water and repeatedly from the shower, even when the metal concentrations were high. To control legionella bacteria in warm water systems, silver concentrations of only 3 mug/l are needed if all taps and showers of the system are regularly used. Such low copper and silver concentrations, however, are not efficient against nontuberculous mycobacteria or other heterotrophic bacteria. (C) 2001 Elsevier Science Ltd. All rights reserved.",
+    "full_title": "Copper and silver ions more effective against legionellae than against mycobacteria in a hospital warm water system (2001) doi: https://dx.doi.org/DOI: 10.1016/S0043-1354(01)00124-5"
+  },
+  {
+    "\ufeff": "12",
+    "title": "G12",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/DOI: 10.1034/j.1600-0463.2003.1110503.x",
+    "recommend": "Occurrences of legionellae and nontuberculous mycobacteria were followed in water systems of a tertiary care hospital where nosocomial infections due to the two genera had been verified. The aim was to examine whether their occurrence in the circulating hot water can be controlled by addition of a heat-shock unit in the circulation system, and by intensified cleaning of the tap and shower heads. One hot water system examined had an inbuilt heat-shock system causing a temporary increase of temperature to 80 degrees C, the other was an ordinary system (60 degrees C). The heat-shock unit decreased legionella colony counts in the circulating hot water (mean 35 cfu/l) compared to the ordinary system (mean 3.6 x 10(3) cfu/l). Mycobacteria constantly present in the incoming cold water (mean 260 cfu/l) were never isolated from the circulating hot water. Water sampled at peripheral sites such as taps and showers contained higher concentrations of legionellae, mycobacteria, and mesophilic and Gram-negative heterotrophs than the circulating waters. The shower water samples contained the highest bacterial loads. The results indicate the need to develop more efficient prevention methods than the ones presently used. Prevention of mycobacteria should also be extended to incoming cold water.",
+    "full_title": "Colonization of hospital water systems by legionellae, mycobacteria and other heterotrophic bacteria potentially hazardous to risk group patients (2003) doi: https://dx.doi.org/DOI: 10.1034/j.1600-0463.2003.1110503.x"
+  },
+  {
+    "\ufeff": "13",
+    "title": "G13",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1128/AEM.68.11.5318-5325.2002",
+    "recommend": "The frequency of recovery of atypical mycobacteria was estimated in two treatment plants providing drinking water to Paris, France, at some intermediate stages of treatment. The two plants use two different filtration processes, rapid and slow sand filtration. Our results suggest that slow sand filtration is more efficient for removing mycobacteria than rapid sand filtration. In addition, our results show that mycobacteria can colonize and grow on granular activated carbon and are able to enter distribution systems. We also investigated the frequency of recovery of mycobacteria in the water distribution system of Paris (outside buildings). The mycobacterial species isolated from the Paris drinking water distribution system are different from those isolated from the water leaving the treatment plants. Saprophytic mycobacteria (present in 41.3% of positive samples), potentially pathogenic mycobacteria (16.3%), and unidentifiable mycobacteria (54.8%) were isolated from 12 sites within the Paris water distribution system. Mycobacterium gordonae was preferentially recovered from treated surface water, whereas Mycobacterium nonchromogenicum was preferentially recovered from groundwater. No significant correlations were found among the presence of mycobacteria, the origin of water, and water temperature.",
+    "full_title": "Occurrence of mycobacteria in water treatment lines and in water distribution systems. (2002) doi: https://dx.doi.org/10.1128/AEM.68.11.5318-5325.2002"
+  },
+  {
+    "\ufeff": "14",
+    "title": "G14",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.3389/fmicb.2021.779016",
+    "recommend": "As many cities around the world face the prospect of replacing aging drinking water distribution systems (DWDS), water utilities must make careful decisions on new pipe material (e.g., cement-lined or PVC) for these systems. These decisions are informed by cost, physical integrity, and impact on microbiological and physicochemical water quality. Indeed, pipe material can impact the development of biofilm in DWDS that can harbor pathogens and impact drinking water quality. Annular reactors (ARs) with cast iron and cement coupons fed with chloraminated water from a municipal DWDS were used to investigate the impact of pipe material on biofilm development and composition over 16 months. The ARs were plumbed as closely as possible to the water main in the basement of an academic building to simulate distribution system conditions. Biofilm communities on coupons were characterized using 16S rRNA sequencing. In the cast iron reactors, beta-proteobacteria, Actinobacteria, and alpha-proteobacteria were similarly relatively abundant (24.1, 22.5, and 22.4%, respectively) while in the cement reactors, alpha-proteobacteria and Actinobacteria were more relatively abundant (36.3 and 35.2%, respectively) compared to beta-proteobacteria (12.8%). Mean alpha diversity (estimated with Shannon H and Faith's Phylogenetic Difference indices) was greater in cast iron reactors (Shannon: 5.00 +/- 0.41; Faith's PD: 15.40 +/- 2.88) than in cement reactors (Shannon: 4.16 +/- 0.78; Faith's PD: 13.00 +/- 2.01). PCoA of Bray-Curtis dissimilarities indicated that communities in cast iron ARs, cement ARs, bulk distribution system water, and distribution system pipe biofilm were distinct. The mean relative abundance of Mycobacterium spp. was greater in the cement reactors (34.8 +/- 18.6%) than in the cast iron reactors (21.7 +/- 11.9%). In contrast, the mean relative abundance of Legionella spp. trended higher in biofilm from cast iron reactors (0.5 +/- 0.7%) than biofilm in cement reactors (0.01 +/- 0.01%). These results suggest that pipe material is associated with differences in the diversity, bacterial composition, and opportunistic pathogen prevalence in biofilm of DWDS.Copyright \u00a9 2021 Lee, Calendo, Kopec, Henry, Coutts, McCarthy and Murphy.",
+    "full_title": "The impact of pipe material on the diversity of microbial communities in drinking water distribution systems (2021) doi: https://dx.doi.org/10.3389/fmicb.2021.779016"
+  },
+  {
+    "\ufeff": "15",
+    "title": "G15",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.watres.2018.02.031",
+    "recommend": "Secondary water supply systems (SWSSs) refer to the in-building infrastructures (e.g., water storage tanks) used to supply water pressure beyond the main distribution systems. The purpose of this study was to investigate the influence of SWSSs on microbial community structure and the occurrence of opportunistic pathogens, the latter of which are an emerging public health concern. Higher numbers of bacterial 16S rRNA genes, Legionella and mycobacterial gene markers were found in public building taps served by SWSSs relative to the mains, regardless of the flushing practice (P < 0.05). In residential buildings, genes of L. pneumomhila, Acanthamoeba and Vermamoeba vermiformis were primarily detected in tanks and taps compared to the mains. Long water retention time, warm temperature and loss of disinfectant residuals promoted microbial growth and colonization of potential pathogens in SWSSs. Varied levels of microbial community shifts were found in different types of SWSSs during water transportation from the distribution main to taps, highlighting the critical role of SWSSs in shaping the drinking water microbiota. Overall, the results provided insight to factors that might aid in controlling pathogen proliferation in real-world water systems using SWSSs. (C) 2018 Elsevier Ltd. All rights reserved.",
+    "full_title": "Influence of secondary water supply systems on microbial community structure and opportunistic pathogen gene markers (2018) doi: https://dx.doi.org/10.1016/j.watres.2018.02.031"
+  },
+  {
+    "\ufeff": "16",
+    "title": "G16",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.3389/fcimb.2024.1303099",
+    "recommend": "Introduction: The contamination of dental unit waterlines (DUWLs) poses a significant risk of cross-infection in dentistry. Although chemical disinfectants have been effective in reducing number of bacteria, they do have limitations. Method(s): This study aimed to investigate the potential of chlorogenic acid, a natural substance with broadspectrum antibacterial properties, for treating DUWLs. Over a period of three months, we analyzed the microbial communities in 149 DUWLs samples collected from 5 dental units using high-throughput pyrophosphate sequencing. Result(s): The results revealed that chlorogenic acid treatment had a significant impact on the microbial community profile in the DUWLs, with the most significant changes occurring within the first 15 days and stabilization observed in the last 30 days. The predominant genera detected in the samples were Bacteroides, Lactobacillus, Streptococcus, Methylobacterium, and Phreatobacter. Additionally, the relative abundance of certain beneficial bacteria, such as Alloprevotella, Roseburia, and Blautia, increased, while the presence of opportunistic pathogens like Mycobacteria significantly decreased. The functional prediction analysis using the KEGG database indicated a decrease in the pathogenicity of the bacterial community in the DUWLs following chlorogenic acid treatment. Discussion(s): This study introduces a novel approach for the prevention and treatment of infections associated with dental care.Copyright \u00a9 2024 Li, Cai, Hu, Jiang, Chen, Hu, Yang and He.",
+    "full_title": "Pyrosequencing analysis of bacterial community changes in dental unit waterlines after chlorogenic acid treatment (2024) doi: https://dx.doi.org/10.3389/fcimb.2024.1303099"
+  },
+  {
+    "\ufeff": "17",
+    "title": "G17",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.chemosphere.2018.12.067",
+    "recommend": "Drinking water distribution systems (DWDS) may be a \"Trojan Horse\" for some waterborne diseases caused by opportunistic pathogens (OPs). In this study, two simulated DWDS inoculated with ground-water were treated with chlorine (Cl-2) and ultraviolet/chlorine (UV/Cl-2) respectively to compare their effects on the OPs distributed in four different phases (bulk water, biofilms, corrosion products, and loose deposits) of DWDS. 16S rRNA genes sequencing and qPCR were used to profile microbial community and quantify target genes of OPs, respectively. Results showed that UV/Cl-2 was more effective than single Cl-2 to control the regrowth of OPs in the water with the same residual chlorine concentration. However, the OPs inhabiting the biofilms, corrosion products, and loose deposits seemed to be tolerant to UV/Cl-2 and Cl-2, demonstrating that OPs residing in these phases were resistant to the disinfection processes. Some significant microbial correlations between OPs and Acanthamoeba were found by Spearman correlative analysis (p < 0.05), demonstrating that the ecological interactions may exist in the DWDS. 16S rRNA genes sequencing of water samples revealed a significant different microbial community structure between UV/Cl-2 and Cl-2. This study may give some implications for controlling the OPs in the DWDS disinfected with UV/Cl-2. (C) 2018 Elsevier Ltd. All rights reserved.",
+    "full_title": "Effect of sequential UV/free chlorine disinfection on opportunistic pathogens and microbial community structure in simulated drinking water distribution systems (2019) doi: https://dx.doi.org/10.1016/j.chemosphere.2018.12.067"
+  },
+  {
+    "\ufeff": "18",
+    "title": "G18",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.watres.2020.116656",
+    "recommend": "Opportunistic pathogens such as Legionella are of significant public health concern in hospitals. Microbiological and water chemistry parameters in hot water throughout an Ohio hospital were monitored monthly before and after the installation of a monochloramine disinfection system over 16 months. Water samples from fifteen hot water sampling sites as well as the municipal water supply entering the hospital were analyzed using both culture and qPCR assays for specific microbial pathogens including Legionella, Pseudomonas spp., nontuberculous Mycobacteria [NTM], as well as for heterotrophic bacteria. Legionella culture assays decreased from 68% of all sites being positive prior to monochloramine addition to 6% positive after monochloramine addition, and these trends were parallel to qPCR results. Considering all samples, NTMs by culture were significantly reduced from 61% to 14% positivity (p<0.001) after monochloramine treatment. Mycobacterium genus-specific qPCR positivity was reduced from 92% to 65%, but the change was not significant. Heterotrophic bacteria (heterotrophic bacteria plate counts [HPCs]) exhibited large variability which skewed statistical results on a per room basis. However, when all samples were considered, a significant decrease in HPCs was observed after monochloramine addition. Lastly, Pseudomonas aeruginosa and Vermamoeba vermiformis demonstrated large and significant decrease of qPCR signals post-chloramination. General water chemistry parameters including monochloramine residual, nitrate, nitrite, pH, temperature, metals and total trihalomethanes (ITHMs) were also measured. Significant monochloramine residuals were consistently observed at all sampling sites with very little free ammonia present and no water quality indications of nitrification (e.g., pH decrease, elevated nitrite or nitrate). The addition of monochloramine had no obvious impact on metals (lead, copper and iron) and disinfection by-products. Keywords: Legionella Drinking water Hospital Monochloramine Published by Elsevier Ltd.",
+    "full_title": "A comprehensive evaluation of monochloramine disinfection on water quality, Legionella and other important microorganisms in a hospital (2021) doi: https://dx.doi.org/10.1016/j.watres.2020.116656"
+  },
+  {
+    "\ufeff": "19",
+    "title": "G19",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1002/aws2.1306",
+    "recommend": "This study examined the effects of pipe materials, pipe diameters, frequency of use, and disinfectant types on the water quality microbiology in experimental pipe rack systems. Two pipe rack systems were installed in buildings in Colorado (CO) and Pennsylvania (PA) and sampled for 8-9 months of operation, respectively, under simulated high and low use conditions. Opportunistic premise plumbing pathogens including Legionella pneumophila, nontuberculous mycobacteria, Pseudomonas aeruginosa, and free-living amoebae (FLA) were the target organisms. Disinfectant type (free chlorine vs. chloramine) and use frequency (flushed every 12 h vs. weekly) had the greatest impact on bulk water microbiology. Under low use conditions, neither system had detectable disinfectant residual but under high use, residual was detected. Heterotrophic plate count bacteria predominated in the free chlorine system while nontuberculous mycobacteria were predominant in the chloraminated system. P. aeruginosa and FLA were not detected in the free chlorine system and legionellae were not detected in either system.",
+    "full_title": "Impact of pipe material, operation, and disinfectant on cold water plumbing microbiology (2022) doi: https://dx.doi.org/10.1002/aws2.1306"
+  },
+  {
+    "\ufeff": "20",
+    "title": "G20",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1002/ppul.24994",
+    "recommend": "BACKGROUND: Patients with cystic fibrosis have increased morbidity/mortality due to chronic respiratory infections, which primarily originate from the environment. Infection prevention and control emphasize the importance of cleaning and disinfection of respiratory devices, however, there is a paucity of guidance on toothbrush hygiene, which have been shown to be a source of cystic fibrosis (CF) pathogens. METHODS: This study examined steam disinfection of toothbrushes contaminated with clinically significant CF isolates (n\u2009=\u200980; Gram positive\u2009=\u200933; Gram negative\u2009=\u200932, and non-tuberculous mycobacteria\u2009=\u20096) and yeasts (n\u2009=\u20099), as well as oral streptococci (n\u2009=\u200926) and environmental Pseudomonas aeruginosa (n\u2009=\u200912). RESULTS: Steam disinfection eradicated all organisms tested, as well as all organisms in CF sputum applied to toothbrushes. CONCLUSIONS: Steam disinfection offers a relatively simple, cheap and available method of eliminating non-spore-forming CF pathogens on toothbrushes. Toothbrushes should be thoroughly rinsed after each use before steam disinfection, to remove plaque, epithelial cells, and residual toothpaste. Toothbrushes should be steam disinfected after each use employing a baby bottle steam disinfector, adhering to manufacturers' operating instructions and stored in the disinfector until next used within 12 to 24\u2009hours. Toothbrushes should be replaced every 3 to 4 months, or sooner if the bristles look worn out, as well as every time a pulmonary exacerbation occurs or every time the patient is treated for a pulmonary/throat infection. Steam disinfection of toothbrushes is crucial when the patient is undergoing eradication regimes for P. aeruginosa and methicillin-resistant Staphylococcus aureus, so that the patient does not become reinfected from this source, thereby aiding eradication and enhancing patient safety.",
+    "full_title": "Steam disinfection of toothbrushes from patients with cystic fibrosis: evidence-based recommendations (2020) doi: https://dx.doi.org/10.1002/ppul.24994"
+  },
+  {
+    "\ufeff": "21",
+    "title": "G21",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1017/ice.2019.268",
+    "recommend": "We identified a waterborne pseudo-outbreak of Mycobacterium chimaera in our stem cell transplantation center, which likely resulted from biofilm on the aerators of the handwashing machines in each patient's room. Regular replacement of faucet parts can prevent biofilm formation and pseudo-outbreaks of M. chimaera through aerators.",
+    "full_title": "Pseudo-outbreak of Mycobacterium chimaera through aerators of hand-washing machines at a hematopoietic stem cell transplantation center (2019) doi: https://dx.doi.org/10.1017/ice.2019.268"
+  },
+  {
+    "\ufeff": "22",
+    "title": "G22",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.watres.2003.07.008",
+    "recommend": "A pilot study was designed to examine the impact of nutrient levels, pipe materials, and disinfection on the survival of M. avium in model drinking water distribution system biofilms. Studies showed that the survival of the organism was dependant upon a complex interaction between pipe surface, nutrient levels, and disinfectants. The findings showed that when no disinfection was applied, M. avium could be recovered from biofilms at nutrient levels of 50mug/L assimilable organic carbon. M. avium concentrations were lower on copper pipe surfaces following disinfection with free chlorine as compared to monochloramine. However, due to the interference of corrosion products, chloramination of iron pipe surfaces controlled M. avium levels better than free chlorine. These data demonstrate the significance of pipe materials on the survival of M. avium complex in biofilms. Elimination of competitive heterotrophic bacteria on copper pipe surfaces by the application of disinfection resulted in a population of nearly 100% M. avium. Heat treatment of M. avium biofilms was affected by the pipe composition and organic content of the water. Effluent temperatures >53degreeC were required to control the occurrence of M. avium in the pipeline system. Although additional studies are required using improved detection methods, the results of this investigation suggest that reducing the biodegradable organic material in drinking water, control of corrosion, maintenance of an effective disinfectant residual, and management of hot water temperatures can help limit the occurrence of M. avium complex in drinking water biofilms. \u00a9 2003 Elsevier Ltd. All rights reserved.",
+    "full_title": "Survival of Mycobacterium avium in a model distribution system (2004) doi: https://dx.doi.org/10.1016/j.watres.2003.07.008"
+  },
+  {
+    "\ufeff": "23",
+    "title": "G23",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.3389/fpubh.2020.00190",
+    "recommend": "Nontuberculous mycobacteria (NTM) that cause human disease can be isolated from household tap water. Easy-to-use physical methods to reduce NTM from this potential source of exposure are needed. Filters and UV disinfection have been evaluated for their ability to reduce numbers of waterborne non-NTM organisms from drinking water, but their efficacy in reducing NTM counts are not well-established. Thus, five commercially available disinfection methods were evaluated for their potential as practical, efficient, and low-cost methods to reduce NTM from tap water. First, suspensions of tap water-adaptedMycobacterium smegmatiswere passed through either a point-of-use, disposable, 7-day or 14-day Pall-Aquasafe filter. The 7-day filter prevented passage ofM. smegmatisin effluent water for 13 days, and the 14-day filter prevented the passage ofM. smegmatisfor 25 days. Second, a granular activated carbon filter system failed to significantly reduceMycobacterium abscessusandMycobacterium aviumnumbers. Third, suspensions of tap water-adaptedM. abscessus, M. avium, andM. chimaera(\"MycoCocktail\") were passed through the \"LifeStraw GO\" hollow-fiber, two-stage membrane filtration system. LifeStraw GO prevented passage of the MycoCocktail suspension for the entire 68-day evaluation period. Finally, two different water bottle UV sterilization systems, \"Mountop\" and \"SteriPEN,\" were evaluated for their capacity to reduce NTM numbers from tap water. Specifically, MycoCocktail suspensions were dispensed into Mountop and SteriPEN water bottles and UV treated as per the manufacturer instructions once daily for 7 days, followed by a once weekly treatment for up to 56 days. After 4 days of daily UV treatment, both systems achieved a >4 log reduction in MycoCocktail CFU. After the 56-day evaluation period, suspension and biofilm-associated CFU were measured, and a >4 log reduction in CFU was maintained in both systems. Taken together, physical disinfection methods significantly reduced NTM numbers from tap water and may be easy-to-use, accessible applications to reduce environmental NTM exposures from drinking water.",
+    "full_title": "Physical measures to reduce exposure to tap water-associated nontuberculous Mycobacteria (2020) doi: https://dx.doi.org/10.3389/fpubh.2020.00190"
+  },
+  {
+    "\ufeff": "24",
+    "title": "G24",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1128/AEM.00658-09",
+    "recommend": "Potential pathogens from shower water and aerosolized shower mist (i.e., shower aerosol) have been suggested as an environmental source of infection for immunocompromised patients. To quantify the microbial load in shower water and aerosol samples, we used culture, microscopic, and quantitative PCR methods to investigate four shower stalls in a stem cell transplant unit at Barnes-Jewish Hospital in St. Louis, MO. We also tested membrane-integrated showerheads as a possible mitigation strategy. In addition to quantification, a 16S rRNA gene sequencing survey was used to characterize the abundant bacterial populations within shower water and aerosols. The average total bacterial counts were 2.2 x 10(7) cells/liter in shower water and 3.4 x 104 cells/m(3) in shower aerosol, and these counts were reduced to 6.3 x 10(4) cells/liter (99.6% efficiency) and 8.9 x 10(3) cells/m(3) (82.4% efficiency), respectively, after membrane-integrated showerheads were installed. Potentially pathogenic organisms were found in both water and aerosol samples from the conventional showers. Most notable was the presence of Mycobacterium mucogenicum (99.5% identity) in the water and Pseudomonas aeruginosa (99.3% identity) in the aerosol samples. Membrane-integrated showerheads may protect immunocompromised patients from waterborne infections in a stem cell transplant unit because of efficient capture of vast numbers of potentially pathogenic bacteria from hospital water. However, an in-depth epidemiological study is necessary to investigate whether membrane-integrated showerheads reduce hospital-acquired infections. The microbial load in shower aerosols with conventional showerheads was elevated compared to the load in HEPA-filtered background air in the stem cell unit, but it was considerably lower than typical indoor air. Thus, in shower environments without HEPA filtration, the increase in microbial load due to shower water aerosolization would not have been distinguishable from anticipated variations in background levels.",
+    "full_title": "Potentially pathogenic bacteria in shower water and air of a stem cell transplant unit (2009) doi: https://dx.doi.org/10.1128/AEM.00658-09"
+  },
+  {
+    "\ufeff": "25",
+    "title": "G25",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.tripleo.2004.02.006",
+    "recommend": "OBJECTIVE: The purpose of the study was to investigate the presence of non-tuberculosis mycobacteria (NTM) in dental unit waterlines that were being routinely treated with an intermittent use waterline cleaner. STUDY DESIGN: The study was conducted at a hospital dentistry clinic where immunocompromised patients are seen. Water samples from two lines on one of two dental units were taken before and after routine weekend chemical treatment. Sampling was repeated on two subsequent occasions, on the same unit, at three monthly intervals. Laboratory techniques included centrifugation and membrane filtration to detect small numbers of organisms. RESULTS: Mycobacterium simiae was isolated from one of the four pre-treatment samples and from two of the four post-treatment samples. Mycobacterium mucogenicum was isolated from one of the four post-treatment samples. CONCLUSIONS: This pilot study found that NTM were present in DUWLs that were being routinely treated with an intermittent use chemical cleaner. Practitioners are urged to understand the limitations of available DUWL treatments, and to consider the use of sterile water for non-surgical, as well as surgical, treatment of immunocompromised patients.",
+    "full_title": "Isolation of non-tuberculosis mycobacteria in treated dental unit waterlines (2004) doi: https://dx.doi.org/10.1016/j.tripleo.2004.02.006"
+  },
+  {
+    "\ufeff": "26",
+    "title": "G26",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.5005/jp-journals-10024-1087",
+    "recommend": "Background: This study addresses the efficacy of an automated decontamination protocol using the germicide 'tetra acetyl ethylene diamine (TAED) perborate' (Farmec SpA, Italy). The germicide TAED perborate protocol is used in the Castellini Dental Units fitted with an Autosteril unit (an automated device that can cycle 0.26% TAED perborate solution and sterile water for cleaning the water system between patients and overnight). Prior to testing the Autosteril and the 0.26% TAED perborate protocol on the Logos Jr Dental Unit (Castellini SpA, Italy), TAED perborate was used on a dental unit water system simulation device. Method(s): A dental unit water system simulation device equipped with four dental unit water systems and with naturally grown and mature biofilm contamination was used in this study (three treatment units and one control). One treatment group used a simulated 5 minutes contact with TAED perborate and sterile water for irrigation; the second used a simulated 5 minutes contact with TAED perborate and 2 ppm ClO2 for irrigation; the third used a simulated 5 minutes contact with TAED perborate and municipal water for irrigation. The control group used municipal water for irrigation with no cleaning/disinfection protocols. This protocol was repeated for 30 cycles. Laser scanning confocal microscopy (LSCM) was used to study the effects on natural and mature biofilms, and R2A agar used to quantify heterotrophic plate counts in the effluent irrigant. Antimicrobial efficacy was evaluated by challenging TAED perborate with microbes and spores (M. smegmatis and B. subtilis). Deleterious effects of the germicide were evaluated on metal and nonmetal parts of dental unit water systems. Heterotrophic plate counts using R2A agar and LSCM of the lines were conducted to assess biofilm and microbial control. Result(s): Baseline water samples showed mean contamination >5.6 log10 cfu/ml. After initial cleaning, all three groups maintained mean contamination levels of less than 1.1 (SD <0.3) log10 cfu/ml. LSCM of baseline samples was positive for live biofilm in all groups. At the end of the study, viable biofilm was only present in the control. In the microbial challenge test, all vegetative organisms were killed within 30 seconds of contact, while spores were killed within 5 minutes. Corrosion was seen in metals used in US-manufactured dental unit materials, while not observed in those used in the Castellini Logos Jr dental unit. Conclusion(s): In this study, the TAED perborate protocol was effective in biofilm control and control of dental treatment water contamination. Use of sterile water or 2 ppm ClO2 along with TAED treatment also controlled planktonic contamination effectively. Clinical significance: Environmental biofilms contaminate dental unit water systems over time and affect the quality of dental treatment water. Contaminants include environmental biofilms, microbes, including gram-negative rods and endotoxins in high doses that are not of acceptable quality for treating patients. There are many germicidal protocols for treating this contamination and one such is the prescribed use of TAED perborate used in conjunction with sterile water for irrigation in the autosteril device, an integral component of the Castellini dental units for between patient decontamination of dental unit water systems. This study was conducted on an automated simulation dental unit water system to test the TAED perborate protocol's efficacy on naturally grown, mature environmental biofilms, it's efficacy on microbes and spores and it's effects on materials used in dental unit water systems. This translational research addresses both microbial control and material effects of TAED perborate in studying efficacy and possible deleterious effects and simulated use in dentistry. Currently, this antimicrobial use protocol is followed worldwide in the Castellini dental units that are used in day-to-day dental patient care.",
+    "full_title": "Evaluation of an automated dental unit water system's contamination control protocol (2012) doi: https://dx.doi.org/10.5005/jp-journals-10024-1087"
+  },
+  {
+    "\ufeff": "27",
+    "title": "G27",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1139/W08-080",
+    "recommend": "The objective of this study was to determine the incidence of nontuberculous mycobacteria ( NTM) in hot water systems of 4 selected hospital settings. The hospitals provided the following types of disinfection for their hot water systems: hydrogen peroxide and silver, thermal disinfection, chlorine dioxide, and no treatment ( control). In each building, 6 samples were collected from 5 sites during a 3 month period. NTM were detected in 56 ( 46.7%) of 120 samples; the CFU counts ranged from 10 to 1625 CFU/L. The detected NTM species were the pathogens Mycobacterium kansasii, Mycobacterium xenopi, and Mycobacterium fortuitum and the saprophyte Mycobacterium gordonae. The most common to be isolated was M. xenopi, which was present in 51 samples. The hot water systems differed significantly in the incidence of NTM. NTM were not detected in the system treated by thermal disinfection, and a relatively low incidence ( 20% positive samples) was found in the system disinfected with chlorine dioxide. However, a high incidence was found in the control system with no additional disinfection ( 70% positives) and in the system using hydrogen peroxide and silver ( 97% positives). Water temperatures above 50 degrees C significantly limited the occurrence of NTM.",
+    "full_title": "Incidence of nontuberculous mycobacteria in four hot water systems using various types of disinfection (2008) doi: https://dx.doi.org/10.1139/W08-080"
+  },
+  {
+    "\ufeff": "28",
+    "title": "G28",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.jhin.2019.11.014",
+    "recommend": "Background: Pseudo-outbreaks of non-tuberculous mycobacteria (NTM) in association with the water supply system in hospitals have been previously reported. We found that the frequency of NTM isolation in clinical samples increased after the reconstruction and renovation of a hospital in Japan in 2014. Aim: To analyse NTM, their possible relationship with the hospital water supply system, and outcomes of preventive measures. Methods: Environmental samples obtained from the water supply in hospital wards were tested for NTM. On obtaining positive results, the bacteria were further analysed using polymerase chain reaction (PCR). Findings: The PCR products of NTM showed that most samples tested positive for Myco-bacterium paragordonae. Because none of the analysed patients developed any disease due to these bacteria, this event was considered a pseudo-outbreak. Investigation of the water supply system revealed that samples obtained from the recently attached aerators/rectifiers during hospital renovation tested positive for these bacteria. Therefore, measures to remove aerators/rectifiers and prevent patients from drinking tap water in the hospital were introduced. Thereafter, the frequency of NTM-positive samples significantly decreased in the hospital. Conclusion: This study is one of the few reports which reveal the possibility of pseudo-outbreaks of M. paragordonae in hospitals, hence raising the question whether aerators/rectifiers should be used in hospitals at all, because their mesh structure may pro-mote NTM proliferation in supplied water. The importance of surveillance of bacteria derived from the environment, particularly after hospital reconstruction/renovation, is re-emphasized. (C) 2019 The Authors. Published by Elsevier Ltd on behalf of The Healthcare Infection Society.",
+    "full_title": "Pseudo-outbreak of Mycobacterium paragordonae in a hospital: possible role of the aerator/rectifier connected to the faucet of the water supply system (2020) doi: https://dx.doi.org/10.1016/j.jhin.2019.11.014"
+  },
+  {
+    "\ufeff": "29",
+    "title": "G29",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1097/INF.0000000000000391",
+    "recommend": "Background: Rapidly growing mycobacteria (RGM) have a predilection for those with immunocompromised states. We report increased isolation of RGM among pediatric hematopoietic cell transplant patients that was traced to the hospital water supply. Method(s): Cases of RGM-positive patients were differentiated based on whether they were community-acquired or nosocomial, colonized or infected based on predefined criteria. Medical records of all RGM-positive patients were reviewed and data extracted. Infection control outbreak measures were instituted and an environmental investigation was conducted. Result(s): Between July 2011 and April 2012, 16 RGM isolates were identified among 15 hematopoietic cell transplant patients, compared with none in the preceding year. After environmental samples were initially grown on media for heterotrophic counts and further speciated, RGM species were identified in the hospital water supply. Conclusion(s): This outbreak of RGM was traced to an environmental source and was successfully controlled through institution of infection control measures.Copyright \u00a9 2014 by Lippincott Williams & Wilkins.",
+    "full_title": "Rapidly growing mycobacteria among pediatric hematopoietic cell transplant patients traced to the hospital water supply (2014) doi: https://dx.doi.org/10.1097/INF.0000000000000391"
+  },
+  {
+    "\ufeff": "30",
+    "title": "G30",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1089/ees.2021.0272",
+    "recommend": "This study examines the influence of chlorine disinfectant type, water use frequency (stagnation time), and water heater temperature on the growth and persistence of microbes, including nontuberculous mycobacteria (NTM), in water heater storage tanks and downstream plumbing. The experimental setup consists of four 50-gallon electric water heater tanks at two different locations that provide different types of secondary disinfectant (chloramine and free chlorine). The water heaters were operated at two different temperature settings (45degreeC +/- 3degreeC and 60degreeC +/- 3degreeC), and with two different use patterns (once per 24 h and three times per 24 h), which allowed for sampling at three different stagnation times: overnight, 16-h stagnation, and 3-h stagnation. Microbial analyses were conducted on water samples collected at the tank effluent and the shower head to compare the water quality in the tank before the stagnation period and in the piping downstream of the tank after the stagnation period. The results indicated that culturable NTM was not detected under any of the conditions studied in the free chlorine disinfectant system. In the chloramine system, higher water use frequency (equivalent to 180 gallons/day) and higher water heater temperature (60degreeC +/- 3degreeC) decreased the number of heterotrophic bacteria in the tank and the piping downstream to the tank but failed to control NTM. For both heterotrophic plate count and NTM, the piping downstream was not more microbially active than the tank.\u00a9 Copyright 2022, Mary Ann Liebert, Inc., publishers 2022.",
+    "full_title": "Influence of hot water temperature and use patterns on microbial water quality in building plumbing systems (2022) doi: https://dx.doi.org/10.1089/ees.2021.0272"
+  },
+  {
+    "\ufeff": "31",
+    "title": "G31",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1111/j.1365-2672.1993.tb03018.x",
+    "recommend": "Six common water bacteria were examined for their ability to colonize polyvinyl chloride (PVC) surfaces, survive various germicidal treatment, and re-establish themselves in sterile distilled water (SDW). For each test, two 30.4 cm PVC pipes attached to a 90 degrees PVC elbow were filled with 600 ml of distilled water inoculated with either Pseudomonas aeruginosa, Ps. cepacia, Ps. mesophilica, Acinetobacter anitratus, Mycobacterium chelonae or M. chelonae var. abscessus. After 8 weeks contaminated water was removed and the pipes were exposed to 600 ml of 1:213 iodophor disinfectant (ID), 1:128 phenolic detergent (P), 1:256 quaternary ammonium compound (QA), stock iodophor antiseptic (IA), 2% formaldehyde (F), 10-15 ppm free chlorine (C), 2% glutaraldehyde (G) and 70% ethanol (E). These germicides were periodically sampled, neutralized and examined for surviving organisms. After exposure for 7 d the germicides were removed and each pipe was refilled with SDW. This was assayed at 7 d intervals to determine microbial re-establishment. Samples were removed during microbial conditioning and examined by scanning electron microscopy (SEM). Pseudomonads were isolated directly from ID, QA, C, P and F, and mycobacteria from QA, IA, ID, P, G, C and F. Pseudomonas aeruginosa and Ps. cepacia survived in PVC pipes after 7 d of exposure to P, ID and C; Ps. mesophilica, after C and ID; and both mycobacteria, after C. SEM examination of PVC remnants revealed bacterial attachment and formation of extracellular material with embedded cells. These studies show that common water bacteria can attach and colonize the interior surface of PVC pipes and develop significant resistance to the action of certain germicides.(ABSTRACT TRUNCATED AT 250 WORDS)",
+    "full_title": "The colonization of solid PVC surfaces and the acquisition of resistance to germicides by water micro-organisms (1993) doi: https://dx.doi.org/10.1111/j.1365-2672.1993.tb03018.x"
+  },
+  {
+    "\ufeff": "32",
+    "title": "G32",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1016/j.watres.2013.06.052",
+    "recommend": "Opportunistic pathogens in potable water systems are an emerging health concern; however, the factors influencing their proliferation are poorly understood. Here we investigated the effects of prior granular activated carbon (GAC) biofiltration [GAC-filtered water, unfiltered water, and a blend (30% GAC filtered and 70% unfiltered water)] and disinfectant type (chlorine, chloramine) on opportunistic pathogen occurrence using five annular reactors (ARs) to simulate water distribution systems, particularly premise plumbing. GAC pre-treatment effectively reduced total organic carbon (TOC), resulting in three levels of influent TOC investigated. Quantitative polymerase chain reaction (q-PCR) provided molecular evidence of natural colonization of Legionella spp., Mycobacterium spp., Acanthamoeba spp., Hartmannella vermiformis and Mycobacterium avium on AR coupons. Cultivable mycobacteria and amoeba, including pathogenic species, were also found in bulk water and biofilm samples. While q-PCR tends to overestimate live cells, it provided a quantitative comparison of target organisms colonizing the AR biofilms in terms of gene copy numbers. In most cases, total bacteria and opportunistic pathogens were higher in the three undisinfected ARs, but the levels were not proportional to the level of GAC pre-treatment/TOC. Chlorine was more effective for controlling mycobacteria and Acanthamoeba, whereas chloramine was more effective for controlling Legionella. Both chlorine and chloramine effectively inhibited M. avium and H. vermiformis colonization. Pyrosequencing of 16S rRNA genes in coupon biofilms revealed a significant effect of GAC pre-treatment and disinfectant type on the microbial community structure. Overall, this study provides insights into the potential of different disinfectants and GAC biofilters at the treatment plant and in buildings to control downstream opportunistic pathogens and broader drinking water microbial communities. (C) 2013 Elsevier Ltd. All rights reserved.",
+    "full_title": "Effect of GAC pre-treatment and disinfectant on microbial community structure and opportunistic pathogen occurrence (2013) doi: https://dx.doi.org/10.1016/j.watres.2013.06.052"
+  },
+  {
+    "\ufeff": "33",
+    "title": "G33",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1002/smll.201804436",
+    "recommend": "Drinking water treatment processes (DWTPs) impact pathogen colonization and microbial communities in finished water; however, their efficacies against opportunistic pathogens are not fully understood. In this study, the effects of treatment steps on the removal of Legionella spp., Legionella pneumophila, nontuberculous mycobacteria, Mycobacterium avium, and two amoeba hosts (Vermamoeba vermiformis, Acanthamoeba) are evaluated in two parallel trains of DWTPs equipped with different pretreatment units. Quantitative polymerase chain reaction analysis demonstrates significantly reduced numbers of total bacteria, Legionella, and mycobacteria during ozonation, followed by a rebound in granular activated carbon (GAC) filtration, whereas sand filtration exerts an overarching effect in removing microorganisms in both treatment trains. V. vermiformis is more prevalent in biofilm (34%) than water samples (7.7%), while Acanthamoeba is not found in the two trains of DWTPs. Illumina sequencing of bacterial 16S rRNA genes reveals significant community shifts at different treatment steps, as well as distinct bacterial community structures in water and biofilm samples in parallel units (e.g., ozonation, GAC, sand filtration) between the two trains (analysis of similarities (ANOSIM), p < 0.05), implying the potential influence of different pretreatment steps in shaping the downstream microbiome. Overall, the results provide insights to mitigation of opportunistic pathogens and engineer approaches for managing bacterial communities in DWTPs.",
+    "full_title": "Removal efficacy of opportunistic pathogens and bacterial community dynamics in two drinking water treatment trains (2019) doi: https://dx.doi.org/10.1002/smll.201804436"
+  },
+  {
+    "\ufeff": "34",
+    "title": "G34",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.3390/ijerph110707393",
+    "recommend": "Inhalation of potable water presents a potential route of exposure to opportunistic pathogens and hence warrants significant public health concern. This study used qPCR to detect opportunistic pathogens Legionella spp., L. pneumophila and MAC at multiple points along two potable water distribution pipelines. One used chlorine disinfection and the other chloramine disinfection. Samples were collected four times over the year to provide seasonal variation and the chlorine or chloramine residual was measured during collection. Legionella spp., L. pneumophila and MAC were detected in both distribution systems throughout the year and were all detected at a maximum concentration of 10(3) copies/mL in the chlorine disinfected system and 10(6), 10(3) and 10(4) copies/mL respectively in the chloramine disinfected system. The concentrations of these opportunistic pathogens were primarily controlled throughout the distribution network through the maintenance of disinfection residuals. At a dead-end and when the disinfection residual was not maintained significant (p < 0.05) increases in concentration were observed when compared to the concentration measured closest to the processing plant in the same pipeline and sampling period. Total coliforms were not present in any water sample collected. This study demonstrates the ability of Legionella spp., L. pneumophila and MAC to survive the potable water disinfection process and highlights the need for greater measures to control these organisms along the distribution pipeline and at point of use.",
+    "full_title": "Detection of Legionella, L. pneumophila and Mycobacterium avium Complex (MAC) along potable water distribution pipelines (2014) doi: https://dx.doi.org/10.3390/ijerph110707393"
+  },
+  {
+    "\ufeff": "35",
+    "title": "G35",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.3390/pathogens4030590",
+    "recommend": "Legionella spp. and Mycobacterium avium complex (MAC) are opportunistic pathogens of public health concern. Hot water systems, including showers, have been identified as a potential source of infection. This paper describes the colonization of Legionella and MAC on the flexible tubing within a model potable shower system, utilizing thermostatic mixing and a flexible shower head. A MAC qPCR method of enumeration was also developed. MAC and Legionella spp. were detected within the biofilm at maximum concentrations of 7.0 x 104 and 2.0 x 103 copies/cm2 PVC tubing respectively. No significant changes were observed between sample of the flexible shower tubing that dried between uses and those that remained filled with water. This suggested the \"unhooking\" showerheads and allowing them to dry is not an effective method to reduce the risk of Legionella or MAC colonisation.Copyright \u00a9 2015 by the authors.",
+    "full_title": "Opportunistic pathogens mycobacterium avium complex (MAC) and legionella spp. colonise model shower (2015) doi: https://dx.doi.org/10.3390/pathogens4030590"
+  },
+  {
+    "\ufeff": "36",
+    "title": "G36",
+    "size": 1,
+    "group": 0,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "https://dx.doi.org/10.1086/661282",
+    "recommend": "BACKGROUND: Healthcare-associated outbreaks and pseudo-outbreaks of rapidly growing mycobacteria (RGM) are frequently associated with contaminated tap water. A pseudo-outbreak of Mycobacterium chelonae-M. abscessus in patients undergoing bronchoscopy was identified by 2 acute care hospitals. RGM was identified in bronchoscopy specimens of 28 patients, 25 of whom resided in the same skilled nursing facility (SNF). An investigation ruled out bronchoscopy procedures, specimen collection, and scope reprocessing at the hospitals as sources of transmission., OBJECTIVE: To identify the reservoir for RGM within the SNF and evaluate 2 water system treatments, hyperchlorination and point-of-use (POU) membrane filters, to reduce RGM., DESIGN: A comparative in situ study of 2 water system treatments to prevent RGM transmission., SETTING: An SNF specializing in care of patients requiring ventilator support., METHODS: RGM and heterotrophic plate count (HPC) bacteria were examined in facility water before and after hyperchlorination and in a subsequent 24-week assessment of filtered water by colony enumeration on Middlebrook and R2A media., RESULTS: Mycobacterium chelonae was consistently isolated from the SNF water supply. Hyperchlorination reduced RGM by 1.5 log(10) initially, but the population returned to original levels within 90 days. Concentration of HPC bacteria also decreased temporarily. RGM were reduced below detection level in filtered water, a 3-log(10) reduction. HPC bacteria were not recovered from newly installed filters, although low quantities were found in water from 2-week-old filters., CONCLUSION: POU membrane filters may be a feasible prevention measure for healthcare facilities to limit exposure of sensitive individuals to RGM in potable water systems.",
+    "full_title": "Point-of-use membrane filtration and hyperchlorination to prevent patient exposure to rapidly growing mycobacteria in the potable water supply of a skilled nursing facility (2011) doi: https://dx.doi.org/10.1086/661282"
+  },
+  {
+    "\ufeff": "37",
+    "title": "SR0",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "1. Change in number of colony forming units in water post intervention"
+  },
+  {
+    "\ufeff": "38",
+    "title": "SR1",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "2. Change in rates of acquisition of NTM pulmonary disease"
+  },
+  {
+    "\ufeff": "39",
+    "title": "SR2",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "3. Adverse outcomes"
+  },
+  {
+    "\ufeff": "40",
+    "title": "SR3",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "4. Rate of NTM recurrence"
+  },
+  {
+    "\ufeff": "41",
+    "title": "SR4",
+    "size": 1,
+    "group": 1,
+    "x_coord": 0,
+    "y_coord": 0,
+    "rad": 0,
+    "doi": "",
+    "recommend": "",
+    "full_title": "5. Cost of intervention"
+  }
+];
+
+// Example of how to access the data:
+// console.log(dataset[0]);
+
+// Export the data if using modules
+// export default dataset;
+
+        ////////////////////////////////////////////////////////////////
+
+        var w = window.innerWidth;
+        var h = window.innerHeight - 110; // 110 is needed for the results table and the buttons
+        var popup_w = 2 * w / 5 - 20;
+        var popup_h = h / 3;  // previously this was:  h / 3 + 100;
+        var circle_radius = 50;
+
+        var line_width = 8;
+        var line_dashed = "30, 10";
+
+        var link_gap = 7;
+
+        // define svg and diagonal as global 
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        console.log("svg defined");
+
+        var diagonal = d3.svg.diagonal()
+            // this sets up a variable containing
+            // the diagonal function
+            // note that the x and y are swapped round and then
+            // swapped back with the .projection -
+            // this is so that the diagonal curves in the right direction
+            .source(function (d) {
+                return {
+                    "y": getXcoord(d.origin) + getRadius(d.origin) + link_gap,
+                    "x": getYcoord(d.origin)
+                };
+            })
+            .target(function (d) {
+                return {
+                    "y": getXcoord(d.termination) - getRadius(d.termination) - link_gap,
+                    "x": getYcoord(d.termination)
+                };
+            })
+            .projection(function (d) { return [d.y, d.x]; });
+
+        
+
+        // colours:-
+        var left_outer_colour = "rgb(0, 101, 121)";
+        var left_inner_colour = "rgb(0, 149, 161)";
+        var left_lighter_colour = "rgb(100, 205, 205)";
+        var left_faded_colour = "rgba(100, 205, 205, 0.5)"
+
+        var right_outer_colour = "rgb(91, 41, 96)";
+        var right_inner_colour = "rgb(145, 30, 179)";
+        var right_lighter_colour = "rgb(199, 134, 219)";
+        var right_faded_colour = "rgba(199, 134, 219, 0.2)"
+
+        var link_highlight_colour = "rgb(0, 51, 102)"; // corp blue
+        var link_standard_colour = "rgba(0, 51, 102, 0.4)";
+        var link_faded_colour = "rgba(0, 51, 102, 0.1)";
+
+        var link_highlight_colour_disagree = "rgb(136, 42, 13)"; //Arts dark
+        var link_standard_colour_disagree = "rgba(136, 42, 13, 0.4)";
+        var link_faded_colour_disagree = "rgba(136, 42, 13, 0.1)";
+
+        var link_transparent_colour = "rgba(0, 0, 0, 0.0)"; // fully transparent
+
+        var button_width = 220;
+        var margin = 100; // distance from left button width 
+
+        var group_3 = 0;
+        var group_1 = 0;
+        var group_0 = 0;
+
+        var Antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Exacerbation_management_col = "rgba(184, 204, 228, 1.0)"
+        var Pseudomonas_aeruginosa_col = "rgba(184, 204, 228, 1.0)"
+        var Burkholderia_species_col = "rgba(184, 204, 228, 1.0)"
+        var NTM_col = "rgba(184, 204, 228, 1.0)"
+        var Stenotrophomonas_maltophilia_col = "rgba(184, 204, 228, 1.0)"
+        var MRSA_col = "rgba(184, 204, 228, 1.0)"
+        var Pneumococcus_col = "rgba(184, 204, 228, 1.0)"
+        var Specific_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Antibiotic_prophylaxis_col = "rgba(184, 204, 228, 1.0)"
+        var Inhaled_Antibiotics_col = "rgba(184, 204, 228, 1.0)"
+        var Adjuncts_to_antibiotic_therapy_col = "rgba(184, 204, 228, 1.0)"
+        var Management_of_ABPA_col = "rgba(184, 204, 228, 1.0)"
+        var Viral_infections_col = "rgba(184, 204, 228, 1.0)"
+        var Inflammation_col = "rgba(184, 204, 228, 1.0)"
+        var Mucoactive_agents_col = "rgba(184, 204, 228, 1.0)"
+        var Bronchodilators_col = "rgba(184, 204, 228, 1.0)"
+        var Nebuliser_systems_col = "rgba(184, 204, 228, 1.0)"
+        var NIV_col = "rgba(184, 204, 228, 1.0)"
+        var Oxygen_col = "rgba(184, 204, 228, 1.0)"
+        var Surgical_col = "rgba(184, 204, 228, 1.0)"
+        var Pancreatic_Enzymes_col = "rgba(204, 192, 217, 1.0)"
+        var Liver_disease_col = "rgba(204, 192, 217, 1.0)"
+        var Nutritional_supplements_col = "rgba(204, 192, 217, 1.0)"
+        var Appetite_col = "rgba(204, 192, 217, 1.0)"
+        var Acid_management = "rgba(204, 192, 217, 1.0)"
+        var Exercise_col = "rgba(214, 227, 188, 1.0)"
+        var Physiotherapy_col = "rgba(214, 227, 188, 1.0)"
+        var CF_related_arthritis_col = "rgba(251, 212, 180, 1.0)"
+        var Osteoporosis_col = "rgba(251, 212, 180, 1.0)"
+        var CF_related_diabetes_col = "rgba(182, 221, 232, 1.0)"
+        var Growth_Hormone_col = "rgba(182, 221, 232, 1.0)"
+        var Correction_of_basic_defect_col = "rgba(148, 54, 52, 1.0)"
+        var Psychosocial_col = "rgba(166, 166, 166, 1.0)"
+        var ENT_col = "rgba(150, 50, 102, 1.0)"
+
+        // FUNCTION DEFINITIONS
+
+        // Add this function to calculate maximum button width
+        function calculateMaxButtonWidth() {
+            // Define the padding you want on each side
+            var padding = 20;
+            
+            // Create a temporary SVG text element for measurement
+            var tempText = svg.append("text")
+                .attr("font-family", "Helvetica")
+                .attr("font-size", "14px")
+                .style("opacity", 0); // Make it invisible
+            
+            var maxWidth = 0;
+            
+            // First collect all possible button texts
+            var buttonTexts = [];
+            
+            // Get unique topics from dataset_links
+            var uniqueTopics = [];
+            for (var i = 0; i < dataset_links.length; i++) {
+                var topic = dataset_links[i].topic;
+                if (!uniqueTopics.includes(topic)) {
+                    uniqueTopics.push(topic);
+                    buttonTexts.push(topic);
+                }
+            }
+            
+            // Add other button texts
+            buttonTexts.push("Reset");
+            // Add any other fixed button texts here
+            
+            // Measure each text and find the maximum width
+            for (var i = 0; i < buttonTexts.length; i++) {
+                tempText.text(buttonTexts[i]);
+                var width = tempText.node().getComputedTextLength();
+                if (width > maxWidth) {
+                    maxWidth = width;
+                }
+            }
+            
+            // Remove the temporary text element
+            tempText.remove();
+            
+            // Calculate button width with padding
+            var buttonWidth = maxWidth + (padding * 2);
+            
+            // Return the calculated width
+            return buttonWidth;
+        }
+
+        function popupBottomText(page_number) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            var dx = w / 2 - 50;
+            var dy = h - 100;
+
+            var rectangle = svg.append("rect")
+                .attr("x", dx)
+                .attr("y", dy)
+                .attr("width", 100) // make it wide but 40 less than the current width
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = page_number + 1;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+            var rectangle = svg.append("rect")
+                .attr("x", w - (150 + 5))
+                .attr("y", h - (100 + 5))
+                .attr("width", 140) //
+                .attr("height", 100)
+                .attr("fill", function () {
+                    return (left_faded_colour);
+                })
+                .attr("rx", 50)
+                .attr("ry", 50)
+                .attr("id", "popup_bottom_text")
+                .style("pointer-events", "none")
+                .on("click", function (d) {
+                    page_number = 12;
+                    removeBottomText();
+                    removePopup();
+                    writePage(page_number);
+                });
+
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", dx + 8)
+                .attr("y", dy + 55)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Continue");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = page_number + 1;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+            var bottomText = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w - 130)
+                .attr("y", h - 50)
+                .attr('id', 'bottom_text')
+                .text(function (d) {
+                    var str = ("Skip intro...");
+                    return (str);
+                })
+                .style("cursor", "default");
+            bottomText.on("click", function (d) {
+                // if (page_number > )
+                page_number = 12;
+                // console.log(page_number);
+                removeBottomText();
+                removePopup();
+                writePage(page_number);
+            });
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("bottom_text");
+            element.parentNode.removeChild(element);
+        }
+
+        function popupBelow(this_var, node) {
+            var rectangle = svg.append("rect")
+                .attr("x", w / 8)
+                .attr("y", h / 2 + 50)
+                .attr("width", w * 6 / 8)
+                .attr("height", 50)
+                .attr("fill", function (d) {
+                    if (node.group == 1) {
+                        return (right_lighter_colour)
+                    } else {
+                        return (left_lighter_colour)
+                    }
+                })
+                .attr("id", "below_popup_id")
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .style("pointer-events", "none");
+            var popup_below_text = svg.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:20px;')
+                .attr("x", w / 8 + 20)
+                .attr("y", h / 2 + 50 + 30)
+                .attr('id', 'below_popup_text_id')
+                .text(function (d) {
+                    var str = (node.title);
+                    return (str);
+                });
+        }
+
+        function removePopupBelow(this_var, node) {
+            var element = document.getElementById("below_popup_id");
+            element.parentNode.removeChild(element);
+            var element = document.getElementById("below_popup_text_id");
+            element.parentNode.removeChild(element);
+        }
+
+
+        function getXcoord(node) {
+            // function to get the x co-ordinate of the
+            // node stored in dataset
+            var x_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    x_coord = dataset[i].x_coord;
+                }
+            }
+            return x_coord;
+        }
+
+        function getYcoord(node) {
+            // function to get the y corordinate of the
+            // node stored in dataset
+            var y_coord = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    y_coord = dataset[i].y_coord;
+                }
+            }
+            return y_coord;
+        }
+
+        function getRadius(node) {
+            // function to get the radius of the
+            // node stored in dataset
+            var rad = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == node) {
+                    rad = dataset[i].rad;
+                }
+            }
+            return rad;
+        }
+
+        function highlightNodes(node) {
+            for (i = 0; i < dataset_links.length; i++) {
+                //change the colour variable in dataset_links
+                if (dataset_links[i].origin == node || dataset_links[i].termination == node) {
+                    dataset_links[i].line_col = "2";
+                } else {
+                    dataset_links[i].line_col = "0";
+                }
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                ;
+        }
+
+        function unhighlightNodes() {
+            for (i = 0; i < dataset_links.length; i++) {
+                //reset the colours of all nodes
+                dataset_links[i].line_col = "1";
+            }
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                //.transition()
+                //.duration(100)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function fadeAllLinks() {
+            //function to fade all the links
+            svg.selectAll("#links")  //need to update the visuals - update all the paths
+                .data(dataset_links)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    }
+                })
+                ;
+        }
+
+        function highlightLinks(link) {
+            // function to highlight the link
+            // and include the text in the upper boxes
+            // first get the origin then
+            // find the text associated with link.origin
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    insertLeftText(dataset[i].recommend);
+                }
+                if (dataset[i].title == link.termination) {
+                    insertRightText(dataset[i].recommend);
+                }
+            }
+        }
+
+        function updateCircleLocation() {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#nodes")
+                .data(dataset)
+                .transition()
+                .duration(transition_time)
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                });
+        }
+
+        function updateLineLocation(transition_time) {
+            transition_time = typeof transition_time !== 'undefined' ? transition_time : 5000;
+            svg.selectAll("#links")
+                .data(dataset_links)
+                .transition()
+                .duration(transition_time)
+                .attr("d", diagonal)
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                });
+        }
+
+        function update_groups() {
+            group_0 = 0;
+            group_1 = 1;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+        }
+
+        function setSquareArrangement() {
+            // loop to empirically set the square node positions
+            // note this calls and adjusts the global variables
+            // first reset the data
+            group_0_counter = 0;
+            group_1_counter = 1;
+
+            // Adjust these values to control the horizontal position
+            var left_offset  = button_width + margin;  // Changed from w/3 to w/4 (smaller value = closer to center)
+            var right_offset =  margin; // Changed from w/3 to w/4
+            
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0_counter = group_0_counter + 1;
+                    dataset[i].x_coord = left_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_0_counter) * (h * 0.9) / (group_0 + 1);
+
+                } else if (dataset[i].group == 1) {
+                    group_1_counter = group_1_counter + 1;
+                    dataset[i].x_coord = w - right_offset;  // Use the new variable
+                    dataset[i].y_coord = (group_1_counter) * (h * 0.9) / (group_1 + 1);
+                }
+            }
+        }
+
+        function setCircleArrangement() {
+            // loop to set the circular node positions
+            // note this calls and adjusts the global variables
+            // makes use of group_0, and group_1
+            // need to use group_1_counter and group_0_counter
+            //   to keep track of the groups (in case they're 
+            //   in funny orders)
+            // circle offset is amount of the bottom and top of the circle to leave off
+            // console.log("in set circle arangement");
+            var circle_offset = 0.3;
+            var separation = 50;
+            var group_0_counter = Math.round(circle_offset / 2 * group_0);
+            var group_1_counter = Math.round(circle_offset / 2 * group_1);
+            var centre_x = w / 2 + button_width /2;
+            var centre_y = h / 2;
+            var left_offset  = button_width + margin;
+
+            var radius_option1 = h * 0.45;  // Original height-based radius
+            var radius_option2 = (w / 2) - (left_offset / 2); // Width-based radius considering buttons
+            
+            // Use the smaller of the two values
+            var rad = Math.min(radius_option1, radius_option2) * 0.9;
+            console.log("debugging setCicleArrangement");
+            console.log(h);
+            console.log(w);
+            console.log(rad);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    dataset[i].x_coord = centre_x - separation - rad * Math.sin((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    dataset[i].y_coord = centre_y - rad * Math.cos((group_0_counter * (3.14159265 / (group_0 + Math.round(circle_offset * group_0)))));
+                    group_0_counter = group_0_counter + 1;
+                } else if (dataset[i].group == 1) {
+                    dataset[i].x_coord = centre_x + separation + (rad) * Math.sin((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    dataset[i].y_coord = centre_y - (rad) * Math.cos((group_1_counter * (3.14159265 / (group_1 + Math.round(circle_offset * group_1)))));
+                    group_1_counter = group_1_counter + 1;
+                }
+            }
+        }
+
+        function showAllSquare() {
+            // make the nodes and links move into a square arrangement
+            resetGroups();
+            update_groups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function showAllCircle() {
+            resetGroups();
+            update_groups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function disAppearAllNodes() {
+            // change the location of the nodes so that they are all off screen
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].y_coord = h + 200;
+            }
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getTopic(topic_string) {
+            // console.log("In the getTopic() function")
+            // console.log(topic_string)
+            // function to put all the nodes in topic_string in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (let i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (let i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].topic == topic_string) {
+                    // if topic is asthma get the guideline to group 1 and the cr to group 0
+                    for (let j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setSquareArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getCommissioner(commission_string) {
+            // function to put all the asthmas in, and put everyone else in group_2
+            // first reset the data
+            resetGroups(); // reset the groups
+            // steps;
+            // go through the dataset and set everyone to group 2 and move them all off screen
+
+            for (i = 0; i < dataset.length; i++) {
+                dataset[i].group = 2;
+                dataset[i].y_coord = h + 200;
+            }
+            // go through the dataset_links
+            // for each row find if the topic == asthma
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == commission_string) {
+                    // if commissioner is the right one get the guideline to group 1 and the cr to group 0
+                    for (j = 0; j < dataset.length; j++) {
+                        if (dataset[j].title == dataset_links[i].origin) {
+                            dataset[j].group = 0;
+                        } else if (dataset[j].title == dataset_links[i].termination) {
+                            dataset[j].group = 1;
+                        }
+                    }
+                }
+            }
+            // reset the group variables and re_count the groups
+            group_0 = 0;
+            group_1 = 0;
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].group == 0) {
+                    group_0 = group_0 + 1;
+                } else if (dataset[i].group == 1) {
+                    group_1 = group_1 + 1;
+                }
+            }
+            changeColourExcludedGroups();
+            setCircleArrangement();
+            updateCircleLocation();
+            updateLineLocation();
+        }
+
+        function getDisagree() {
+            // function to make all agreeing lines transparent
+
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].agreement == 1) {
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function getIgnored() {
+            // function to show only the links with evidence ignored
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].line_style == 1) {
+                    // remove the full lines
+                    dataset_links[i].line_opaque = 0;
+                }
+            }
+            updateLineLocation(transition_time = 5000);
+        }
+
+        function changeColourExcludedGroups() {
+            for (i = 0; i < dataset_links["length"]; i++) {
+                // loop over the dataset_links origins and terminations
+                // if either are group 2 then set the line colour to 0
+                for (j = 0; j < dataset.length; j++) {
+                    if (dataset[j].title == dataset_links[i].origin || dataset[j].title == dataset_links[i].termination) {
+                        if (dataset[j].group == 2) {
+                            dataset_links[i].line_opaque = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        function resetGroups() {
+            // function which loops through dataset
+            // and resets all Gaps to 0 and Systematic reviews to 1
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title.substring(0, 1) == "S") {
+                    dataset[i].group = 1;
+                } else if (dataset[i].title.substring(0, 1) == "G") {
+                    dataset[i].group = 0;
+                }
+            }
+            for (i = 0; i < dataset_links.length; i++) {
+                dataset_links[i].line_opaque = 1;
+            }
+        }
+
+        function popupString(this_var, link) {
+            // function to popup the rectangles with the strings in
+            // in this version it is just on the right
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+
+            //left rectangle:-
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+            // insert text on the left:
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text(""); // empty text instead of a placeholder
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    new_text = dataset[i].full_title;
+                    // console.log(new_text);
+                    // console.log("Left node = ");
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+
+            // right rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", w - (popup_w + 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w))
+                .attr("height", (popup_h))
+                .attr("fill", right_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var dx = w - (popup_w - 10);
+            var rightText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-right-text')
+                .attr("x", dx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.termination) {
+                    new_text = dataset[i].full_title;
+                    // console.log("Right node = ")
+                    // console.log(dataset[i].title);
+                }
+            }
+            createMultiLineRight("Topic: ".concat(new_text), dx);
+
+            // reason in the middle!!
+
+            var rectangle = svg.append("rect")
+                .attr("x", w / 2 - (popup_w * .5 / 2))
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", (popup_w * .5))
+                .attr("height", (popup_h * 1.6))
+                .attr("fill", link_standard_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            var mdx = w / 2 - (popup_w * .5 / 2) + 10;
+
+            var middleText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:10px;')
+                .attr('id', 'multiline-middle-text')
+                .attr("x", mdx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h * 1.6 + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .attr("width", popup_w - 10)
+                .attr("height", popup_h)
+                .text("");
+            var new_text = "";
+            //console.log(new_text);
+            // console.log("link.termination = ")
+            //console.log(link.termination);
+            for (i = 0; i < dataset.length; i++) {
+                if (dataset[i].title == link.origin) {
+                    // console.log("Middle node identified.  The next three logs should be dataset[i].title and dataset[i].recommend and i.");
+                    //console.log(dataset[i].title);
+                    //console.log(dataset[i].recommend);
+                    //console.log(i);
+                    new_text = dataset[i].recommend;
+                }
+            }
+            //console.log(new_text);
+            createMultiLineMiddle(new_text, mdx);
+
+        }
+
+        function createMultiLineMiddle(text, mdx) {
+            var words = text.split(' ');
+
+            // Get dimensions of the rectangle
+            var text_width = popup_w * .5 - 20;
+            var rectangle_height = popup_h * 1.6; // Match the height of the middle rectangle
+            var line_height = 18; // Height of each line of text
+            var initial_y_offset = 30; // Initial y position where text starts
+            
+            // Calculate maximum number of lines that can fit in the rectangle
+            var max_lines = Math.floor((rectangle_height - initial_y_offset) / line_height);
+            
+            var text_element = document.getElementById("multiline-middle-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-weight:bold; font-size:12px;')
+            
+            // Create first tspan element
+            var current_tspan = document.createElementNS(svgNS, "tspan");
+            var text_node = document.createTextNode(words[0] || "");
+            
+            current_tspan.appendChild(text_node);
+            text_element.appendChild(current_tspan);
+
+            var lines_count = 0;
+            
+            for (var i = 1; i < words.length; i++) {
+                // Store current length before adding new word
+                var len = current_tspan.firstChild.data.length;
+                
+                // Try adding the next word
+                current_tspan.firstChild.data += " " + words[i];
+                
+                // Check if it's too long for the width
+                if (current_tspan.getComputedTextLength() > text_width) {
+                    // Remove the added word (restore to previous length)
+                    current_tspan.firstChild.data = current_tspan.firstChild.data.slice(0, len);
+                    
+                    // Increment line count
+                    lines_count += 1;
+                    
+                    // Check if we've hit the maximum number of lines that can fit
+                    if (lines_count >= max_lines - 1) { // Leave one line for ellipsis
+                        // Add ellipsis to indicate truncation
+                        current_tspan.firstChild.data += "...";
+                        break; // Stop processing more words
+                    }
+                    
+                    // Create a new tspan for the next line
+                    var next_tspan = document.createElementNS(svgNS, "tspan");
+                    next_tspan.setAttributeNS(null, "x", mdx);
+                    next_tspan.setAttributeNS(null, "dy", line_height);
+                    
+                    // Add the current word to the new line
+                    var new_text_node = document.createTextNode(words[i]);
+                    next_tspan.appendChild(new_text_node);
+                    text_element.appendChild(next_tspan);
+                    
+                    // Update the current tspan reference
+                    current_tspan = next_tspan;
+                }
+            }
+        }
+        function createMultiLineLeft(text, ldx) {
+            // Handle null or empty text
+            if (!text || text.trim() === "") {
+                text = ""; // Set to empty string
+            }
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-left-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", ldx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function createMultiLineRight(text, dx) {
+            var words = text.split(' ');
+
+            var text_width = popup_w - 20;
+            var text_element = document.getElementById("multiline-right-text");
+            text_element.setAttribute('style', 'text-align:left; font-family:Helvetica; font-size:20px;')
+            text_element.textContent = "";
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+            var lines_count = 0;
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    lines_count = lines_count + 1;
+                    if (lines_count > 13) {
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);    // Remove added word
+                    var tspan_element = document.createElementNS(svgNS, "tspan");       // Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+                }
+            }
+        }
+
+        function popupTitle(this_var, title, group, full_title) {
+            // function to popup the title of the 
+            var coords = [0, 0];
+            coords = d3.mouse(this_var);
+            var dx = 20;
+            var dy = 0;
+            // we could use this code below to determine if this is a left node or a right node 
+            // swapping height for width
+            if (coords[1] > h / 2) {
+                dy = 20;
+            } else {
+                dy = h - 120; // height = 100
+            }
+
+            // left rectangle
+            var rectangle = svg.append("rect")
+                .attr("x", 2)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h);
+                    } else {
+                        return (coords[1]);
+                    }
+                })
+                .attr("width", popup_w)
+                .attr("height", popup_h)
+                .attr("fill", left_lighter_colour)
+                .attr("rx", 20)
+                .attr("ry", 20)
+                .attr("id", "popup-string-id")
+                .style("pointer-events", "none");
+
+            // insert text on the left 
+            var ldx = 10;
+            var leftText = svg.append("text")
+                .attr('style', 'text-align:left; font-family:Helvetica; font-size:15px;')
+                .attr('id', 'multiline-left-text')
+                .attr("x", ldx)
+                .attr("y", function () {
+                    if (coords[1] > h / 2) {
+                        return (coords[1] - popup_h + 30);
+                    } else {
+                        return (coords[1] + 30);
+                    }
+                })
+                .text("");
+            var new_text = "";
+            // console.log("full_title:");
+            //console.log(full_title);
+            // console.log("new_text:")
+            //console.log(new_text);
+            new_text = full_title;
+            //console.log(new_text);
+            createMultiLineLeft("Research: ".concat(new_text), ldx);
+        }
+
+        function createPopup(text, dx) {
+            var words = text.split(' ');
+            var text_width = w - 100;
+            var text_element = document.getElementById("multiline-title-text");
+            text_element.textContent = "";
+            text_element.setAttribute('style', 'font-family:Helvetica; font-size:20px;')
+            var tspan_element = document.createElementNS(svgNS, "tspan");   // Create first tspan element
+            var text_node = document.createTextNode(words[0]);           // Create text in tspan element
+
+            tspan_element.appendChild(text_node);                           // Add tspan element to DOM
+            text_element.appendChild(tspan_element);
+
+            var lines_count = 0;  // this variable sets how many lines high it can be
+            for (var i = 1; i < words.length; i++) {
+                var len = tspan_element.firstChild.data.length;             // Find number of letters in string
+                tspan_element.firstChild.data += " " + words[i];            // Add next word
+
+                if (tspan_element.getComputedTextLength() > text_width) {
+                    tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len); 				// Remove added word
+                    lines_count = lines_count + 1;
+                    if (lines_count > 5) {  //don't go over this number of lines
+                        tspan_element.firstChild.data = tspan_element.firstChild.data.slice(0, len);  // remove another word
+                        tspan_element.firstChild.data += "...";  // add '...'
+                        break; // break out of the for loop
+                    }
+                    var tspan_element = document.createElementNS(svgNS, "tspan");				// Create new tspan element
+                    tspan_element.setAttributeNS(null, "x", dx);
+                    tspan_element.setAttributeNS(null, "dy", 20);
+                    text_node = document.createTextNode(words[i]);
+                    tspan_element.appendChild(text_node);
+                    text_element.appendChild(tspan_element);
+
+                }
+            }
+        }
+
+        function removeBottomText() {
+            var element = document.getElementById("bottom_text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+        }
+
+        function removePopup() {
+            svg.selectAll("rect").remove();
+            var element = document.getElementById("multiline-title-text");
+            element.parentNode.removeChild(element);
+        }
+
+        function removePopupMain() {
+            // this removes the popups from the main function
+            var element = document.getElementById("multiline-title-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-title-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removePopupMain... no popups left")
+                }
+            }
+        }
+
+        function removeString() {
+            //do stuff to remove all the popup strings on the page
+            svg.selectAll("foreignObject").remove();
+            svg.selectAll("xhtml").remove();
+            var element = document.getElementById("multiline-right-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-left-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element = document.getElementById("multiline-middle-text");
+            if (element != null) {
+                element.parentNode.removeChild(element);
+            }
+            var element_exists = 1;
+            var i = 0;
+            while (element_exists == 1) {
+                i = i + 1;
+                var element = document.getElementById("popup-string-id");
+                if (element != null) {
+                    //console.log(i);
+                    element.parentNode.removeChild(element);
+                } else {
+                    element_exists = 0;
+                    // console.log("in removeString... no popups left")
+                }
+            }
+        }
+
+ 
+
+        function drawButton(y_pos, button_text, function_call, fcol, fontcol) {
+            // Default colors if not provided
+            fontcol = (typeof fontcol !== 'undefined') ? fontcol : "black";
+            fcol = (typeof fcol !== 'undefined') ? fcol : Antibiotic_therapy_col;
+
+            // Create a group to hold both rectangle and text
+            var buttonGroup = svg.append("g")
+                .attr("class", "button-group");
+            
+            // Add rectangle to group
+            var button_rect = buttonGroup.append("rect")
+                .attr("x", 0)
+                .attr("y", y_pos + 5)
+                .attr("width", button_width)
+                .attr("height", 25)
+                .attr("fill", fcol)
+                .attr("stroke", "gray")
+                .attr("rx", 5)
+                .attr("ry", 5)
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight effect on mouseover
+                    d3.select(this)
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Also highlight the text
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return to original style on mouseout
+                    d3.select(this)
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);
+                        
+                    // Return text to normal
+                    d3.select(this.parentNode).select('text')
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+
+            // Add text to the same group
+            var button_text = buttonGroup.append("text")
+                .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol)
+                .attr("x", 5)
+                .attr("y", y_pos + 5 + 14)
+                .attr('id', 'button_text')
+                .text(function (d) {
+                    return (button_text);
+                })
+                .style("cursor", "default")
+                .on("click", function () {
+                    eval(function_call);
+                })
+                .on("mouseover", function() {
+                    // Highlight the rectangle when text is hovered
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "#333333")
+                        .attr("stroke-width", 2);
+                        
+                    // Update text style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:bold; fill:' + fontcol);
+                })
+                .on("mouseout", function() {
+                    // Return rectangle to original style
+                    d3.select(this.parentNode).select('rect')
+                        .attr("stroke", "gray")
+                        .attr("stroke-width", 1);    
+                        
+                    // Return text to original style
+                    d3.select(this)
+                        .attr('style', 'text-align:center; font-family:Helvetica; font-size:14px; font-weight:normal; fill:' + fontcol);
+                });
+        }
+
+
+        function drawAllButtons() {
+            var z = 0;
+            var big_space = 30;
+            var small_space = 26;
+
+            var uniqueTopics = []; // Array to store unique topics
+
+            for (var i = 0; i < dataset_links.length; i++) {
+                var topic = dataset_links[i].topic;
+                var buttonText = dataset_links[i].topic;
+                var onClickAction = "getTopic('" + topic + "');";
+
+                if (!uniqueTopics.includes(topic)) {
+                    // Draw the button only if the topic is not already included
+                    drawButton(z, buttonText, onClickAction, "white");
+                    uniqueTopics.push(topic); // Add the topic to the uniqueTopics array
+                    z = z + small_space;
+                }
+            }
+
+            z = z + big_space;
+            drawButton(z, "Reset", "showAllCircle();", "white");
+            z = z + big_space;
+        }
+
+
+        function setLineStyle() {
+            // function to loop over the links and set the line style
+            // console.log("in setLineStyle")
+            for (i = 0; i < dataset_links.length; i++) {
+                if (dataset_links[i].commission == "No Trials") {
+                    dataset_links[i].line_style = 2;
+                }
+            }
+        }
+
+        function getTopicForNode(nodeTitle) {
+            // Search through dataset_links to find the topic
+            for (let i = 0; i < dataset_links.length; i++) {
+                // If this link points to the node we're looking for
+                if (dataset_links[i].termination == nodeTitle) {
+                    // Return the topic of this link
+                    return dataset_links[i].topic;
+                }
+            }
+            // If no topic was found
+            return null;
+        }
+
+        function runFigure() {
+            removeBottomText();
+            drawAllButtons();
+            setLineStyle();
+
+            svg.selectAll("circle")
+                .data(dataset) //may as well use this as the index
+                .enter()
+                .append("circle")
+                .attr("id", "nodes")
+                .attr("cx", function (d) {
+                    return (d.x_coord);
+                })
+                .attr("cy", function (d) {
+                    return (d.y_coord);
+                })
+                .attr("r", function (d, i) {
+                    d.rad = Math.sqrt(dataset[i].size * circle_radius)
+                    return (d.rad);
+                })
+                .attr("stroke-width", 2)
+                .attr("fill", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_inner_colour);
+                    } else {
+                        return (right_inner_colour);
+                    }
+                })
+                .attr("stroke", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        return (left_outer_colour);
+                    } else {
+                        return (right_outer_colour);
+                    }
+                })
+                .on("click", function (d, i) {
+                    if (dataset[i].group == 0) {
+                        //console.log(dataset[i].title);
+                        //console.log(dataset[i].recommend);
+                        window.open((dataset[i].doi));
+                    } else if (dataset[i].group == 1) {
+                        // console.log("click detected - datset[i]==1");
+                        //console.log(dataset[i].title);
+                        // work out the topic 
+                        var nodeTopic = getTopicForNode(dataset[i].title);
+                        // console.log("node topic = ")
+                        //console.log(nodeTopic)
+                        if (nodeTopic) {
+                            // Call the getTopic function with this topic
+                            getTopic(nodeTopic);
+                        }
+
+                    }
+                })
+                .on("mouseover", function () {
+                    d3.select(this)
+                        .attr("fill", function (d) {
+                            // logic to fill the circle and call
+                            // highlight nodes and write text
+                            highlightNodes(d.title);
+                            popupTitle(this, d.title, d.group, d.full_title);
+                            // console.log("Node = ");
+                            //console.log(d.title);
+                            if (d.group == 0) {
+                                return (left_outer_colour);
+                            } else {
+                                return (right_outer_colour);
+                            }
+                        })
+
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .attr("fill", function (d) {
+                            removeString();
+                            unhighlightNodes();
+                            removePopupMain();
+                            if (d.group == 0) {
+                                return (left_inner_colour);
+                            } else {
+                                return (right_inner_colour);
+                            }
+                            });
+                    }, 50); // 50ms delay
+                });
+
+
+
+            svg.selectAll("path")
+                .data(dataset_links) //may as well use this as the index
+                .enter()
+                .append("path")
+                .attr("d", diagonal)
+                .attr("id", "links")
+                .style("stroke-linecap", "round")
+                .style("fill", "none")
+                .style("stroke", function (d) {
+                    if (d.line_opaque == 0) {
+                        return (link_transparent_colour);
+                    } else if (d.line_col == 1 && d.agreement == 1) {
+                        return (link_standard_colour);
+                    } else if (d.line_col == 1 && d.agreement == 4) {
+                        return (link_standard_colour_disagree);
+                    } else if (d.line_col == 0 && d.agreement == 1) {
+                        return (link_faded_colour);
+                    } else if (d.line_col == 0 && d.agreement == 4) {
+                        return (link_faded_colour_disagree);
+                    } else if (d.line_col == 2 && d.agreement == 1) {
+                        return (link_highlight_colour);
+                    } else if (d.line_col == 2 && d.agreement == 4) {
+                        return (link_highlight_colour_disagree);
+                    } else {
+                        return ("blue");
+                    }
+                })
+                .style("stroke-dasharray", function (d) {
+                    if (d.line_style == 1) {
+                        return ("5, 0");
+                    } else if (d.line_style == 2) {
+                        return (line_dashed);
+                    }
+                })
+                .style("stroke-width", line_width)
+                .on("mouseover", function () {
+                    // don't do mouse overs if the line is transparent!
+                    d3.select(this)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            popupString(this, d);
+                            // highlightLinks(d);
+                            fadeAllLinks();
+                            if (d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            }
+                        })
+                })
+                .on("mouseout", function () {
+                    var thisElement = this;
+                    // don't do mouse overs if the line is transparent!
+                    setTimeout(function() {
+                        d3.select(thisElement)
+                        .style("stroke", function (d) {
+                            if (d.line_opaque == 0) {
+                                return (link_transparent_colour);
+                            }
+                            removeString();
+                            unhighlightNodes();
+                            if (d.line_col == 1 && d.agreement == 1) {
+                                return (link_standard_colour);
+                            } else if (d.line_col == 1 && d.agreement == 4) {
+                                return (link_standard_colour_disagree);
+                            } else if (d.line_col == 0 && d.agreement == 1) {
+                                return (link_faded_colour);
+                            } else if (d.line_col == 0 && d.agreement == 4) {
+                                return (link_faded_colour_disagree);
+                            } else if (d.line_col == 2 && d.agreement == 1) {
+                                return (link_highlight_colour);
+                            } else if (d.line_col == 2 && d.agreement == 4) {
+                                return (link_highlight_colour_disagree);
+                            } else {
+                                return ("blue");
+                            }
+                        })
+                    }, 50) // this is the delay of 50 ms
+                });
+        }
+
+        //Functions to download the data:
+        // Function to read and parse the XLSX file
+        function importXLSX(file, callback) {
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                var data = new Uint8Array(event.target.result);
+                var workbook = XLSX.read(data, { type: "array" });
+                var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                var headers = jsonData[0]; // Extract the first row as headers
+                var dataArray = jsonData.slice(1); // Remove the first row from the data
+
+                var result = dataArray.map(function (row) {
+                    var obj = {};
+                    headers.forEach(function (header, index) {
+                        obj[header] = row[index];
+                    });
+                    return obj;
+                });
+
+                callback(result);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Handle file selection event for dataset file
+        function handledatasetFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset = jsonData; // Store dataset data in the 'dataset' variable
+                hideFileInput('datasetButton');
+            });
+        }
+
+        // Handle file selection event for dataset_links file
+        function handledataset_linksFileSelect(event) {
+            var file = event.target.files[0];
+            importXLSX(file, function (jsonData) {
+                dataset_links = jsonData; // Store dataset_links data in the 'dataset_links' variable
+                hideFileInput('dataset_linksButton');
+            });
+        }
+
+        // Function to hide button element by ID
+        function hideFileInput(buttonId) {
+            var button = d3.select("#" + buttonId);
+            button.style("display", "none");
+        }
+
+        // Function to trigger file input click event
+        function triggerFileInputClick(inputId) {
+            var fileInput = document.getElementById(inputId);
+            fileInput.click();
+        }
+
+        // Create D3 button for file input
+        function createFileInputButton(buttonId, inputId, buttonText) {
+            var buttonContainer = d3.select("body")
+                .append("div")
+                .attr("id", buttonId)
+                .attr("class", "custom-button-container");
+
+            buttonContainer.append("button")
+                .attr("class", "custom-button")
+                .text(buttonText)
+                .on("click", function () {
+                    triggerFileInputClick(inputId);
+                });
+
+            buttonContainer.append("input")
+                .attr("type", "file")
+                .attr("id", inputId)
+                .attr("class", "hidden")
+                .on("change", function () {
+                    if (inputId === "datasetFileInput") {
+                        handledatasetFileSelect(event); // Pass the event parameter here
+                    } else if (inputId === "dataset_linksFileInput") {
+                        handledataset_linksFileSelect(event); // Pass the event parameter here
+                    }
+                });
+        }
+
+        async function loadXLSXData() {
+            // Create file input buttons using D3
+            createFileInputButton("datasetButton", "datasetFileInput", "Load dataset");
+            createFileInputButton("dataset_linksButton", "dataset_linksFileInput", "Load dataset_links");
+
+            await waitForArrays();
+        }
+
+        function logEvent() {
+            // console.log("Event");
+            // console.log("dataset:", dataset);
+            // console.log("dataset_links:", dataset_links);
+        }
+
+        function waitForArrays() {
+            return new Promise((resolve) => {
+                // Function to check if both arrays have data
+                function checkArrays() {
+                    if (dataset.length > 0 && dataset_links.length > 0) {
+                        resolve(); // Resolve the promise when both arrays have data
+                    } else {
+                        setTimeout(checkArrays, 100); // Check again after a certain delay
+                    }
+                }
+
+                checkArrays(); // Start checking the arrays
+            });
+        }
+
+        //  //  //  //  //  //  //  //
+        ///  CODE TO GET THINGS DONE:
+
+
+        async function main() {
+
+            console.log("in the main function");
+    
+            // Check if dataset and dataset_links already have data (are hardcoded)
+            if (dataset.length > 0 && dataset_links.length > 0) {
+                console.log("Using hardcoded dataset and dataset_links");
+                button_width = calculateMaxButtonWidth();
+                // Skip loading data files, directly update groups and display
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            } else {
+                // No hardcoded data, proceed with loading data files
+                console.log("No hardcoded data found. Loading data from files...");
+                await loadXLSXData();  // Load data before drawing anything
+                button_width = calculateMaxButtonWidth();
+                logEvent();  // Log to help track program flow
+                update_groups();
+                setCircleArrangement();
+                runFigure();
+            }
+        }
+
+        main();  // and here it is that we start!
+    </script>
+</body>
+
+</html>
