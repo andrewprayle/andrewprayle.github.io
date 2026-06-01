@@ -33,7 +33,7 @@ Antibiotic treatment for nontuberculous mycobacteria lung infection in people wi
 
 Non-antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review completed). Click [here](/2026_evidence_map_NTM_non_antibiotics.html)
 
-Lung transplant in people with CF and NTM pulmonary disease (status: review almost completed, awaiting evidence map)
+Lung transplant in people with CF and NTM pulmonary disease (status:review completed).  Click [here](/2026_evidence_map_lung_tx.html) for the evidence map.  
 
 Institutional or domestic interventions to reduce water-borne transmission of nontuberculous mycobacteria (NTM) (status: review should be completed by mid-May, no evidence map yet)
 
