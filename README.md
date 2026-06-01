@@ -16,7 +16,7 @@ Antifungal therapies for allergic bronchopulmonary aspergillosis in people with 
 Interventions for the eradication of methicillin-resistant Staphylococcus aureus (MRSA) in people with cystic fibrosis (status: evidence map completed and available online).  Click [here](/2024_MRSA_evidence_map.html) for the MRSA evidence map.
 
 
-Intravenous antibiotics for pulmonary exacerbations in people with cystic fibrosis (status:review updated, no evidence map yet)
+Intravenous antibiotics for pulmonary exacerbations in people with cystic fibrosis (status:review updated, available online). Click [here](/2026-06-01_evidence_map_IV_antibiotics_0.054.html) for the IV antibiotic evidence map. 
 
 
 Macrolide antibiotics for cystic fibrosis (status: evidence map completed and available online).  Click [here](/2024_macrolide_evidence_map.html) for the macrolide evidence map.
