@@ -31,7 +31,7 @@ Click [here](/2024_Evidence_Map_Infection_Prevention_Control.html) to go to the 
 
 Antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review updated).  Click [here](/2026_evidence_map_NTM_antibiotics.html) for the evidence map.  
 
-Non-antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review completed & submitted to BMJ Open Respiratory Research, evidence map in preparation)
+Non-antibiotic treatment for nontuberculous mycobacteria lung infection in people with cystic fibrosis (status: review completed). Click [here](/2026_evidence_map_NTM_non_antibiotics.html)
 
 Lung transplant in people with CF and NTM pulmonary disease (status: review almost completed, awaiting evidence map)
 
