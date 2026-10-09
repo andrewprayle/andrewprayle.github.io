@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Infant Breathing Monitor</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <!-- ── Screen 1: Position ───────────────────────────────────────── -->
+  <div id="screen-position" class="screen active">
+
+    <!-- Placeholder until camera loads -->
+    <div id="camera-placeholder">
+      <span>Camera preview will appear here</span>
+    </div>
+
+    <!-- Camera feed (hidden until ready) -->
+    <video id="camera-feed" autoplay playsinline muted></video>
+
+    <!-- Guide overlay drawn on top of video -->
+    <canvas id="guide-overlay"></canvas>
+
+    <!-- All controls sit at the bottom -->
+    <div id="position-controls">
+
+      <div id="age-band-selector">
+        <button class="age-btn active" data-band="NEWBORN">Newborn</button>
+        <button class="age-btn" data-band="INFANT">1–12m</button>
+        <button class="age-btn" data-band="TODDLER">2–4yr</button>
+      </div>
+
+      <div id="indicators">
+        <div class="indicator">
+          <div class="dot" id="dot-distance" data-status="checking"></div>
+          <span class="indicator-label" id="label-distance">Checking…</span>
+        </div>
+        <div class="indicator">
+          <div class="dot" id="dot-stability" data-status="checking"></div>
+          <span class="indicator-label" id="label-stability">Checking…</span>
+        </div>
+      </div>
+
+      <div id="status-message">Initialising…</div>
+
+      <button id="btn-record" class="btn-primary" disabled>Record</button>
+
+    </div>
+  </div>
+
+  <!-- ── Screen 2: Recording ──────────────────────────────────────── -->
+  <div id="screen-recording" class="screen">
+
+    <div id="rec-header">
+      <span id="rec-badge">● REC</span>
+      <span id="rec-timer">0s</span>
+    </div>
+
+    <canvas id="live-waveform"></canvas>
+
+    <div id="rec-footer">
+      <span id="frame-count">0 frames captured</span>
+      <button id="btn-stop" class="btn-danger" disabled>Stop</button>
+    </div>
+
+  </div>
+
+  <!-- ── Screen 3: Results ─────────────────────────────────────────── -->
+  <div id="screen-results" class="screen">
+
+    <div id="results-header">
+      <h1>Results</h1>
+    </div>
+
+    <div id="results-body">
+
+      <div class="metric-card">
+        <div class="metric-label">Breathing rate</div>
+        <div class="metric-value" id="result-bpm">—</div>
+        <div class="metric-unit">bpm</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Tidal volume proxy</div>
+        <div class="metric-value" id="result-tidal">—</div>
+        <div class="metric-unit">relative units</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">I:E ratio</div>
+        <div class="metric-value" id="result-ie">—</div>
+        <div class="metric-unit">inspiration : expiration</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Session quality</div>
+        <div class="metric-value" id="result-quality">—</div>
+        <div class="metric-unit">stable frames</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Duration</div>
+        <div class="metric-value" id="result-duration">—</div>
+        <div class="metric-unit">seconds recorded</div>
+      </div>
+
+      <div id="result-waveform-section">
+        <div class="metric-label">Breathing waveform</div>
+        <canvas id="result-waveform"></canvas>
+      </div>
+
+      <ul id="result-notes"></ul>
+
+    </div>
+
+    <div id="results-footer">
+      <button id="btn-new" class="btn-primary">New Recording</button>
+    </div>
+
+  </div>
+
+  <!-- JS loaded at end, order matters -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
